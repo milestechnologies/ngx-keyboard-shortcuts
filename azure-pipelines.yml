@@ -51,6 +51,10 @@ steps:
           reportDirectory: coverage
           failIfCoverageEmpty: true
 
+    - script: |
+          bash <(curl https://codecov.io/bash) -t 7cf9c792-2149-4d0f-a945-b15c35f36eea -f coverage.xml -F adder -F subtractor
+          displayName: 'codecov'
+
     - task: Npm@1
       displayName: 'build package'
       inputs:
