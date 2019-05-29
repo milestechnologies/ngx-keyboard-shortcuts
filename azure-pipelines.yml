@@ -22,13 +22,13 @@ steps:
           command: install
 
     - task: Npm@1
-      displayName: 'test angular'
+      displayName: 'unit tests'
       inputs:
           command: custom
           customCommand: run test
 
     - task: PublishCodeCoverageResults@1
-      displayName: 'Publish code coverage Angular results'
+      displayName: 'Publish code coverage unit test results'
       condition: succeededOrFailed()
       inputs:
           codeCoverageTool: Cobertura
@@ -37,10 +37,10 @@ steps:
           failIfCoverageEmpty: true
 
     - task: Npm@1
-      displayName: 'build angular'
+      displayName: 'build package'
       inputs:
           command: custom
-          customCommand: run build -- --prod
+          customCommand: run build
 
     - task: PublishPipelineArtifact@0
       inputs:
