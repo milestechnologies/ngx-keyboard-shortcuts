@@ -5,7 +5,7 @@
     "scripts": {
         "build": "ng-packagr -p src/package.json",
         "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
-        "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox",
+        "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
         "postversion": "git push --follow-tags"
     },
     "repository": {

@@ -4,20 +4,45 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
-- develop
+    - master
+    - develop
 
 pool:
-  vmImage: 'ubuntu-latest'
+    vmImage: 'ubuntu-latest'
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    - task: NodeTool@0
+      inputs:
+          versionSpec: '10.x'
+      displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run test
-    npm run build
-  displayName: 'npm install, test, and build'
+    - task: Npm@1
+      displayName: 'npm install'
+      inputs:
+          command: install
+
+    - task: Npm@1
+      displayName: 'test angular'
+      inputs:
+          command: custom
+          customCommand: run test
+
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage Angular results'
+      condition: succeededOrFailed()
+      inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: 'coverage/cobertura-coverage.xml'
+          reportDirectory: coverage
+          failIfCoverageEmpty: true
+
+    - task: Npm@1
+      displayName: 'build angular'
+      inputs:
+          command: custom
+          customCommand: run build -- --prod
+
+    - task: PublishPipelineArtifact@0
+      inputs:
+          artifactName: 'angular'
+          targetPath: 'dist'
