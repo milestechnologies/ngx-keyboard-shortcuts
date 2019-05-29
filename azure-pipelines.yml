@@ -11,6 +11,12 @@ pool:
     vmImage: 'ubuntu-latest'
 
 steps:
+    - task: DeleteFiles@1
+      displayName: 'delete JUnit files'
+      inputs:
+          SourceFolder: junit
+          Contents: 'TEST*.xml'
+
     - task: NodeTool@0
       inputs:
           versionSpec: '10.x'
@@ -26,6 +32,15 @@ steps:
       inputs:
           command: custom
           customCommand: run test
+
+    - task: PublishTestResults@2
+      displayName: 'Publish unit test results'
+      condition: succeededOrFailed()
+      inputs:
+          searchFolder: $(System.DefaultWorkingDirectory)/junit
+          testRunTitle: Angular
+          testResultsFormat: JUnit
+          testResultsFiles: '**/TESTS*.xml'
 
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage unit test results'
