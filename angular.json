@@ -5,7 +5,7 @@
   "projects": {
     "entity-components-documents": {
       "root": "",
-      "sourceRoot": "src/demo",
+      "sourceRoot": "src",
       "projectType": "application",
       "architect": {
         "build": {
@@ -71,7 +71,11 @@
             "tsConfig": "src/test/tsconfig.spec.json",
             "scripts": [],
             "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"],
-            "assets": []
+            "assets": [],
+            "codeCoverageExclude": [
+              "src/demo/**.*",
+              "src/test/**.*"
+            ]
           }
         },
         "lint": {
