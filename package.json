@@ -5,7 +5,7 @@
     "scripts": {
         "build": "ng-packagr -p src/package.json",
         "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
-        "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox",
+        "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
         "postversion": "git push --follow-tags"
     },
     "repository": {
@@ -44,6 +44,7 @@
         "karma-coverage-istanbul-reporter": "~2.0.1",
         "karma-jasmine": "~1.1.2",
         "karma-jasmine-html-reporter": "^0.2.2",
+        "karma-junit-reporter": "^1.2.0",
         "karma-sourcemap-loader": "^0.3.7",
         "karma-spec-reporter": "0.0.32",
         "ng-packagr": "^5.0.0",

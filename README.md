@@ -1,3 +1,3 @@
 # ngx-keyboard-shortcuts
 
-> provides for easy setup and management of keyboard shortcuts in an angular 2+ project
+[![Build Status](https://dev.azure.com/milesdevservices/ngx-keyboard-shortcuts/_apis/build/status/milesdevservices.ngx-keyboard-shortcuts?branchName=develop)](https://dev.azure.com/milesdevservices/ngx-keyboard-shortcuts/_build/latest?definitionId=1&branchName=develop) [![codecov](https://codecov.io/gh/milesdevservices/ngx-keyboard-shortcuts/branch/develop/graph/badge.svg)](https://codecov.io/gh/milesdevservices/ngx-keyboard-shortcuts)
