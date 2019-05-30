@@ -1,118 +1,119 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "entity-components-documents": {
-            "root": "",
-            "sourceRoot": "src",
-            "projectType": "application",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist",
-                        "index": "src/index.html",
-                        "main": "src/main.ts",
-                        "tsConfig": "src/test/tsconfig.app.json",
-                        "polyfills": "src/test/polyfills.ts",
-                        "assets": ["src/assets", "src/favicon.ico"],
-                        "styles": [],
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "prod": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
-                                }
-                            ]
-                        },
-                        "production": {
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "entity-components-documents:build"
-                    },
-                    "configurations": {
-                        "prod": {
-                            "browserTarget": "entity-components-documents:build:prod"
-                        },
-                        "production": {
-                            "browserTarget": "entity-components-documents:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "entity-components-documents:build"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "src/test/test.ts",
-                        "karmaConfig": "./karma.conf.js",
-                        "polyfills": "src/test/polyfills.ts",
-                        "tsConfig": "src/test/tsconfig.spec.json",
-                        "scripts": [],
-                        "styles": [],
-                        "assets": ["src/assets", "src/favicon.ico"]
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**"]
-                    }
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "entity-components-documents": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/demo/index.html",
+            "main": "src/demo/main.ts",
+            "tsConfig": "src/demo/tsconfig.app.json",
+            "polyfills": "src/demo/polyfills.ts",
+            "assets": ["src/demo/assets"],
+            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "prod": {
+              "fileReplacements": [
+                {
+                  "replace": "src/demo/environments/environment.ts",
+                  "with": "src/demo/environments/environment.prod.ts"
                 }
+              ]
+            },
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
+          }
         },
-        "entity-components-documents-e2e": {
-            "root": "e2e",
-            "sourceRoot": "e2e",
-            "projectType": "application",
-            "architect": {
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "./protractor.conf.js",
-                        "devServerTarget": "entity-components-documents:serve"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": ["e2e/tsconfig.e2e.json"],
-                        "exclude": ["**/node_modules/**"]
-                    }
-                }
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "entity-components-documents:build"
+          },
+          "configurations": {
+            "prod": {
+              "browserTarget": "entity-components-documents:build:prod"
+            },
+            "production": {
+              "browserTarget": "entity-components-documents:build:production"
             }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "entity-components-documents:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/test/polyfills.ts",
+            "tsConfig": "src/test/tsconfig.spec.json",
+            "scripts": [],
+            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"],
+            "assets": [],
+            "codeCoverageExclude": [
+              "src/demo/**.*",
+              "src/test/**.*"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
         }
+      }
     },
-    "defaultProject": "entity-components-documents",
-    "schematics": {
-        "@schematics/angular:component": {
-            "styleext": "css"
+    "entity-components-documents-e2e": {
+      "root": "e2e",
+      "sourceRoot": "e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "entity-components-documents:serve"
+          }
         },
-        "@schematics/angular:directive": {}
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
+  },
+  "defaultProject": "entity-components-documents",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {}
+  }
 }
