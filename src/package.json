@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "repository": {
         "type": "git",
-        "url": "https://github.com/milesdevservices/ngx-keyboard-shortcuts"
+        "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts"
     },
     "author": {
         "name": "milesdevservices",
@@ -14,7 +14,7 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/milesdevservices/ngx-keyboard-shortcuts/issues"
+        "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts/issues"
     },
     "ngPackage": {
         "lib": {
