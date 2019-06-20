@@ -9,7 +9,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [KeyboardShortcutDirective],
   exports: [KeyboardShortcutDirective],
-  imports: [CommonModule, SweetAlert2Module]
+  imports: [CommonModule, SweetAlert2Module.forRoot()]
 })
 export class NgxKeyboardShortcutModule {
   static forRoot(): any {
