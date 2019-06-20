@@ -6,11 +6,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxKeyboardShortcutModule } from '../../../dist';
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [AppComponent, DemoComponent],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgxKeyboardShortcutModule.forRoot()
+  ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 export class AppModule {}
