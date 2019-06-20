@@ -8,9 +8,9 @@ import { DemoComponent } from './demo.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-    bootstrap: [AppComponent],
-    declarations: [AppComponent, DemoComponent],
-    imports: [BrowserModule, HttpClientModule, AppRoutingModule],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  bootstrap: [AppComponent],
+  declarations: [AppComponent, DemoComponent],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 export class AppModule {}
