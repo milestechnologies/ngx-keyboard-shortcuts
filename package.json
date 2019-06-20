@@ -1,5 +1,30 @@
 {
-"devDependencies": {
+  "name": "ngx-keyboard-shortcuts",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng-packagr -p src/package.json",
+    "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
+    "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
+    "postversion": "git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts"
+  },
+  "author": {
+    "name": "milesdevservices",
+    "email": "devservices@milestechnologies.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts/issues"
+  },
+  "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
     "@angular/animations": "^7.2.11",
     "@angular/cli": "^7.3.7",
@@ -12,14 +37,17 @@
     "@angular/platform-browser-dynamic": "^7.2.11",
     "@angular/router": "^7.2.11",
     "@types/jasmine": "2.5.53",
+    "bootstrap": "^4.3.1",
+    "classlist.js": "^1.1.20150312",
     "codelyzer": "4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~3.1.1",
+    "karma": "^4.1.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-junit-reporter": "^1.2.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.32",
     "ng-packagr": "^5.0.0",
@@ -27,6 +55,7 @@
     "tslib": "^1.9.0",
     "tslint": "~5.7.0",
     "typescript": "~3.2.0",
+    "web-animations-js": "^2.3.1",
     "zone.js": "~0.8.26"
   },
   "engines": {
