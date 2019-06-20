@@ -14,10 +14,7 @@
     "label-position": true,
     "max-line-length": false,
     "member-access": false,
-    "member-ordering": [
-      true,
-      "variables-before-functions"
-    ],
+    "member-ordering": [true, "variables-before-functions"],
     "no-any": false,
     "no-arg": true,
     "no-bitwise": false,
@@ -56,7 +53,7 @@
     "trailing-comma": [
       true,
       {
-        "multiline": "always",
+        "multiline": "never",
         "singleline": "never"
       }
     ],
