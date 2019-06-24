@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { KeyboardShortcutsService } from '../../../dist/keyboard-shortcut.service';
 
 @Component({
-    template: `
-        <h2>Demo Component</h2>
-    `,
+  template: `
+    <h1>template</h1>
+  `
 })
 export class DemoComponent {
-    constructor() {}
+  constructor(
+    // private ngxKeyboardShortcutModule: NgxKeyboardShortcutModule,
+    private keyboardShortcutService: KeyboardShortcutsService
+  ) {}
 }
