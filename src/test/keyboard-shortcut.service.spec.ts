@@ -93,6 +93,16 @@ describe('KeyboardShortcutService', () => {
         });
         expect(console.warn).not.toHaveBeenCalled();
       });
+
+      it('should not warn if keyBinding is not black listed', () => {
+        spyOn(console, 'warn');
+        service.listen({
+          keyBinding: ['x', 'x', KeyboardKeys.Ctrl],
+          handler: () => '',
+          description: ''
+        });
+        expect(console.warn).not.toHaveBeenCalled();
+      });
     });
 
     describe(':: remove', () => {
@@ -190,6 +200,25 @@ describe('KeyboardShortcutService', () => {
         description: ''
       });
       const event = <KeyboardEvent>{ shiftKey: true, key: 'C' };
+      service.sendKeyboardEventToHandler(event);
+      expect(result).not.toBeNull();
+    });
+
+    it('should trigger the handler when key event matches', () => {
+      const keyCombination: KeyboardShortcutCombination = [
+        KeyboardKeys.Alt,
+        'U'
+      ];
+      let result = null;
+      service.listen({
+        keyBinding: keyCombination,
+        handler: () => (result = true),
+        description: ''
+      });
+      // U+ some secondary key
+      // attempt to test this here to satisfy
+      // condition in keyboard-shortcut.service.ts
+      const event = <KeyboardEvent>{ altKey: true, key: 'U' };
       service.sendKeyboardEventToHandler(event);
       expect(result).not.toBeNull();
     });

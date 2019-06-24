@@ -12,11 +12,13 @@ import {
 
 @Component({
   template: `
-    <a
-      *ngIf="haveElement"
-      (click)="onClick()"
-      [keyboardShortcut]="keyboardShortcut"
-    ></a>
+    <form>
+      <input
+        *ngIf="haveElement"
+        (click)="onClick()"
+        [keyboardShortcut]="keyboardShortcut"
+      />
+    </form>
   `
 })
 class TestKeyboardShortcutDirectiveComponent {
