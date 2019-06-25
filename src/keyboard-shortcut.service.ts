@@ -84,11 +84,6 @@ export class KeyboardShortcutsService {
     const keyIdentifier = 'keyIdentifier';
     let key = event.key || event[keyIdentifier] || 'Unidentified';
 
-    // testing this
-    console.log(key + ' is the current key');
-    // it is unclear why we have a check for a key starting with 'U+'
-    // without multi-key combinations, and representation using strings
-    // breaking on '+' we have no method of testing this?
     if (key.startsWith('U+')) {
       key = String.fromCharCode(parseInt(key.slice(2), 16));
     }
@@ -150,11 +145,6 @@ export class KeyboardShortcutsService {
 
   // determine if the given event originated from a form input element.
   private isEventFromInput(event: KeyboardEvent): boolean {
-    console.log('instanceof Node ? : ' + (event.target instanceof Node));
-    // unclear how to test this switch
-    // does the event.target only become an instanceof a Node when the
-    // code is running on a component within an application, not just
-    // within test files?
     if (event.target instanceof Node) {
       switch (event.target.nodeName) {
         case 'INPUT':
