@@ -13,4 +13,4 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
-export class AppModule {}
+export class AppModule {} 
