@@ -30,7 +30,7 @@ import { Component } from '@angular/core';
     <div class="router container">
       <router-outlet></router-outlet>
     </div>
-  `,
+  `
 })
 export class AppComponent {
   constructor() {}

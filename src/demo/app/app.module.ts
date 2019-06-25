@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { DemoComponent } from './demo.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxKeyboardShortcutModule } from '../../../dist';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -15,6 +17,8 @@ import { NgxKeyboardShortcutModule } from '../../../dist';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule,
     NgxKeyboardShortcutModule.forRoot()
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
