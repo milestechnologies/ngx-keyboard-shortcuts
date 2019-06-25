@@ -2,7 +2,7 @@ import {
   Injectable,
   ComponentRef,
   ViewContainerRef,
-  ComponentFactoryResolver
+  ComponentFactoryResolver,
 } from '@angular/core';
 
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
@@ -11,20 +11,20 @@ import { SweetAlertOptions } from 'sweetalert2';
 import { KeyboardShortcutsService } from './keyboard-shortcut.service';
 import {
   KeyboardShortcutCombination,
-  KeyboardKeys
+  KeyboardKeys,
 } from './libraries/listener.library';
 
 @Injectable()
 export class KeyboardShortcutHelpWindowService {
   private swalRef: ComponentRef<SwalComponent>;
-  private swalInstance: SwalComponent;
+  public swalInstance: SwalComponent;
 
   options: SweetAlertOptions = {
     html: '',
     showCancelButton: false,
     showCloseButton: false,
     showConfirmButton: false,
-    title: 'Keyboard Shortcuts'
+    title: 'Keyboard Shortcuts',
   };
 
   get helpWindowAvailable(): boolean {
@@ -33,12 +33,12 @@ export class KeyboardShortcutHelpWindowService {
 
   public constructor(
     private readonly resolver: ComponentFactoryResolver,
-    private readonly keyboardShortcutsService: KeyboardShortcutsService
+    private readonly keyboardShortcutsService: KeyboardShortcutsService,
   ) {}
 
   public setViewContainerRef(
     viewContainerRef: ViewContainerRef,
-    helpKeyBinding?: KeyboardShortcutCombination
+    helpKeyBinding?: KeyboardShortcutCombination,
   ): void {
     // bypass if already initialized
     if (this.swalInstance) {
@@ -52,14 +52,14 @@ export class KeyboardShortcutHelpWindowService {
     const defaultBinding: KeyboardShortcutCombination = [
       KeyboardKeys.Alt,
       KeyboardKeys.Shift,
-      'h'
+      'h',
     ];
     const keyBinding = helpKeyBinding || defaultBinding;
     this.keyboardShortcutsService.listen({
       description: null,
       handler: this.showHelpWindow.bind(this),
       keyBinding: keyBinding,
-      omitFromHelp: true
+      omitFromHelp: true,
     });
   }
 
@@ -70,7 +70,7 @@ export class KeyboardShortcutHelpWindowService {
       this.swalInstance.show();
     } else {
       console.warn(
-        'KeyboardShortcutHelpWindowService: Failed to show help window since swalInstance was not found.  Ensure setViewContainerRef has been called'
+        'KeyboardShortcutHelpWindowService: Failed to show help window since swalInstance was not found.  Ensure setViewContainerRef has been called',
       );
     }
   }
@@ -87,9 +87,9 @@ export class KeyboardShortcutHelpWindowService {
         <div style="text-align: left; margin-left: 30px;">
         `;
     const shortcutsToShow = this.keyboardShortcutsService.listeners_read_only.filter(
-      ks => !ks.omitFromHelp
+      (ks) => !ks.omitFromHelp,
     );
-    shortcutsToShow.forEach(s => {
+    shortcutsToShow.forEach((s) => {
       html += `
             <div style="margin-bottom: 25px"><strong class="well well-sm">${
               s.displayShortcutCombination
