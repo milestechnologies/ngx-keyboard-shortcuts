@@ -142,22 +142,6 @@ describe('KeyboardShortcutService', () => {
 
         it('should not trigger the handler when key event does not match', () => {
             const keyCombination: KeyboardShortcutCombination = [
-                KeyboardKeys.Alt,
-                'C'
-            ];
-            let result = null;
-            service.listen({
-                keyBinding: keyCombination,
-                handler: () => (result = true),
-                description: ''
-            });
-            const event = <KeyboardEvent>{ altKey: true, key: 'Z' };
-            service.sendKeyboardEventToHandler(event);
-            expect(result).toBeNull();
-        });
-
-        it('should trigger the handler when key event matches', () => {
-            const keyCombination: KeyboardShortcutCombination = [
                 KeyboardKeys.Ctrl,
                 'C'
             ];
@@ -167,74 +151,7 @@ describe('KeyboardShortcutService', () => {
                 handler: () => (result = true),
                 description: ''
             });
-            const event = <KeyboardEvent>{ ctrlKey: true, key: 'C' };
-            service.sendKeyboardEventToHandler(event);
-            expect(result).not.toBeNull();
-        });
-
-        it('should not trigger the handler when key event does not match', () => {
-            const keyCombination: KeyboardShortcutCombination = [
-                KeyboardKeys.Ctrl,
-                'R'
-            ];
-            let result = null;
-            service.listen({
-                keyBinding: keyCombination,
-                handler: () => (result = true),
-                description: ''
-            });
-            const event = <KeyboardEvent>{ altKey: true, key: 'Z' };
-            service.sendKeyboardEventToHandler(event);
-            expect(result).toBeNull();
-        });
-
-        it('should trigger the handler when key event matches', () => {
-            const keyCombination: KeyboardShortcutCombination = [
-                KeyboardKeys.Shift,
-                'C'
-            ];
-            let result = null;
-            service.listen({
-                keyBinding: keyCombination,
-                handler: () => (result = true),
-                description: ''
-            });
-            const event = <KeyboardEvent>{ shiftKey: true, key: 'C' };
-            service.sendKeyboardEventToHandler(event);
-            expect(result).not.toBeNull();
-        });
-
-        it('should trigger the handler when key event matches', () => {
-            const keyCombination: KeyboardShortcutCombination = [
-                KeyboardKeys.Alt,
-                'U'
-            ];
-            let result = null;
-            service.listen({
-                keyBinding: keyCombination,
-                handler: () => (result = true),
-                description: ''
-            });
-            // U+ some secondary key
-            // attempt to test this here to satisfy
-            // condition in keyboard-shortcut.service.ts
-            const event = <KeyboardEvent>{ altKey: true, key: 'U' };
-            service.sendKeyboardEventToHandler(event);
-            expect(result).not.toBeNull();
-        });
-
-        it('should not trigger the handler when key event does not match', () => {
-            const keyCombination: KeyboardShortcutCombination = [
-                KeyboardKeys.Shift,
-                'R'
-            ];
-            let result = null;
-            service.listen({
-                keyBinding: keyCombination,
-                handler: () => (result = true),
-                description: ''
-            });
-            const event = <KeyboardEvent>{ shiftKey: true, key: 'Z' };
+            const event = <KeyboardEvent>{ ctrlKey: true, key: 'Z' };
             service.sendKeyboardEventToHandler(event);
             expect(result).toBeNull();
         });
@@ -242,7 +159,7 @@ describe('KeyboardShortcutService', () => {
         describe(':: when multiple matches', () => {
             it('should trigger the higher priority listener and no others when passToLowerPriorities false ', () => {
                 const keyCombination: KeyboardShortcutCombination = [
-                    KeyboardKeys.Alt,
+                    KeyboardKeys.Shift,
                     'C'
                 ];
                 let higherPriorityResult = null;
@@ -259,7 +176,7 @@ describe('KeyboardShortcutService', () => {
                     handler: () => (lowerPriorityResult = true),
                     description: ''
                 });
-                const event = <KeyboardEvent>{ altKey: true, key: 'C' };
+                const event = <KeyboardEvent>{ shiftKey: true, key: 'C' };
                 service.sendKeyboardEventToHandler(event);
                 expect(higherPriorityResult).not.toBeNull();
                 expect(lowerPriorityResult).toBeNull();
@@ -276,7 +193,7 @@ describe('KeyboardShortcutService', () => {
                     keyBinding: keyCombination,
                     handler: () => (higherPriorityResult = true),
                     description: '',
-                    priority: 100,
+                    priority: -1,
                     passToLowerPriorities: true
                 });
                 service.listen({
@@ -290,7 +207,7 @@ describe('KeyboardShortcutService', () => {
                 expect(lowerPriorityResult).not.toBeNull();
             });
 
-            it('should trigger the higher priority listener and lower when passToLowerPriorities true ', () => {
+            it('should trigger the higher priority listener and lower when passToLowerPriorities true (with equivalent priorities)', () => {
                 const keyCombination: KeyboardShortcutCombination = [
                     KeyboardKeys.Alt,
                     'C'
@@ -299,42 +216,16 @@ describe('KeyboardShortcutService', () => {
                 let lowerPriorityResult = null;
                 service.listen({
                     keyBinding: keyCombination,
-                    handler: () => (lowerPriorityResult = true),
-                    description: '',
-                    priority: 95
-                });
-                service.listen({
-                    keyBinding: keyCombination,
                     handler: () => (higherPriorityResult = true),
                     description: '',
-                    priority: 100,
+                    priority: 3,
                     passToLowerPriorities: true
                 });
-                const event = <KeyboardEvent>{ altKey: true, key: 'C' };
-                service.sendKeyboardEventToHandler(event);
-                expect(higherPriorityResult).not.toBeNull();
-                expect(lowerPriorityResult).not.toBeNull();
-            });
-
-            it('should trigger the higher priority listener and lower when passToLowerPriorities true ', () => {
-                const keyCombination: KeyboardShortcutCombination = [
-                    KeyboardKeys.Alt,
-                    'C'
-                ];
-                let higherPriorityResult = null;
-                let lowerPriorityResult = null;
                 service.listen({
                     keyBinding: keyCombination,
                     handler: () => (lowerPriorityResult = true),
                     description: '',
-                    priority: 100
-                });
-                service.listen({
-                    keyBinding: keyCombination,
-                    handler: () => (higherPriorityResult = true),
-                    description: '',
-                    priority: 100,
-                    passToLowerPriorities: true
+                    priority: 3
                 });
                 const event = <KeyboardEvent>{ altKey: true, key: 'C' };
                 service.sendKeyboardEventToHandler(event);
