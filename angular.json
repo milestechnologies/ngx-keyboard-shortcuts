@@ -74,7 +74,8 @@
             "assets": [],
             "codeCoverageExclude": [
               "src/demo/**.*",
-              "src/test/**.*"
+              "src/test/**.*",
+              "src/index.ts"
             ]
           }
         },
