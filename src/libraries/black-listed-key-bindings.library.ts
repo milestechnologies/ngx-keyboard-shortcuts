@@ -7,27 +7,29 @@ import {
   IKeyboardShortcutListener
 } from './listener.library';
 
+export const blacklistedKeyCombinations = [
+  [KeyboardKeys.Ctrl, 'd', 'Bookmark Page'], // bookmark
+  [KeyboardKeys.Ctrl, 'f', 'Find'], // find
+  [KeyboardKeys.Ctrl, 'g', 'Find Next'], // find next
+  [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 'g', 'Find Previous'], // find previous
+  [KeyboardKeys.Ctrl, 'h', 'History'], // history
+  [KeyboardKeys.Ctrl, 'j', 'Downloads'], // downloads
+  [KeyboardKeys.Ctrl, 'o', 'Open File'], // open file
+  [KeyboardKeys.Ctrl, 's', 'Save'], // save
+  [KeyboardKeys.Ctrl, 'p', 'Print'], // print
+  [KeyboardKeys.Ctrl, 'u', 'View Sorce'], // view source
+  [KeyboardKeys.Ctrl, 'n', 'Open in New Window'], // open in new window
+  [KeyboardKeys.Ctrl, 't', 'Open in New Tab'], // open in new tab
+  [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 't', 'Open Recently Closed Tab'], // open recently closed tab
+  [KeyboardKeys.Ctrl, 'c', 'Copy'], // copy
+  [KeyboardKeys.Ctrl, 'x', 'Cut'], // cut
+  [KeyboardKeys.Ctrl, 'v', 'Paste'], // paste
+  [KeyboardKeys.Alt, 'f', 'Show Menu Bar'], // show menu bar
+  [KeyboardKeys.Escape, 'Stop'] // stop
+];
+
 export class BlackListedKeyboardShortcutChecker {
-  private blackListedKeyBindings: KeyboardShortcutCombination[] = [
-    [KeyboardKeys.Ctrl, 'd'], // bookmark
-    [KeyboardKeys.Ctrl, 'f'], // find
-    [KeyboardKeys.Ctrl, 'g'], // find next
-    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 'g'], // find previous
-    [KeyboardKeys.Ctrl, 'h'], // history
-    [KeyboardKeys.Ctrl, 'j'], // downloads
-    [KeyboardKeys.Ctrl, 'o'], // open file
-    [KeyboardKeys.Ctrl, 's'], // save
-    [KeyboardKeys.Ctrl, 'p'], // print
-    [KeyboardKeys.Ctrl, 'u'], // view source
-    [KeyboardKeys.Ctrl, 'n'], // open in new window
-    [KeyboardKeys.Ctrl, 't'], // open in new tab
-    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 't'], // open recently closed tab
-    [KeyboardKeys.Ctrl, 'c'], // copy
-    [KeyboardKeys.Ctrl, 'x'], // cut
-    [KeyboardKeys.Ctrl, 'v'], // paste
-    [KeyboardKeys.Alt, 'f'], // show menu bar
-    [KeyboardKeys.Escape] // stop
-  ];
+  private blackListedKeyBindings: KeyboardShortcutCombination[] = blacklistedKeyCombinations;
 
   private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map(blkb =>
     mapKeyboardShortcutCombination(blkb)
