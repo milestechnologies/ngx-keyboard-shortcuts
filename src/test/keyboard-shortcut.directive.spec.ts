@@ -1,10 +1,10 @@
+import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 import { } from 'jasmine';
 
 import { KeyboardShortcutsService } from '../keyboard-shortcut.service';
 import { KeyboardShortcutDirective } from '../keyboard-shortcut.directive';
-import { Component } from '@angular/core';
 import { IKeyboardShortcutListenerOptions, KeyboardKeys } from '../libraries/listener.library';
 
 @Component({

@@ -1,13 +1,14 @@
 
+import { Component, ViewContainerRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 import { } from 'jasmine';
 
-import { KeyboardShortcutHelpWindowService } from 'keyboard-shortcut-help-window.service';
-import { Component, ViewContainerRef } from '@angular/core';
-import { KeyboardShortcutsService } from 'keyboard-shortcut.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { KeyboardKeys } from 'libraries/listener.library';
+
+import { KeyboardShortcutHelpWindowService } from '../keyboard-shortcut-help-window.service';
+import { KeyboardShortcutsService } from '../keyboard-shortcut.service';
+import { KeyboardKeys } from '../libraries/listener.library';
 
 @Component({
     template: ``,
@@ -45,13 +46,13 @@ describe('KeyboardShortcutHelpWindowService', () => {
 
     // ===================================================
 
-    describe(':: testing Methods', () => {
+    describe(':: testing Methods/Properties', () => {
 
         describe(':: showHelpWindow', () => {
 
             it('should return a Help Window when swallinstance is set and listener registered', () => {
                 service.setViewContainerRef(component.viewContainerRef);
-                keyboardShortcutsService.listen({keyBinding: [KeyboardKeys.Ctrl, 'j'], handler: () => '', description: ''});
+                keyboardShortcutsService.listen({ keyBinding: [KeyboardKeys.Ctrl, 'j'], handler: () => '', description: '' });
                 spyOn(service.swalInstance, 'show');
                 service.showHelpWindow();
                 expect(service.swalInstance.show).toHaveBeenCalled();
@@ -62,26 +63,26 @@ describe('KeyboardShortcutHelpWindowService', () => {
                 expect(console.warn).toHaveBeenCalledWith('KeyboardShortcutHelpWindowService: Failed to show help window since swalInstance was not found.  Ensure setViewContainerRef has been called');
             });
         });
+
         describe(':: helpWindowAvailable', () => {
-            it ('should return true', () => {
+            it('should return true when setViewContainerRef has been called', () => {
                 service.setViewContainerRef(component.viewContainerRef);
                 spyOn(service, 'helpWindowAvailable');
                 expect(service.helpWindowAvailable).toBe(true);
             });
-            it ('should return false', () => {
+            it('should return false when setViewContainerRef has not been called', () => {
                 spyOn(service, 'helpWindowAvailable');
                 expect(service.helpWindowAvailable).toBe(false);
             });
         });
-        describe(':: setviewContainer method checking if keyboardshortcuts runs', () => {
-            it ('create Swal should run', () => {
+
+        describe(':: setViewContainer', () => {
+            it('keyboardShortcutsService.listen should be called the first time', () => {
                 spyOn(keyboardShortcutsService, 'listen');
                 service.setViewContainerRef(component.viewContainerRef);
                 expect(keyboardShortcutsService.listen).toHaveBeenCalled();
             });
-        });
-        describe(':: setviewContainer method checking if keyboardshortcuts does not runs', () => {
-            it ('create Swal should run', () => {
+            it('keyboardShortcutsService.listen should not be called the second time', () => {
                 service.setViewContainerRef(component.viewContainerRef);
                 spyOn(keyboardShortcutsService, 'listen');
                 service.setViewContainerRef(component.viewContainerRef);
