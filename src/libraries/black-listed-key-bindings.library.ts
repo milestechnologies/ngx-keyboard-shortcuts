@@ -1,5 +1,3 @@
-import { isDevMode } from '@angular/core';
-
 import { KeyboardKeys, KeyboardShortcutCombination, mapKeyboardShortcutCombination, IKeyboardShortcutListener } from './listener.library';
 
 export class BlackListedKeyboardShortcutChecker {
@@ -28,10 +26,7 @@ export class BlackListedKeyboardShortcutChecker {
     private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map((blkb) => mapKeyboardShortcutCombination(blkb));
 
     check(listener: IKeyboardShortcutListener): void {
-        // should only get checked in DevMode
-        if (!isDevMode()) {
-            return;
-        }
+        // this is where the test was deleted
         for (let blkb of this.mappedBlackListedKeyBindings) {
             if (blkb === listener.mappedKeyboardShortcutCombination) {
                 const warningMessage = `Keyboard Shortcut [${listener.displayShortcutCombination}] is blacklisted as a common browser keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
@@ -40,5 +35,4 @@ export class BlackListedKeyboardShortcutChecker {
             }
         }
     }
-
 }
