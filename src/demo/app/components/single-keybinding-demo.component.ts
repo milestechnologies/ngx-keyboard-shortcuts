@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { KeyboardShortcutsService, IKeyboardShortcutListenerConstructorObject, KeyboardKeys, KeyboardShortcutCombination } from '../../../../dist';
+import {
+    KeyboardShortcutsService,
+    IKeyboardShortcutListenerConstructorObject,
+    KeyboardKeys,
+    KeyboardShortcutCombination
+} from '../../../../dist';
 
 @Component({
     selector: 'app-single-keybinding-demo',
@@ -10,18 +15,20 @@ export class SingleKeybindingDemoComponent implements OnInit {
     info: string;
     constructor(private keyboardShortcutService: KeyboardShortcutsService) {}
 
-    ngOnInit() {
+    ngOnInit(): void {
         const listenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
         const kb = [KeyboardKeys.Ctrl, 'm'];
         Object.assign(
             listenerConstructor,
             { handler: this.alertMessage.bind(kb) },
             {
-                keyBinding: kb,
-                description: 'simple, individual, demo shortcut'
+                description: 'simple, individual, demo shortcut',
+                keyBinding: kb
             }
         );
-        this.listener = this.keyboardShortcutService.listen(listenerConstructor);
+        this.listener = this.keyboardShortcutService.listen(
+            listenerConstructor
+        );
         this.info = 'LISTENER :: listening for [' + kb[0] + ' + ' + kb[1] + ']';
     }
 
@@ -29,11 +36,10 @@ export class SingleKeybindingDemoComponent implements OnInit {
         const keyboardCombo: KeyboardShortcutCombination = this as any;
         alert(
             'shortcut ' +
-            keyboardCombo[0] +
-            ' + ' +
-            keyboardCombo[1] +
-            ' successfully triggered'
+                keyboardCombo[0] +
+                ' + ' +
+                keyboardCombo[1] +
+                ' successfully triggered'
         );
     }
-
 }
