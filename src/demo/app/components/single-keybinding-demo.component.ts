@@ -12,7 +12,7 @@ export class SingleKeybindingDemoComponent implements OnInit {
 
     ngOnInit() {
         const listenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
-        const kb = [KeyboardKeys.Ctrl, '3'];
+        const kb = [KeyboardKeys.Ctrl, 'm'];
         Object.assign(
             listenerConstructor,
             { handler: this.alertMessage.bind(kb) },
