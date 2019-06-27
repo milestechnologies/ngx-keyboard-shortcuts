@@ -10,7 +10,8 @@
     "postversion": "git push --follow-tags"
   },
   "prettier": {
-    "trailingComma": "none"
+    "trailingComma": "none",
+    "singleQuote": true
   },
   "repository": {
     "type": "git",
