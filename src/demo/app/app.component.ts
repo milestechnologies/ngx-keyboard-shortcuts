@@ -21,6 +21,7 @@ import { Component } from '@angular/core';
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" routerLink="/home">Home</a>
+              <a class="nav-link" routerLink="/skd">skd</a>
             </li>
           </ul>
         </div>
