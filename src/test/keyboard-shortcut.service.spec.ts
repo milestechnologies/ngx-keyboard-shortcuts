@@ -5,7 +5,7 @@ import {} from 'jasmine';
 import { KeyboardShortcutsService } from '../keyboard-shortcut.service';
 import {
     KeyboardKeys,
-    KeyboardShortcutCombination
+    KeyboardShortcutCombination,
 } from '../libraries/listener.library';
 
 describe('KeyboardShortcutService', () => {
@@ -15,7 +15,7 @@ describe('KeyboardShortcutService', () => {
         TestBed.configureTestingModule({
             declarations: [],
             imports: [BrowserModule],
-            providers: [KeyboardShortcutsService]
+            providers: [KeyboardShortcutsService],
         });
         service = TestBed.get(KeyboardShortcutsService);
     }));
@@ -28,7 +28,7 @@ describe('KeyboardShortcutService', () => {
                 const answer = service.listen({
                     keyBinding: [],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 const isIListenerHandle = answer.remove ? true : false;
                 expect(isIListenerHandle).toBe(true);
@@ -40,7 +40,7 @@ describe('KeyboardShortcutService', () => {
                 service.listen({
                     keyBinding: [],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 const endingCount = service.listeners_read_only.length;
                 expect(endingCount).toBe(1);
@@ -52,7 +52,7 @@ describe('KeyboardShortcutService', () => {
                 service.listen({
                     keyBinding: [KeyboardKeys.Ctrl, 'c'],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 expect(console.warn).toHaveBeenCalled();
             });
@@ -61,7 +61,7 @@ describe('KeyboardShortcutService', () => {
                 service.listen({
                     keyBinding: ['c', KeyboardKeys.Ctrl],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 expect(console.warn).toHaveBeenCalled();
             });
@@ -70,7 +70,7 @@ describe('KeyboardShortcutService', () => {
                 service.listen({
                     keyBinding: [KeyboardKeys.Ctrl, KeyboardKeys.Alt, 'x'],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 expect(console.warn).not.toHaveBeenCalled();
             });
@@ -79,7 +79,7 @@ describe('KeyboardShortcutService', () => {
                 service.listen({
                     keyBinding: [KeyboardKeys.Alt, 'x', KeyboardKeys.Ctrl],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 expect(console.warn).not.toHaveBeenCalled();
             });
@@ -88,7 +88,7 @@ describe('KeyboardShortcutService', () => {
                 service.listen({
                     keyBinding: ['x', KeyboardKeys.Alt, KeyboardKeys.Ctrl],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 expect(console.warn).not.toHaveBeenCalled();
             });
@@ -99,7 +99,7 @@ describe('KeyboardShortcutService', () => {
                 service.listen({
                     keyBinding: ['x', 'x', KeyboardKeys.Ctrl],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 expect(console.warn).not.toHaveBeenCalled();
             });
@@ -112,7 +112,7 @@ describe('KeyboardShortcutService', () => {
                 const answer = service.listen({
                     keyBinding: [],
                     handler: () => '',
-                    description: ''
+                    description: '',
                 });
                 const afterAddingCount = service.listeners_read_only.length;
                 expect(afterAddingCount).toBe(1);
@@ -127,13 +127,13 @@ describe('KeyboardShortcutService', () => {
         it('should trigger the handler when key event matches', () => {
             const keyCombination: KeyboardShortcutCombination = [
                 KeyboardKeys.Alt,
-                'C'
+                'C',
             ];
             let result = null;
             service.listen({
                 keyBinding: keyCombination,
                 handler: () => (result = true),
-                description: ''
+                description: '',
             });
             const event = <KeyboardEvent>{ altKey: true, key: 'C' };
             service.sendKeyboardEventToHandler(event);
@@ -143,13 +143,13 @@ describe('KeyboardShortcutService', () => {
         it('should not trigger the handler when key event does not match', () => {
             const keyCombination: KeyboardShortcutCombination = [
                 KeyboardKeys.Ctrl,
-                'C'
+                'C',
             ];
             let result = null;
             service.listen({
                 keyBinding: keyCombination,
                 handler: () => (result = true),
-                description: ''
+                description: '',
             });
             const event = <KeyboardEvent>{ ctrlKey: true, key: 'Z' };
             service.sendKeyboardEventToHandler(event);
@@ -160,7 +160,7 @@ describe('KeyboardShortcutService', () => {
             it('should trigger the higher priority listener and no others when passToLowerPriorities false ', () => {
                 const keyCombination: KeyboardShortcutCombination = [
                     KeyboardKeys.Shift,
-                    'C'
+                    'C',
                 ];
                 let higherPriorityResult = null;
                 let lowerPriorityResult = null;
@@ -169,12 +169,12 @@ describe('KeyboardShortcutService', () => {
                     handler: () => (higherPriorityResult = true),
                     description: '',
                     priority: 100,
-                    passToLowerPriorities: false
+                    passToLowerPriorities: false,
                 });
                 service.listen({
                     keyBinding: keyCombination,
                     handler: () => (lowerPriorityResult = true),
-                    description: ''
+                    description: '',
                 });
                 const event = <KeyboardEvent>{ shiftKey: true, key: 'C' };
                 service.sendKeyboardEventToHandler(event);
@@ -185,7 +185,7 @@ describe('KeyboardShortcutService', () => {
             it('should trigger the higher priority listener and lower when passToLowerPriorities true ', () => {
                 const keyCombination: KeyboardShortcutCombination = [
                     KeyboardKeys.Alt,
-                    'C'
+                    'C',
                 ];
                 let higherPriorityResult = null;
                 let lowerPriorityResult = null;
@@ -194,12 +194,12 @@ describe('KeyboardShortcutService', () => {
                     handler: () => (higherPriorityResult = true),
                     description: '',
                     priority: -1,
-                    passToLowerPriorities: true
+                    passToLowerPriorities: true,
                 });
                 service.listen({
                     keyBinding: keyCombination,
                     handler: () => (lowerPriorityResult = true),
-                    description: ''
+                    description: '',
                 });
                 const event = <KeyboardEvent>{ altKey: true, key: 'C' };
                 service.sendKeyboardEventToHandler(event);
@@ -210,7 +210,7 @@ describe('KeyboardShortcutService', () => {
             it('should trigger the higher priority listener and lower when passToLowerPriorities true (with equivalent priorities)', () => {
                 const keyCombination: KeyboardShortcutCombination = [
                     KeyboardKeys.Alt,
-                    'C'
+                    'C',
                 ];
                 let higherPriorityResult = null;
                 let lowerPriorityResult = null;
@@ -219,18 +219,31 @@ describe('KeyboardShortcutService', () => {
                     handler: () => (higherPriorityResult = true),
                     description: '',
                     priority: 3,
-                    passToLowerPriorities: true
+                    passToLowerPriorities: true,
                 });
                 service.listen({
                     keyBinding: keyCombination,
                     handler: () => (lowerPriorityResult = true),
                     description: '',
-                    priority: 3
+                    priority: 3,
                 });
                 const event = <KeyboardEvent>{ altKey: true, key: 'C' };
                 service.sendKeyboardEventToHandler(event);
                 expect(higherPriorityResult).not.toBeNull();
                 expect(lowerPriorityResult).not.toBeNull();
+            });
+        });
+
+        describe(':: testing handleKeyboardEvent', () => {
+            it('should trigger the handler when key event matches', () => {
+                const event = <KeyboardEvent>{ altKey: true, key: '' };
+                service.sendKeyboardEventToHandler(event);
+            });
+        });
+        describe(':: testing handleKeyboardEvent', () => {
+            it('should trigger the handler when key event matches', () => {
+                const event = <KeyboardEvent>{ altKey: true, key: 'U+' };
+                service.sendKeyboardEventToHandler(event);
             });
         });
     });
