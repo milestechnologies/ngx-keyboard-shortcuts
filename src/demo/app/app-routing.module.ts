@@ -7,22 +7,22 @@ import { SingleKeybindingDemoComponent } from './components/single-keybinding-de
 const appRoutes: Routes = [
     {
         component: DemoComponent,
-        path: 'home',
+        path: 'home'
     },
     {
         component: SingleKeybindingDemoComponent,
-        path: 'skd',
+        path: 'skd'
     },
     {
         component: DemoComponent,
-        path: '**',
-    },
+        path: '**'
+    }
 ];
 
 @NgModule({
     exports: [RouterModule],
     imports: [
-        RouterModule.forRoot(appRoutes), // { onSameUrlNavigation: 'reload' } do we need this?
-    ],
+        RouterModule.forRoot(appRoutes) // { onSameUrlNavigation: 'reload' } do we need this?
+    ]
 })
 export class AppRoutingModule {}
