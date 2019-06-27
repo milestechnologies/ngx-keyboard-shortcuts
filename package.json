@@ -9,6 +9,9 @@
     "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
     "postversion": "git push --follow-tags"
   },
+  "prettier": {
+    "trailingComma": "none"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts"
