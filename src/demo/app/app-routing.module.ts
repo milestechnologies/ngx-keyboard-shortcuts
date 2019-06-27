@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DemoComponent } from './demo.component';
 import { SingleKeybindingDemoComponent } from './components/single-keybinding-demo.component';
+import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
 
 const appRoutes: Routes = [
     {
@@ -12,6 +13,10 @@ const appRoutes: Routes = [
     {
         component: SingleKeybindingDemoComponent,
         path: 'skd'
+    },
+    {
+        component: ShortcutServiceDemoComponent,
+        path: 'ssdc'
     },
     {
         component: DemoComponent,

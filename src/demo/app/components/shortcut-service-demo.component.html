@@ -1,0 +1,50 @@
+<h2>{{ listenerObjectStatus }}</h2>
+
+<ul style="list-style-type: none;">
+    <li *ngFor="let elem of outputArray; let i = index">
+        <h3>{{ elem }}</h3>
+        <button
+            (click)="deleteShortcut(i)"
+            style="background-color: black; color: red; font-size: 22px;"
+        >
+            <strong>delete</strong>
+        </button>
+    </li>
+</ul>
+
+<br />
+<br />
+<div>
+    <form [formGroup]="form">
+        <select
+            name="key1selector"
+            formControlName="key1"
+            style="margin-left: 2%; width: 10%; height: 25px;"
+        >
+            <option value="ctrl">Ctrl</option>
+            <option value="alt">Alt</option>
+            <option value="shift">Shift</option>
+            <option value="escape">Escape</option>
+        </select>
+        <input
+            type="text"
+            placeholder="second key"
+            formControlName="key2"
+            style="margin-left: 2%; width: 5%; height: 25px;"
+        />
+        <button
+            type="button"
+            (click)="addShortcut()"
+            style="margin-left: 2%; width: 10%;"
+        >
+            add new keyCombo
+        </button>
+    </form>
+</div>
+
+<hr />
+
+<strong>Please note:</strong> if you create a keybinding that is blacklisted or
+also does something else, such as CTRL + C (copy) it will not only trigger the
+alert, but it will still function as that keybinding normally would when the
+alert is terminated.
