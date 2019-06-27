@@ -22,7 +22,7 @@ export class SingleKeybindingDemoComponent implements OnInit {
             }
         );
         this.listener = this.keyboardShortcutService.listen(listenerConstructor);
-        this.info = kb[0] + ' + ' + kb[1];
+        this.info = 'LISTENER :: listening for [' + kb[0] + ' + ' + kb[1] + ']';
     }
 
     private alertMessage(): void {

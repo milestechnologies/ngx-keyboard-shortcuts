@@ -30,7 +30,6 @@ import { Component } from '@angular/core';
     <br />
     <div class="router container">
       <router-outlet></router-outlet>
-      <app-single-keybinding-demo></app-single-keybinding-demo>
     </div>
   `,
 })
