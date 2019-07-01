@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
+    styleUrls: ['app.component.css'],
     template: `
         <div class="container">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark horizontal">
                 <a class="navbar-brand" routerLink="/home">Demo App</a>
                 <button
                     class="navbar-toggler"
@@ -17,19 +18,9 @@ import { Component } from '@angular/core';
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/home">Home</a>
-                            <a class="nav-link" routerLink="/skd"
-                                >single keybinding demo</a
-                            >
-                            <a class="nav-link" routerLink="/ssdc"
-                                >shortcut service demo</a
-                            >
-                        </li>
-                    </ul>
-                </div>
+                <a class="nav-link" routerLink="/home">Home</a>
+                <a class="nav-link" routerLink="/skd">single keybinding demo</a>
+                <a class="nav-link" routerLink="/ssdc">shortcut service demo</a>
             </nav>
         </div>
         <br />
