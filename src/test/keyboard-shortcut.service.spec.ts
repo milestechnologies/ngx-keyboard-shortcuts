@@ -234,18 +234,27 @@ describe('KeyboardShortcutService', () => {
             });
         });
         // describe(':: testing handleKeyboardEvent', () => {
-        //     it('should trigger the handler when key event matches', () => {
-        //         const event = <KeyboardEvent>{ altKey: true, key: '' };
+        //     it('should attempt to make .target an instance of node line 148 shortcutservice', () => {
+        //         const event = <KeyboardEvent>{ altKey: true, key: ''};
         //         service.sendKeyboardEventToHandler(event);
         //     });
         // });
-        // describe(':: testing handleKeyboardEvent', () => {
-        //     it('should trigger the handler when key event matches', () => {
-        //         spyOn(service, 'String');
-        //         const event = <KeyboardEvent>{ altKey: true, key: 'U+' };
-        //         service.sendKeyboardEventToHandler(event);
-        //         expect(String.fromCharCode()).toHaveBeenCalled();
-        //     });
-        // });
+        describe(':: testing handleKeyboardEvent', () => {
+            it('should trigger the handler when key event matches', () => {
+                let didEventFire = false;
+                const keyCombination: KeyboardShortcutCombination = [
+                   KeyboardKeys.Alt,
+                    'F'
+                ];
+                service.listen({
+                    keyBinding: keyCombination,
+                    handler: () => (didEventFire = true),
+                    description: ''
+                });
+                const event = <KeyboardEvent>{ altKey: true, key: 'U+0046' };
+                service.sendKeyboardEventToHandler(event);
+                expect(didEventFire).toBe(true);
+            });
+        });
     });
 });
