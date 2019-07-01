@@ -1,7 +1,11 @@
-import { KeyboardKeys, KeyboardShortcutCombination, mapKeyboardShortcutCombination, IKeyboardShortcutListener } from './listener.library';
+import {
+    KeyboardKeys,
+    KeyboardShortcutCombination,
+    mapKeyboardShortcutCombination,
+    IKeyboardShortcutListener
+} from './listener.library';
 
 export class BlackListedKeyboardShortcutChecker {
-
     private blackListedKeyBindings: KeyboardShortcutCombination[] = [
         [KeyboardKeys.Ctrl, 'd'], // bookmark
         [KeyboardKeys.Ctrl, 'f'], // find
@@ -20,16 +24,20 @@ export class BlackListedKeyboardShortcutChecker {
         [KeyboardKeys.Ctrl, 'x'], // cut
         [KeyboardKeys.Ctrl, 'v'], // paste
         [KeyboardKeys.Alt, 'f'], // show menu bar
-        [KeyboardKeys.Escape], // stop
+        [KeyboardKeys.Escape] // stop
     ];
 
-    private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map((blkb) => mapKeyboardShortcutCombination(blkb));
+    private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map(
+        (blkb) => mapKeyboardShortcutCombination(blkb)
+    );
 
     check(listener: IKeyboardShortcutListener): void {
         // this is where the test was deleted
         for (let blkb of this.mappedBlackListedKeyBindings) {
             if (blkb === listener.mappedKeyboardShortcutCombination) {
-                const warningMessage = `Keyboard Shortcut [${listener.displayShortcutCombination}] is blacklisted as a common browser keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
+                const warningMessage = `Keyboard Shortcut [${
+                    listener.displayShortcutCombination
+                }] is blacklisted as a common browser keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
                 console.warn(warningMessage);
                 return;
             }

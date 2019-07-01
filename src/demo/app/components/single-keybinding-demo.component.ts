@@ -16,6 +16,7 @@ export class SingleKeybindingDemoComponent implements OnInit {
     constructor(private keyboardShortcutService: KeyboardShortcutsService) {}
 
     ngOnInit(): void {
+        // creates the listener OnInit
         const listenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
         const kb = [KeyboardKeys.Ctrl, 'm'];
         Object.assign(
@@ -33,7 +34,7 @@ export class SingleKeybindingDemoComponent implements OnInit {
     }
 
     ngOnDestroy(): void {
-        // destroys the listener when the component is destroyed
+        // destroys the listener OnDestroy
         this.listener.remove();
     }
 
