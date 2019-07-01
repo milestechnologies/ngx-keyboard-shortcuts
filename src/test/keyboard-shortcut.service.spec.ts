@@ -233,5 +233,19 @@ describe('KeyboardShortcutService', () => {
                 expect(lowerPriorityResult).not.toBeNull();
             });
         });
+        // describe(':: testing handleKeyboardEvent', () => {
+        //     it('should trigger the handler when key event matches', () => {
+        //         const event = <KeyboardEvent>{ altKey: true, key: '' };
+        //         service.sendKeyboardEventToHandler(event);
+        //     });
+        // });
+        // describe(':: testing handleKeyboardEvent', () => {
+        //     it('should trigger the handler when key event matches', () => {
+        //         spyOn(service, 'String');
+        //         const event = <KeyboardEvent>{ altKey: true, key: 'U+' };
+        //         service.sendKeyboardEventToHandler(event);
+        //         expect(String.fromCharCode()).toHaveBeenCalled();
+        //     });
+        // });
     });
 });

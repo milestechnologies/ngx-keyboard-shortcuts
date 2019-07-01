@@ -9,10 +9,11 @@ import { NgxKeyboardShortcutModule } from '../../../dist';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo.component';
 import { SingleKeybindingDemoComponent } from './components/single-keybinding-demo.component';
+import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [AppComponent, DemoComponent, SingleKeybindingDemoComponent],
+  declarations: [AppComponent, DemoComponent, SingleKeybindingDemoComponent, DirectiveButtonDemo],
   imports: [BrowserModule, HttpClientModule, NgxKeyboardShortcutModule.forRoot(), AppRoutingModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })

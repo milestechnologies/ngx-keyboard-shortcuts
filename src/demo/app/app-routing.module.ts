@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DemoComponent } from './demo.component';
 import { SingleKeybindingDemoComponent } from './components/single-keybinding-demo.component';
+import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 
 const appRoutes: Routes = [
     {
@@ -14,9 +15,13 @@ const appRoutes: Routes = [
         path: 'skd',
     },
     {
+        component: DirectiveButtonDemo,
+        path: 'DD',
+    },
+    {
         component: DemoComponent,
         path: '**',
-    },
+    }
 ];
 
 @NgModule({
