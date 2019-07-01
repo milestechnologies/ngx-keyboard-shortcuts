@@ -32,6 +32,11 @@ export class SingleKeybindingDemoComponent implements OnInit {
         this.info = 'LISTENER :: listening for [' + kb[0] + ' + ' + kb[1] + ']';
     }
 
+    ngOnDestroy(): void {
+        // destroys the listener when the component is destroyed
+        this.listener.remove();
+    }
+
     private alertMessage(): void {
         const keyboardCombo: KeyboardShortcutCombination = this as any;
         alert(
