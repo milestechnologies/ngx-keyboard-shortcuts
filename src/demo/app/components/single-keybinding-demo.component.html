@@ -1,6 +1,25 @@
-<h3>{{ info }}</h3>
-<br />
-<h4>This is an example of a simple keybinding demo!</h4>
-This component contains a single listener that is currently set to listen for a keybinding, specifically Ctrl + M.
-Press Ctrl + M to see it in action!  The handler of this listener will trigger a simple alert message when it hears the proper keybinding.
+<h2>{{ info }}</h2>
+<hr />
+<h5>
+    This component contains a single listener that is currently set to listen
+    for a keybinding, specifically Ctrl + M. In order to create this keybinding
+    we declare a global variable in the component of type any...
+</h5>
+<pre style="margin: 0;">
+    <code>
+        {{ code_bit_1 }}
+    </code>
+</pre>
+<h5>
+    ... and then create a constructor and assign the properties to the listener
+</h5>
+<pre style="margin: 0;">
+    <code>
+        {{ code_bit_2 }}
+    </code>
+</pre>
+<h5>
+    Press Ctrl + M to see it in action! The handler of this listener will
+    trigger a simple alert message when it hears the proper keybinding.
+</h5>
 <br />

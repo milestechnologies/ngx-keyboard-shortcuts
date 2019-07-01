@@ -11,7 +11,9 @@ import {
     templateUrl: './shortcut-service-demo.component.html'
 })
 export class ShortcutServiceDemoComponent implements OnInit {
-    title = 'open-source-tester';
+    code_bit_1: string;
+    code_bit_2: string;
+    code_bit_3: string;
     form = new FormGroup({
         key1: new FormControl(''),
         key2: new FormControl('')
@@ -22,6 +24,33 @@ export class ShortcutServiceDemoComponent implements OnInit {
     constructor(private keyboardShortcutsService: KeyboardShortcutsService) {}
 
     ngOnInit(): void {
+        this.code_bit_1 = `
+        listeners: any[];
+        `;
+        this.code_bit_2 = `
+        form = new FormGroup({
+            key1: new FormControl(''),
+            key2: new FormControl('')
+        });
+        `;
+        this.code_bit_3 = `
+        const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
+        const kb = [this.form.value.key1, this.form.value.key2];
+        Object.assign(
+            newListenerConstructor,
+            { handler: this.alertMessage.bind(kb) },
+            {
+                description: 'new shortcut',
+                keyBinding: kb
+            }
+        );
+        this.listeners.push({
+            listener: this.keyboardShortcutsService.listen(
+                newListenerConstructor
+            ),
+            output: kb[0] + ' + ' + kb[1]
+        });
+        `;
         this.listenerObjectStatus = '';
         this.listeners = [];
         this.outputArray = [];
