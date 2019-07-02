@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
         <div class="container">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark horizontal">
                 <a class="navbar-brand" routerLink="/home">Demo App</a>
+                <a class="nav-link" routerLink="/home">Home</a>
+                <a class="nav-link" routerLink="/skd">single keybinding demo</a>
+                <a class="nav-link" routerLink="/ssdc">shortcut service demo</a>
+                <a class="nav-link" routerLink="/DD">shortcut directive demo</a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -18,22 +22,6 @@ import { Component } from '@angular/core';
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/home">Home</a>
-                            <a class="nav-link" routerLink="/skd"
-                                >single keybinding demo</a
-                            >
-                            <a class="nav-link" routerLink="/ssdc"
-                                >shortcut service demo</a
-                            >
-                            <a class="nav-link" routerLink="/DD"
-                                >shortcut directive demo</a
-                            >
-                        </li>
-                    </ul>
-                </div>
             </nav>
         </div>
         <br />
