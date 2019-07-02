@@ -18,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         AppComponent,
         DemoComponent,
         SingleKeybindingDemoComponent,
-        ShortcutServiceDemoComponent
+        ShortcutServiceDemoComponent,
+        DirectiveButtonDemo
     ],
     imports: [
         BrowserModule,

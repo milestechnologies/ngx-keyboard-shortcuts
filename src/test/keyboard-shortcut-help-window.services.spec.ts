@@ -1,8 +1,7 @@
-
 import { Component, ViewContainerRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
-import { } from 'jasmine';
+import {} from 'jasmine';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
@@ -11,16 +10,13 @@ import { KeyboardShortcutsService } from '../keyboard-shortcut.service';
 import { KeyboardKeys } from '../libraries/listener.library';
 
 @Component({
-    template: ``,
+    template: ``
 })
 class MockWindowServiceComponent {
-    constructor(public viewContainerRef: ViewContainerRef) {
-    }
-
+    constructor(public viewContainerRef: ViewContainerRef) {}
 }
 
 describe('KeyboardShortcutHelpWindowService', () => {
-
     let service: KeyboardShortcutHelpWindowService;
     let fixture: ComponentFixture<MockWindowServiceComponent>;
     let component: MockWindowServiceComponent;
@@ -28,15 +24,12 @@ describe('KeyboardShortcutHelpWindowService', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                MockWindowServiceComponent,
-            ],
-            imports: [
-                BrowserModule, SweetAlert2Module.forRoot(),
-            ],
+            declarations: [MockWindowServiceComponent],
+            imports: [BrowserModule, SweetAlert2Module.forRoot()],
             providers: [
-                KeyboardShortcutHelpWindowService, KeyboardShortcutsService,
-            ],
+                KeyboardShortcutHelpWindowService,
+                KeyboardShortcutsService
+            ]
         });
         service = TestBed.get(KeyboardShortcutHelpWindowService);
         keyboardShortcutsService = TestBed.get(KeyboardShortcutsService);
@@ -47,12 +40,14 @@ describe('KeyboardShortcutHelpWindowService', () => {
     // ===================================================
 
     describe(':: testing Methods/Properties', () => {
-
         describe(':: showHelpWindow', () => {
-
             it('should return a Help Window when swallinstance is set and listener registered', () => {
                 service.setViewContainerRef(component.viewContainerRef);
-                keyboardShortcutsService.listen({ keyBinding: [KeyboardKeys.Ctrl, 'j'], handler: () => '', description: '' });
+                keyboardShortcutsService.listen({
+                    keyBinding: [KeyboardKeys.Ctrl, 'j'],
+                    handler: () => '',
+                    description: ''
+                });
                 spyOn(service.swalInstance, 'show');
                 service.showHelpWindow();
                 expect(service.swalInstance.show).toHaveBeenCalled();
@@ -60,7 +55,9 @@ describe('KeyboardShortcutHelpWindowService', () => {
             it('should not return a Help Window when swallinstance is set', () => {
                 spyOn(console, 'warn');
                 service.showHelpWindow();
-                expect(console.warn).toHaveBeenCalledWith('KeyboardShortcutHelpWindowService: Failed to show help window since swalInstance was not found.  Ensure setViewContainerRef has been called');
+                expect(console.warn).toHaveBeenCalledWith(
+                    'KeyboardShortcutHelpWindowService: Failed to show help window since swalInstance was not found.  Ensure setViewContainerRef has been called'
+                );
             });
         });
 
@@ -89,6 +86,5 @@ describe('KeyboardShortcutHelpWindowService', () => {
                 expect(keyboardShortcutsService.listen).not.toHaveBeenCalled();
             });
         });
-
     });
 });

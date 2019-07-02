@@ -18,9 +18,22 @@ import { Component } from '@angular/core';
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="nav-link" routerLink="/home">Home</a>
-                <a class="nav-link" routerLink="/skd">single keybinding demo</a>
-                <a class="nav-link" routerLink="/ssdc">shortcut service demo</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/home">Home</a>
+                            <a class="nav-link" routerLink="/skd"
+                                >single keybinding demo</a
+                            >
+                            <a class="nav-link" routerLink="/ssdc"
+                                >shortcut service demo</a
+                            >
+                            <a class="nav-link" routerLink="/DD"
+                                >shortcut directive demo</a
+                            >
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
         <br />

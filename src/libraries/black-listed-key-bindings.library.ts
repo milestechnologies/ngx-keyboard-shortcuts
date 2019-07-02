@@ -1,7 +1,11 @@
-import { KeyboardKeys, KeyboardShortcutCombination, mapKeyboardShortcutCombination, IKeyboardShortcutListener } from './listener.library';
+import {
+    KeyboardKeys,
+    KeyboardShortcutCombination,
+    mapKeyboardShortcutCombination,
+    IKeyboardShortcutListener
+} from './listener.library';
 
 export class BlackListedKeyboardShortcutChecker {
-
     private blackListedKeyBindings: KeyboardShortcutCombination[] = [
         [KeyboardKeys.Ctrl, 'd'], // bookmark
         [KeyboardKeys.Ctrl, 'f'], // find
@@ -20,16 +24,39 @@ export class BlackListedKeyboardShortcutChecker {
         [KeyboardKeys.Ctrl, 'x'], // cut
         [KeyboardKeys.Ctrl, 'v'], // paste
         [KeyboardKeys.Alt, 'f'], // show menu bar
-        [KeyboardKeys.Escape], // stop
+        [KeyboardKeys.Ctrl, '1'], // goes to tab 1
+        [KeyboardKeys.Ctrl, '2'], // goes to tab 2
+        [KeyboardKeys.Ctrl, '3'], // goes to tab 3
+        [KeyboardKeys.Ctrl, '4'], // goes to tab 4
+        [KeyboardKeys.Ctrl, '5'], // goes to tab 5
+        [KeyboardKeys.Ctrl, '6'], // goes to tab 6
+        [KeyboardKeys.Ctrl, '7'], // goes to tab 7
+        [KeyboardKeys.Ctrl, '8'], // goes to tab 8
+        [KeyboardKeys.Ctrl, '9'], // goes to tab 9
+        [KeyboardKeys.Shift, '1'], // character key
+        [KeyboardKeys.Shift, '2'], // character key
+        [KeyboardKeys.Shift, '3'], // character key
+        [KeyboardKeys.Shift, '4'], // character key
+        [KeyboardKeys.Shift, '5'], // character key
+        [KeyboardKeys.Shift, '6'], // character key
+        [KeyboardKeys.Shift, '7'], // character key
+        [KeyboardKeys.Shift, '8'], // character key
+        [KeyboardKeys.Shift, '9'], // character key
+        [KeyboardKeys.Shift, '0'], // character key
+        [KeyboardKeys.Escape] // stop
     ];
 
-    private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map((blkb) => mapKeyboardShortcutCombination(blkb));
+    private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map(
+        (blkb) => mapKeyboardShortcutCombination(blkb)
+    );
 
     check(listener: IKeyboardShortcutListener): void {
         // this is where the test was deleted
         for (let blkb of this.mappedBlackListedKeyBindings) {
             if (blkb === listener.mappedKeyboardShortcutCombination) {
-                const warningMessage = `Keyboard Shortcut [${listener.displayShortcutCombination}] is blacklisted as a common browser keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
+                const warningMessage = `Keyboard Shortcut [${
+                    listener.displayShortcutCombination
+                }] is blacklisted as a common browser keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
                 console.warn(warningMessage);
                 return;
             }

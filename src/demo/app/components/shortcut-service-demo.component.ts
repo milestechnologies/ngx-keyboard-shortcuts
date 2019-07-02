@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, NgModule } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {
     KeyboardShortcutsService,
     IKeyboardShortcutListenerConstructorObject,
@@ -15,8 +15,8 @@ export class ShortcutServiceDemoComponent implements OnInit {
     code_bit_2: string;
     code_bit_3: string;
     form = new FormGroup({
-        key1: new FormControl(''),
-        key2: new FormControl('')
+        key1: new FormControl('', [Validators.required]),
+        key2: new FormControl('', [Validators.required])
     });
     listenerObjectStatus: string;
     outputArray = [];
@@ -67,23 +67,28 @@ export class ShortcutServiceDemoComponent implements OnInit {
 
     // creates and adds listener object to array listeners
     addShortcut(): void {
-        const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
-        const kb = [this.form.value.key1, this.form.value.key2];
-        Object.assign(
-            newListenerConstructor,
-            { handler: this.alertMessage.bind(kb) },
-            {
-                description: 'new shortcut',
-                keyBinding: kb
-            }
-        );
-        this.listeners.push({
-            listener: this.keyboardShortcutsService.listen(
-                newListenerConstructor
-            ),
-            output: kb[0] + ' + ' + kb[1]
-        });
-        this.populateOutputArray();
+        if (this.form.valid) {
+            const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
+            const kb = [this.form.value.key1, this.form.value.key2];
+            Object.assign(
+                newListenerConstructor,
+                { handler: this.alertMessage.bind(kb) },
+                {
+                    description: 'new shortcut',
+                    keyBinding: kb
+                }
+            );
+            this.listeners.push({
+                listener: this.keyboardShortcutsService.listen(
+                    newListenerConstructor
+                ),
+                output: kb[0] + ' + ' + kb[1]
+            });
+            this.populateOutputArray();
+        } else {
+            // at least one field is marked invalid
+            alert('at least one field in this form is invalid');
+        }
     }
 
     // delete's listener object from array at index i
