@@ -9,7 +9,8 @@ export interface IKeyboardShortcutListenerOptions {
     omitFromHelp?: boolean;
 }
 
-export interface IKeyboardShortcutListenerConstructorObject extends IKeyboardShortcutListenerOptions {
+export interface IKeyboardShortcutListenerConstructorObject
+    extends IKeyboardShortcutListenerOptions {
     handler: KeyboardShortcutHandler;
 }
 
@@ -26,7 +27,6 @@ export interface IKeyboardShortcutListener {
 }
 
 export class KeyboardShortcutListener implements IKeyboardShortcutListener {
-
     keyBinding: KeyboardShortcutCombination;
     description: string;
     priority: number;
@@ -39,44 +39,46 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
 
     constructor(
         listenerConstructorObject: IKeyboardShortcutListenerConstructorObject,
-        blackListedKeyboardShortcutChecker?: BlackListedKeyboardShortcutChecker,
+        blackListedKeyboardShortcutChecker?: BlackListedKeyboardShortcutChecker
     ) {
         // assign properties based on constructor and defaults
         let defaultListenerOptions = {
             ignoreEventsFromInputElement: false,
             omitFromHelp: false,
             passToLowerPriorities: true,
-            priority: 0,
+            priority: 0
         };
         Object.assign(this, defaultListenerOptions, listenerConstructorObject);
 
         // assign mapped keyboard shortcut combination
-        this.mappedKeyboardShortcutCombination = mapKeyboardShortcutCombination(this.keyBinding);
+        this.mappedKeyboardShortcutCombination = mapKeyboardShortcutCombination(
+            this.keyBinding
+        );
 
         // assign display shortcut combination
         const copyOfKeyBinding = [...this.keyBinding];
         copyOfKeyBinding.sort((a, b) => {
             if (a.length > 1 && b.length === 1) {
-                return (-1);
+                return -1;
             } else if (a.length === 1 && b.length > 1) {
-                return (1);
+                return 1;
             } else if (a > b) {
-                return (1);
+                return 1;
             } else if (a < b) {
-                return (-1);
+                return -1;
             } else {
-                return (0);
+                return 0;
             }
         });
-        this.displayShortcutCombination = copyOfKeyBinding.map((kb) => kb.replace(/^\w/, (c) => c.toUpperCase())).join(' + ');
+        this.displayShortcutCombination = copyOfKeyBinding
+            .map((kb) => kb.replace(/^\w/, (c) => c.toUpperCase()))
+            .join(' + ');
 
         // check vs blacklist
         if (blackListedKeyboardShortcutChecker) {
             blackListedKeyboardShortcutChecker.check(this);
         }
-
     }
-
 }
 
 export interface IListenerHandle {
@@ -89,12 +91,14 @@ export enum KeyboardKeys {
     Ctrl = 'ctrl',
     Alt = 'alt',
     Shift = 'shift',
-    Escape = 'escape',
+    Escape = 'escape'
 }
 
 export type KeyboardShortcutCombination = (string | KeyboardKeys)[];
 
-export function mapKeyboardShortcutCombination(bindings: KeyboardShortcutCombination): string {
+export function mapKeyboardShortcutCombination(
+    bindings: KeyboardShortcutCombination
+): string {
     return JSON.stringify(bindings.map((key) => key.toLowerCase()).sort());
 }
 
@@ -106,16 +110,16 @@ export const KEY_MAP = {
     '\t': 'tab',
     '\x1B': 'escape',
     '\x7F': 'delete',
-    'Del': 'delete',
-    'Esc': 'escape',
-    'Left': 'arrowleft',
-    'Right': 'arrowright',
-    'Up': 'arrowup',
-    'Down': 'arrowdown',
-    'Menu': 'contextMenu',
-    'Scroll': 'scrolllock',
-    'Win': 'os',
+    Del: 'delete',
+    Esc: 'escape',
+    Left: 'arrowleft',
+    Right: 'arrowright',
+    Up: 'arrowup',
+    Down: 'arrowdown',
+    Menu: 'contextMenu',
+    Scroll: 'scrolllock',
+    Win: 'os',
     ' ': 'space',
-    '.': 'dot',
+    '.': 'dot'
 };
 // tslint:enable:object-literal-sort-keys
