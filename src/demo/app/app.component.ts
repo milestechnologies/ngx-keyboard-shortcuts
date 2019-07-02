@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
+    styleUrls: ['app.component.css'],
     template: `
         <div class="container">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark horizontal">
                 <a class="navbar-brand" routerLink="/home">Demo App</a>
                 <button
                     class="navbar-toggler"

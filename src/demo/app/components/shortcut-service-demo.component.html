@@ -1,5 +1,11 @@
 <h2>{{ listenerObjectStatus }}</h2>
-
+<hr />
+<h5>
+    This component contains an originally empty array of listener objects for
+    keybindings. The form (if valid) will add a listener object to the array
+    which will listen for that specific keybinding.
+</h5>
+<br />
 <ul style="list-style-type: none;">
     <li *ngFor="let elem of outputArray; let i = index">
         <h3>{{ elem }}</h3>
@@ -11,9 +17,6 @@
         </button>
     </li>
 </ul>
-
-<br />
-<br />
 <div>
     <form [formGroup]="form">
         <select
@@ -35,16 +38,40 @@
         <button
             type="button"
             (click)="addShortcut()"
-            style="margin-left: 2%; width: 10%;"
+            style="margin-left: 2%; width: 20%;"
         >
             add new keyCombo
         </button>
     </form>
 </div>
-
+<br />
+<h5>First, we create the global listener array of type any:</h5>
+<pre style="margin: 0;">
+    <code>
+        {{ code_bit_1 }}
+    </code>
+</pre>
+<h5>
+    Next, we define a form to take in the first and second keys for the new
+    keybinding we plan to add:
+</h5>
+<pre style="margin: 0;">
+    <code>
+        {{ code_bit_2 }}
+    </code>
+</pre>
+<h5>Last, we push the newly created listener into the listener array:</h5>
+<pre style="margin: 0;">
+    <code>
+        {{ code_bit_3 }}
+    </code>
+</pre>
 <hr />
-
-<strong>Please note:</strong> if you create a keybinding that is blacklisted or
-also does something else, such as CTRL + C (copy) it will not only trigger the
-alert, but it will still function as that keybinding normally would when the
-alert is terminated.
+<h5>
+    <strong>Please note:</strong> if you create a keybinding that is blacklisted
+    or also does something else, such as CTRL + C (copy) it will not only
+    trigger the alert, but it will still function as that keybinding normally
+    would when the alert is terminated.
+</h5>
+<br />
+<br />
