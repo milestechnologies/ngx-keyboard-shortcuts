@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DemoComponent } from './demo.component';
 import { SingleKeybindingDemoComponent } from './components/single-keybinding-demo.component';
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
 
 const appRoutes: Routes = [
     {
-        component: DemoComponent,
-        path: 'home'
-    },
-    {
         component: SingleKeybindingDemoComponent,
-        path: 'skd'
+        path: 'single-keybinding-demo'
     },
     {
         component: DirectiveButtonDemo,
-        path: 'DD',
+        path: 'directive-button-demo',
     },
     {
         component: ShortcutServiceDemoComponent,
-        path: 'ssdc'
+        path: 'shortcut-service-demo'
     },
     {
-        component: DemoComponent,
+        redirectTo: 'directive-button-demo',
         path: '**'
     }
 ];

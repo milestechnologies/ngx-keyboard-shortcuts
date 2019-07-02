@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'customize-bootstrap.scss';
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/css/font-awesome.css';
+
+.jumbotron.demo-description-block {
+    padding-top: 25px;
+    padding-bottom: 10px;
+}

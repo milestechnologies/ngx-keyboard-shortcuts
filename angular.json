@@ -17,7 +17,7 @@
             "tsConfig": "src/demo/tsconfig.app.json",
             "polyfills": "src/demo/polyfills.ts",
             "assets": ["src/demo/assets"],
-            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"],
+            "styles": ["src/demo/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -70,7 +70,7 @@
             "polyfills": "src/test/polyfills.ts",
             "tsConfig": "src/test/tsconfig.spec.json",
             "scripts": [],
-            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"],
+            "styles": ["src/demo/styles.scss"],
             "assets": [],
             "codeCoverageExclude": [
               "src/demo/**.*",

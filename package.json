@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "start": "ng serve",
+        "start": "npm run build && ng serve",
         "build": "ng-packagr -p src/package.json",
         "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
         "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
@@ -46,6 +46,7 @@
         "bootstrap": "^4.3.1",
         "classlist.js": "^1.1.20150312",
         "codelyzer": "4.5.0",
+        "font-awesome": "^4.7.0",
         "jasmine-core": "~2.99.1",
         "jasmine-spec-reporter": "~4.2.1",
         "karma": "^4.1.0",
