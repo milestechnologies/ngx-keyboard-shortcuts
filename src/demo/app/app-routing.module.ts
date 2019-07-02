@@ -20,8 +20,6 @@ const appRoutes: Routes = [
         path: 'DD',
     },
     {
-        component: DemoComponent,
-        path: '**',
         component: ShortcutServiceDemoComponent,
         path: 'ssdc'
     },

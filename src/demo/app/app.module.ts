@@ -11,6 +11,7 @@ import { DemoComponent } from './demo.component';
 import { SingleKeybindingDemoComponent } from './components/single-keybinding-demo.component';
 import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 
 @NgModule({
     bootstrap: [AppComponent],
