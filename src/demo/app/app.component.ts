@@ -27,6 +27,9 @@ import { Component } from '@angular/core';
                             <a class="nav-link" routerLink="/ssdc"
                                 >shortcut service demo</a
                             >
+                            <a class="nav-link" routerLink="/DD"
+                                >shortcut directive demo</a
+                            >
                         </li>
                     </ul>
                 </div>
