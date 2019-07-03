@@ -6,23 +6,23 @@ import {
 } from './listener.library';
 
 export const blacklistedKeyCombinations = [
-    [KeyboardKeys.Ctrl, 'd'], // bookmark
-    [KeyboardKeys.Ctrl, 'f'], // find
-    [KeyboardKeys.Ctrl, 'g'], // find next
-    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 'g'], // find previous
-    [KeyboardKeys.Ctrl, 'h'], // history
-    [KeyboardKeys.Ctrl, 'j'], // downloads
-    [KeyboardKeys.Ctrl, 'o'], // open file
-    [KeyboardKeys.Ctrl, 's'], // save
-    [KeyboardKeys.Ctrl, 'p'], // print
-    [KeyboardKeys.Ctrl, 'u'], // view source
-    [KeyboardKeys.Ctrl, 'n'], // open in new window
-    [KeyboardKeys.Ctrl, 't'], // open in new tab
-    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 't'], // open recently closed tab
-    [KeyboardKeys.Ctrl, 'c'], // copy
-    [KeyboardKeys.Ctrl, 'x'], // cut
-    [KeyboardKeys.Ctrl, 'v'], // paste
-    [KeyboardKeys.Alt, 'f'], // show menu bar
+    [KeyboardKeys.Ctrl, 'D'], // bookmark
+    [KeyboardKeys.Ctrl, 'F'], // find
+    [KeyboardKeys.Ctrl, 'G'], // find next
+    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 'G'], // find previous
+    [KeyboardKeys.Ctrl, 'H'], // history
+    [KeyboardKeys.Ctrl, 'J'], // downloads
+    [KeyboardKeys.Ctrl, 'O'], // open file
+    [KeyboardKeys.Ctrl, 'S'], // save
+    [KeyboardKeys.Ctrl, 'P'], // print
+    [KeyboardKeys.Ctrl, 'U'], // view source
+    [KeyboardKeys.Ctrl, 'N'], // open in new window
+    [KeyboardKeys.Ctrl, 'T'], // open in new tab
+    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 'T'], // open recently closed tab
+    [KeyboardKeys.Ctrl, 'C'], // copy
+    [KeyboardKeys.Ctrl, 'X'], // cut
+    [KeyboardKeys.Ctrl, 'V'], // paste
+    [KeyboardKeys.Alt, 'F'], // show menu bar
     [KeyboardKeys.Ctrl, '1'], // goes to tab 1
     [KeyboardKeys.Ctrl, '2'], // goes to tab 2
     [KeyboardKeys.Ctrl, '3'], // goes to tab 3
@@ -57,7 +57,7 @@ export class BlackListedKeyboardShortcutChecker {
             if (blkb === listener.mappedKeyboardShortcutCombination) {
                 const warningMessage = `Keyboard Shortcut [${
                     listener.displayShortcutCombination
-                }] is blacklisted as a common browser keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
+                }] is blacklisted as a common keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
                 console.warn(warningMessage);
                 return;
             }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { KeyboardKeys } from '../../../../dist';
 import { IKeyboardShortcutListenerOptions } from '../../../libraries/listener.library';
 
@@ -6,13 +6,21 @@ import { IKeyboardShortcutListenerOptions } from '../../../libraries/listener.li
     selector: 'app-directive-button-demo',
     templateUrl: './directive-button-demo.component.html'
 })
-export class DirectiveButtonDemo {
+export class DirectiveButtonDemo implements OnInit {
+
+    code_bit_1: string;
     keyboardShortcutDef: IKeyboardShortcutListenerOptions = {
         description: 'simple, individual, demo shortcut',
         keyBinding: [KeyboardKeys.Ctrl, 'i'],
     };
     constructor() { }
-
+  ngOnInit(): void {
+      this.code_bit_1 = `
+        <button
+        [keyboardShortcut]="keyboardShortcutDef"
+        (click)="alertMessage()">Show the Message</button>
+      `;
+  }
     alertMessage(): void {
         alert(
             'Button Was Clicked!'
