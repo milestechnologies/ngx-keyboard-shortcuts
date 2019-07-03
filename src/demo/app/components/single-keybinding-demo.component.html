@@ -1,21 +1,26 @@
-<h2>{{ info }}</h2>
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        The single keybinding component demonstrates how to create just one
+        keybinding listener within a single component. The listener itself will
+        be a global variable in the component and we will assign it using the
+        Object.assign method on the listener constructor object.
+    </p>
+    <p>
+        This demo is currently set to listen for the key combination [CTRL + M].
+        Press the combination to trigger the alert and see it in action!
+    </p>
+</div>
 <hr />
-<h5>
-    This component contains a single listener that is currently set to listen
-    for a keybinding, specifically Ctrl + M. In order to create this keybinding
-    we declare a global variable in the component of type any...
-</h5>
-<pre>
+<h4>
+    <em>{{ info }}</em>
+</h4>
+<pre style="margin-bottom: 0;">
     <code class="highcodeblock" [highlight]="code_bit_1"></code>
 </pre>
-<h5>
-    ... and then create a constructor and assign the properties to the listener
-</h5>
 <pre>
     <code class="highcodeblock" [highlight]="code_bit_2"></code>
 </pre>
-<h5>
-    Press Ctrl + M to see it in action! The handler of this listener will
-    trigger a simple alert message when it hears the proper keybinding.
-</h5>
+<br />
+<br />
 <br />
