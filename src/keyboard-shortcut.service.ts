@@ -33,7 +33,7 @@ export class KeyboardShortcutsService {
         // when we have an event that is actually being consumed by one of our components.
         this.zone.runOutsideAngular(
             (): void => {
-                window.addEventListener('keydown', this.handleKeyboardEvent);
+                window.addEventListener('keydown', this.handleKeyboardEvent.bind(this));
             }
         );
 
