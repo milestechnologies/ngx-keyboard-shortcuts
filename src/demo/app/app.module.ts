@@ -13,6 +13,18 @@ import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 
+import { HighlightModule } from 'ngx-highlightjs';
+
+import xml from 'highlight.js/lib/languages/xml';
+import typescript from 'highlight.js/lib/languages/typescript';
+
+export function hljsLanguages(): any {
+    return [
+        { name: 'typescript', func: typescript },
+        { name: 'xml', func: xml }
+    ];
+}
+
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [
@@ -28,7 +40,10 @@ import { DirectiveButtonDemo } from './components/directive-button-demo.componen
         NgxKeyboardShortcutModule.forRoot(),
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HighlightModule.forRoot({
+            languages: hljsLanguages
+        })
     ],
     providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
