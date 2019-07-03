@@ -1,17 +1,13 @@
 <div class="jumbotron demo-description-block">
     <h4><em>How it works</em></h4>
     <p>
-        The directive is to make a shortcut for a button. So if there was a
-        close button on your page then you would be able to make a hotkey that
-        does what the button would do. In this instance we will be clicking the
-        directive button and an alert will show up. Now try to click Ctrl + i
+        The directive is to make a shortcut for a button. Clicking the
+        Show The Message button and an alert will show up. Click Ctrl + i
         and the same alert will show up.
     </p>
     <p>
         If you look at the code provided it gives you the ability to call a
         message via the button click or by just using the directive selector.
-        This makes it much easier to use a directive and will let you go back to
-        make easy changes.
     </p>
 </div>
 <button
@@ -23,4 +19,6 @@
 </button>
 <br>
 <br>
-[code sample goes here]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Button<br>
+    [keyboardShortcut]="keyboardShortcutDef"
+    <br>(click)="alertMessage()"

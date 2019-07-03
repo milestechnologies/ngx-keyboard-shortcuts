@@ -12,6 +12,7 @@ import { SingleKeybindingDemoComponent } from './components/single-keybinding-de
 import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
+import { BlacklistedShortcutsComponent } from './components/blacklisted-keys-demo.component';
 
 import { HighlightModule } from 'ngx-highlightjs';
 
@@ -32,6 +33,7 @@ export function hljsLanguages(): any {
         DemoComponent,
         SingleKeybindingDemoComponent,
         ShortcutServiceDemoComponent,
+        BlacklistedShortcutsComponent,
         DirectiveButtonDemo
     ],
     imports: [
