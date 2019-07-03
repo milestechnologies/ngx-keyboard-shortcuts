@@ -1,77 +1,77 @@
-<h2>{{ listenerObjectStatus }}</h2>
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        The shortcut service (declared in the constructor of the component) is
+        used to create listeners for keybinding combinations. We can also
+        declare a global array to hold these listeners and use a form to allow
+        the user to create these keybindings and dynamically add them to the
+        array.
+    </p>
+    <p>
+        The code below demonstrates how to utilize the array data structure to
+        store multiple keybinding listeners at a time and delete / add new ones
+        within the component.
+    </p>
+</div>
 <hr />
-<h5>
-    This component contains an originally empty array of listener objects for
-    keybindings. The form (if valid) will add a listener object to the array
-    which will listen for that specific keybinding.
-</h5>
-<br />
-<ul style="list-style-type: none;">
-    <li *ngFor="let elem of outputArray; let i = index">
-        <h3>{{ elem }}</h3>
-        <button
-            (click)="deleteShortcut(i)"
-            style="background-color: black; color: red; font-size: 22px;"
-        >
-            <strong>delete</strong>
-        </button>
-    </li>
-</ul>
 <div>
     <form [formGroup]="form">
-        <select
-            name="key1selector"
-            formControlName="key1"
-            style="margin-left: 2%; width: 10%; height: 25px;"
-        >
-            <option value="ctrl">Ctrl</option>
-            <option value="alt">Alt</option>
-            <option value="shift">Shift</option>
-            <option value="escape">Escape</option>
-        </select>
-        <input
-            type="text"
-            placeholder="second key"
-            formControlName="key2"
-            style="margin-left: 2%; width: 5%; height: 25px;"
-        />
-        <button
-            type="button"
-            (click)="addShortcut()"
-            style="margin-left: 2%; width: 20%;"
-        >
-            add new keyCombo
-        </button>
+        <div class="form-group row">
+            <select
+                style="margin-left: 15px;"
+                class="form-control col-sm-2"
+                name="key1selector"
+                formControlName="key1"
+            >
+                <option value="ctrl">Ctrl</option>
+                <option value="alt">Alt</option>
+                <option value="shift">Shift</option>
+                <option value="escape">Escape</option>
+            </select>
+            <input
+                style="margin-left: 15px;"
+                class="form-control col-sm-2"
+                type="text"
+                placeholder="second key"
+                formControlName="key2"
+            />
+            <button
+                style="margin-left: 15px;"
+                class="btn btn-primary"
+                (click)="addShortcut()"
+            >
+                Add New Listener
+            </button>
+            <h4 style="margin-left: 15px;">
+                <em>{{ listenerObjectStatus }}</em>
+            </h4>
+        </div>
     </form>
 </div>
+
+<ul style="list-style-type: none;">
+    <li *ngFor="let elem of outputArray; let i = index">
+        <div class="form-group row">
+            <h5>{{ elem }}</h5>
+            <button
+                style="margin-left: 15px;"
+                (click)="deleteShortcut(i)"
+                class="btn btn-danger"
+            >
+                delete
+            </button>
+        </div>
+    </li>
+</ul>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_1"></code>
+</pre>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_2"></code>
+</pre>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_3"></code>
+</pre>
 <br />
-<h5>First, we create the global listener array of type any:</h5>
-<pre style="margin: 0;">
-    <code>
-        {{ code_bit_1 }}
-    </code>
-</pre>
-<h5>
-    Next, we define a form to take in the first and second keys for the new
-    keybinding we plan to add:
-</h5>
-<pre style="margin: 0;">
-    <code>
-        {{ code_bit_2 }}
-    </code>
-</pre>
-<h5>Last, we push the newly created listener into the listener array:</h5>
-<pre style="margin: 0;">
-    <code>
-        {{ code_bit_3 }}
-    </code>
-</pre>
-<hr />
-<h5>
-    <strong>Please note:</strong> if you create a keybinding that is blacklisted
-    or also does something else, such as CTRL + C (copy) it will not only
-    trigger the alert, but it will still function as that keybinding normally
-    would when the alert is terminated.
-</h5>
 <br />
 <br />

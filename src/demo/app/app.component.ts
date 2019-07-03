@@ -7,10 +7,33 @@ import { Component } from '@angular/core';
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
             <div class="container">
                 <div class="navbar-expand mr-auto navbar-nav">
-                    <a class="nav-link" routerLink="/directive-button-demo" routerLinkActive="active">directive</a>
-                    <a class="nav-link" routerLink="/single-keybinding-demo" routerLinkActive="active">single keybinding</a>
-                    <a class="nav-link" routerLink="/shortcut-service-demo" routerLinkActive="active">service</a>
-                    <a class="nav-link" routerLink="/blacklisted-key-demo" routerLinkActive="active">blacklisted keys</a>
+                    <a class="navbar-brand" routerLink="/home"
+                        >ngx-keyboard-shortcuts</a
+                    >
+                    <a
+                        class="nav-link"
+                        routerLink="/directive-button-demo"
+                        routerLinkActive="active"
+                        >directive</a
+                    >
+                    <a
+                        class="nav-link"
+                        routerLink="/single-keybinding-demo"
+                        routerLinkActive="active"
+                        >single keybinding</a
+                    >
+                    <a
+                        class="nav-link"
+                        routerLink="/shortcut-service-demo"
+                        routerLinkActive="active"
+                        >service</a
+                    >
+                    <a
+                        class="nav-link"
+                        routerLink="/blacklisted-key-demo"
+                        routerLinkActive="active"
+                        >blacklisted keys</a
+                    >
                     <button
                         class="navbar-toggler"
                         type="button"

@@ -14,28 +14,35 @@ export class ShortcutServiceDemoComponent implements OnInit {
     code_bit_1: string;
     code_bit_2: string;
     code_bit_3: string;
+    // global FormGroup variable
     form = new FormGroup({
         key1: new FormControl('', [Validators.required]),
         key2: new FormControl('', [Validators.required])
     });
     listenerObjectStatus: string;
     outputArray = [];
+    // global listener array
     listeners: any[];
     constructor(private keyboardShortcutsService: KeyboardShortcutsService) {}
 
     ngOnInit(): void {
         this.code_bit_1 = `
+        // global listener array
         listeners: any[];
         `;
         this.code_bit_2 = `
+        // global FormGroup variable
         form = new FormGroup({
             key1: new FormControl(''),
             key2: new FormControl('')
         });
         `;
         this.code_bit_3 = `
+        // creating empty constructor object
         const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
+        // keypair
         const kb = [this.form.value.key1, this.form.value.key2];
+        // assign properties
         Object.assign(
             newListenerConstructor,
             { handler: this.alertMessage.bind(kb) },
@@ -44,6 +51,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
                 keyBinding: kb
             }
         );
+        // push to listener array
         this.listeners.push({
             listener: this.keyboardShortcutsService.listen(
                 newListenerConstructor
@@ -68,8 +76,11 @@ export class ShortcutServiceDemoComponent implements OnInit {
     // creates and adds listener object to array listeners
     addShortcut(): void {
         if (this.form.valid) {
+            // creating empty constructor object
             const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
+            // keypair
             const kb = [this.form.value.key1, this.form.value.key2];
+            // assign properties
             Object.assign(
                 newListenerConstructor,
                 { handler: this.alertMessage.bind(kb) },
@@ -78,6 +89,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
                     keyBinding: kb
                 }
             );
+            // push to listener array
             this.listeners.push({
                 listener: this.keyboardShortcutsService.listen(
                     newListenerConstructor
@@ -115,7 +127,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
             this.outputArray.push(i.output);
         }
         this.listenerObjectStatus =
-            'LISTENER OBJECT ACTIVE :: contains ' +
+            'listeners array contains ' +
             this.outputArray.length +
             ' listeners';
     }
