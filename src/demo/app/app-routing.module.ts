@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SingleKeybindingDemoComponent } from './components/single-keybinding-demo.component';
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
+import { BlacklistedShortcutsComponent } from './components/blacklisted-keys-demo.component';
 
 const appRoutes: Routes = [
     {
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
     {
         component: ShortcutServiceDemoComponent,
         path: 'shortcut-service-demo'
+    },
+    {
+        component: BlacklistedShortcutsComponent,
+        path: 'blacklisted-key-demo'
     },
     {
         redirectTo: 'directive-button-demo',
