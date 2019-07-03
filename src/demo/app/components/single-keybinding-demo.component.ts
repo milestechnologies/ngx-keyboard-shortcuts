@@ -22,6 +22,7 @@ export class SingleKeybindingDemoComponent implements OnInit {
         listener: any;
         `;
         this.code_bit_2 = `
+        // here is what a comment looks like
         const listenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
         const kb = [KeyboardKeys.Ctrl, 'm'];
         Object.assign(

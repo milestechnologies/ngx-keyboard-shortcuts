@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
             <div class="container">
                 <div class="navbar-expand mr-auto navbar-nav">
-                    <a class="navbar-brand" routerLink="/home"
-                        >ngx-keyboard-shortcuts</a
-                    >
                     <a class="nav-link" routerLink="/directive-button-demo" routerLinkActive="active">directive</a>
                     <a class="nav-link" routerLink="/single-keybinding-demo" routerLinkActive="active">single keybinding</a>
                     <a class="nav-link" routerLink="/shortcut-service-demo" routerLinkActive="active">service</a>
@@ -32,7 +29,9 @@ import { Component } from '@angular/core';
         <div class="router container">
             <router-outlet></router-outlet>
         </div>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-bottom">
+        <nav
+            class="navbar navbar-expand-sm navbar-dark bg-primary fixed-bottom"
+        >
             <div class="container">
                 <div class="navbar-expand ml-auto navbar-nav">
                     <div class="navbar-text">
