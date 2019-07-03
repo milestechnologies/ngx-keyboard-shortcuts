@@ -4,6 +4,7 @@ import {
     mapKeyboardShortcutCombination,
     IKeyboardShortcutListener
 } from './listener.library';
+
 export const blacklistedKeyCombinations = [
     [KeyboardKeys.Ctrl, 'd'], // bookmark
     [KeyboardKeys.Ctrl, 'f'], // find
@@ -43,6 +44,7 @@ export const blacklistedKeyCombinations = [
     [KeyboardKeys.Shift, '0'], // character key
     [KeyboardKeys.Escape] // stop
 ];
+
 export class BlackListedKeyboardShortcutChecker {
     private blackListedKeyBindings: KeyboardShortcutCombination[] = blacklistedKeyCombinations;
     private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map(
