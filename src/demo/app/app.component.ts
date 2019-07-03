@@ -13,6 +13,7 @@ import { Component } from '@angular/core';
                     <a class="nav-link" routerLink="/directive-button-demo" routerLinkActive="active">directive</a>
                     <a class="nav-link" routerLink="/single-keybinding-demo" routerLinkActive="active">single keybinding</a>
                     <a class="nav-link" routerLink="/shortcut-service-demo" routerLinkActive="active">service</a>
+                    <a class="nav-link" routerLink="/blacklisted-key-demo" routerLinkActive="active">blacklisted keys</a>
                     <button
                         class="navbar-toggler"
                         type="button"
