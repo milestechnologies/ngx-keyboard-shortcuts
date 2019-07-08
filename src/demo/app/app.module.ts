@@ -18,6 +18,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 
 import xml from 'highlight.js/lib/languages/xml';
 import typescript from 'highlight.js/lib/languages/typescript';
+import { HelpDisplayDemoComponent } from './components/help-display-demo.component';
 
 export function hljsLanguages(): any {
     return [
@@ -34,7 +35,8 @@ export function hljsLanguages(): any {
         SingleKeybindingDemoComponent,
         ShortcutServiceDemoComponent,
         BlacklistedShortcutsComponent,
-        DirectiveButtonDemo
+        DirectiveButtonDemo,
+        HelpDisplayDemoComponent
     ],
     imports: [
         BrowserModule,
