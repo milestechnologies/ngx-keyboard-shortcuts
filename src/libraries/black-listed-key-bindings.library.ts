@@ -23,6 +23,7 @@ export const blacklistedKeyCombinations = [
     [KeyboardKeys.Ctrl, 'x'], // cut
     [KeyboardKeys.Ctrl, 'v'], // paste
     [KeyboardKeys.Alt, 'f'], // show menu bar
+    [KeyboardKeys.Ctrl, '0'], // default zoom level
     [KeyboardKeys.Ctrl, '1'], // goes to tab 1y
     [KeyboardKeys.Ctrl, '2'], // goes to tab 2
     [KeyboardKeys.Ctrl, '3'], // goes to tab 3
@@ -42,7 +43,14 @@ export const blacklistedKeyCombinations = [
     [KeyboardKeys.Shift, '8'], // character key
     [KeyboardKeys.Shift, '9'], // character key
     [KeyboardKeys.Shift, '0'], // character key
-    [KeyboardKeys.Escape] // stop
+    [KeyboardKeys.Escape], // stop
+    [KeyboardKeys.Ctrl, 'tab'], // switch to next tab
+    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 'tab'], // switch to previous tab
+    [KeyboardKeys.Ctrl, 'w'], // close current tab
+    [KeyboardKeys.Alt, '4'], // close current window
+    [KeyboardKeys.Alt, 'arrowleft'], // back
+    [KeyboardKeys.Alt, 'backspace'], // back
+    [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 'delete'] // open the clear browsing history window
 ];
 
 export class BlackListedKeyboardShortcutChecker {
