@@ -1,0 +1,23 @@
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        The help display demo is designed to show how the creation of any number
+        of keybindings can be easily represented in a list (or table) format
+        within some div. Saving an array of objects containing a keybinding
+        combination and a description is the simple implementation of storing a
+        help display for users using the system that the developer may require /
+        want the user to be aware of.
+    </p>
+    <p>
+        The code below demonstrates how to construct an object that contains
+        this information while building the keybindings and creating the
+        listeners.
+    </p>
+</div>
+<hr />
+
+<ul>
+    <li *ngFor="let e of help; let i = index">
+        {{ e.combo }} is the shortcut for {{ e.desc }}
+    </li>
+</ul>
