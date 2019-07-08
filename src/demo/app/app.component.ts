@@ -14,25 +14,25 @@ import { Component } from '@angular/core';
                         class="nav-link"
                         routerLink="/directive-button-demo"
                         routerLinkActive="active"
-                        >directive</a
+                        >Directive</a
                     >
                     <a
                         class="nav-link"
                         routerLink="/single-keybinding-demo"
                         routerLinkActive="active"
-                        >single keybinding</a
+                        >Single Keybinding</a
                     >
                     <a
                         class="nav-link"
                         routerLink="/shortcut-service-demo"
                         routerLinkActive="active"
-                        >service</a
+                        >Service</a
                     >
                     <a
                         class="nav-link"
                         routerLink="/blacklisted-key-demo"
                         routerLinkActive="active"
-                        >blacklisted keys</a
+                        >Blacklisted Keys</a
                     >
                     <button
                         class="navbar-toggler"
