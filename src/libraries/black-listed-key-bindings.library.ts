@@ -23,7 +23,7 @@ export const blacklistedKeyCombinations = [
     [KeyboardKeys.Ctrl, 'x'], // cut
     [KeyboardKeys.Ctrl, 'v'], // paste
     [KeyboardKeys.Alt, 'f'], // show menu bar
-    [KeyboardKeys.Ctrl, '1'], // goes to tab 1
+    [KeyboardKeys.Ctrl, '1'], // goes to tab 1y
     [KeyboardKeys.Ctrl, '2'], // goes to tab 2
     [KeyboardKeys.Ctrl, '3'], // goes to tab 3
     [KeyboardKeys.Ctrl, '4'], // goes to tab 4
@@ -57,7 +57,7 @@ export class BlackListedKeyboardShortcutChecker {
             if (blkb === listener.mappedKeyboardShortcutCombination) {
                 const warningMessage = `Keyboard Shortcut [${
                     listener.displayShortcutCombination
-                }] is blacklisted as a common browser keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
+                }] is blacklisted as a common keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
                 console.warn(warningMessage);
                 return;
             }

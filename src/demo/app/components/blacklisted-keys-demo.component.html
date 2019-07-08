@@ -1,0 +1,46 @@
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        Some key shortcuts are "blacklisted" to protect functionality.
+      Ctrl + 's', for example, is a traditional save shortcut.
+      When a blacklisted shortcut is created you will be given a
+      warning in the console like the one below, but the key will still be added.
+    </p>
+    <p>
+        To view the warning message, enter the console and click 
+        the button below!
+    </p>
+  </div>
+    <div>
+            <button
+            (click)="addShortcut()"
+            class="btn btn-primary"
+            > Press to create a blacklisted shortcut!</button>
+        
+                <br />
+                <a routerLink="/shortcut-service-demo"><em class="small text-muted">demo on how to add a shortcut</em></a>
+              </div>
+              <br />
+      <img src="demo/assets/img/error1.PNG" />
+      <br />
+      <br />
+    
+
+      <div class="jumbotron demo-description-block">
+        <h4><em>Blacklisted Keys</em></h4>
+        <div class="row">
+            <div *ngFor ="let b of blacklistedKeys" class="col-md-3">
+                <div *ngIf="b[0] && !b[1]">
+              {{ b[0] }}
+            </div>
+              <div *ngIf="b[0] && b[1] && !b[2]">
+                    {{ b[0] }} + {{ b[1] | uppercase }}
+            </div>
+            <div *ngIf="b[0] && b[1] && b[2]">
+                    {{ b[0] }} + {{ b[1] }} + {{ b[2] | uppercase }}
+            </div>
+            </div>
+        </div>
+    </div>  
+    <br /> 
+    <br />
