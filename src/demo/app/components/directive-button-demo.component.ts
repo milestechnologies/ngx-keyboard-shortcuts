@@ -7,7 +7,7 @@ import { IKeyboardShortcutListenerOptions } from '../../../libraries/listener.li
     templateUrl: './directive-button-demo.component.html'
 })
 export class DirectiveButtonDemo implements OnInit {
-
+    code_bit_2: string;
     code_bit_1: string;
     keyboardShortcutDef: IKeyboardShortcutListenerOptions = {
         description: 'simple, individual, demo shortcut',
@@ -20,6 +20,11 @@ export class DirectiveButtonDemo implements OnInit {
         [keyboardShortcut]="keyboardShortcutDef"
         (click)="alertMessage()">Show the Message</button>
       `;
+      this.code_bit_2 = `
+      @Directive({
+        selector: '[keyboardShortcut]'
+    })
+    `;
   }
     alertMessage(): void {
         alert(
