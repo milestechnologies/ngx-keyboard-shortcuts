@@ -16,14 +16,15 @@ export class DirectiveButtonDemo implements OnInit {
     constructor() { }
   ngOnInit(): void {
       this.code_bit_1 = `
-        <button
-        [keyboardShortcut]="keyboardShortcutDef"
-        (click)="alertMessage()">Show the Message</button>
+      <button [keyboardShortcut]="keyboardShortcutDef" (click)="alertMessage()">
+          Show the Message 
+      </button>
       `;
       this.code_bit_2 = `
-      @Directive({
-        selector: '[keyboardShortcut]'
-    })
+      keyboardShortcutDef: IKeyboardShortcutListenerOptions = {
+        description: 'simple, individual, demo shortcut',
+        keyBinding: [KeyboardKeys.Ctrl, 'i'],
+      };
     `;
   }
     alertMessage(): void {
