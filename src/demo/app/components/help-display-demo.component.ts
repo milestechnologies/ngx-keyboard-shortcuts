@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
-    KeyboardShortcutsService,
+    KeyboardShortcutService,
     IKeyboardShortcutListenerConstructorObject,
     KeyboardKeys
 } from '../../../../dist';
@@ -17,7 +17,7 @@ export class HelpDisplayDemoComponent implements OnInit, OnDestroy {
     listeners: any[];
     help: any[];
 
-    constructor(private keyboardShortcutsService: KeyboardShortcutsService) {}
+    constructor(private keyboardShortcutService: KeyboardShortcutService) {}
 
     ngOnInit(): void {
         this.code_bit_1 = `
@@ -41,7 +41,7 @@ export class HelpDisplayDemoComponent implements OnInit, OnDestroy {
         );
         // push to listener array
         this.listeners.push({
-            listener: this.keyboardShortcutsService.listen(
+            listener: this.keyboardShortcutService.listen(
                 newListenerConstructor
             ),
             output: { combo: kb[0] + ' + ' + kb[1], desc: d }
@@ -62,7 +62,7 @@ export class HelpDisplayDemoComponent implements OnInit, OnDestroy {
         );
         // push to listener array
         this.listeners.push({
-            listener: this.keyboardShortcutsService.listen(
+            listener: this.keyboardShortcutService.listen(
                 newListenerConstructor2
             ),
             output: { combo: kb2[0] + ' + ' + kb2[1], desc: d2 }
@@ -102,7 +102,7 @@ export class HelpDisplayDemoComponent implements OnInit, OnDestroy {
         );
         // push to listener array
         this.listeners.push({
-            listener: this.keyboardShortcutsService.listen(
+            listener: this.keyboardShortcutService.listen(
                 newListenerConstructor
             ),
             output: { combo: kb[0] + ' + ' + kb[1], desc: d }
@@ -123,7 +123,7 @@ export class HelpDisplayDemoComponent implements OnInit, OnDestroy {
         );
         // push to listener array
         this.listeners.push({
-            listener: this.keyboardShortcutsService.listen(
+            listener: this.keyboardShortcutService.listen(
                 newListenerConstructor2
             ),
             output: { combo: kb2[0] + ' + ' + kb2[1], desc: d2 }
