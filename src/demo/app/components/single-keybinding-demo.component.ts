@@ -59,7 +59,7 @@ export class SingleKeybindingDemoComponent implements OnInit {
         this.listener = this.keyboardShortcutService.listen(
             listenerConstructor
         );
-        this.info = 'active keybinding [' + kb[0] + ' + ' + kb[1] + ']';
+        this.info = 'Active Keybinding [' + kb[0] + ' + ' + kb[1] + ']';
     }
 
     ngOnDestroy(): void {
