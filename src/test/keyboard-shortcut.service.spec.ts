@@ -2,22 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { async, TestBed } from '@angular/core/testing';
 import {} from 'jasmine';
 
-import { KeyboardShortcutsService } from '../keyboard-shortcut.service';
+import { KeyboardShortcutService } from '../keyboard-shortcut.service';
 import {
     KeyboardKeys,
     KeyboardShortcutCombination
 } from '../libraries/listener.library';
 
 describe('KeyboardShortcutService', () => {
-    let service: KeyboardShortcutsService;
+    let service: KeyboardShortcutService;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [],
             imports: [BrowserModule],
-            providers: [KeyboardShortcutsService]
+            providers: [KeyboardShortcutService]
         });
-        service = TestBed.get(KeyboardShortcutsService);
+        service = TestBed.get(KeyboardShortcutService);
     }));
 
     // ================================================
@@ -243,7 +243,7 @@ describe('KeyboardShortcutService', () => {
             it('should trigger the handler when key event matches', () => {
                 let didEventFire = false;
                 const keyCombination: KeyboardShortcutCombination = [
-                   KeyboardKeys.Alt,
+                    KeyboardKeys.Alt,
                     'F'
                 ];
                 service.listen({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {
-    KeyboardShortcutsService,
+    KeyboardShortcutService,
     IKeyboardShortcutListenerConstructorObject,
     KeyboardShortcutCombination
 } from '../../../../dist';
@@ -23,7 +23,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
     outputArray = [];
     // global listener array
     listeners: any[];
-    constructor(private keyboardShortcutsService: KeyboardShortcutsService) {}
+    constructor(private keyboardShortcutService: KeyboardShortcutService) {}
 
     ngOnInit(): void {
         this.code_bit_1 = `
@@ -53,7 +53,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
         );
         // push to listener array
         this.listeners.push({
-            listener: this.keyboardShortcutsService.listen(
+            listener: this.keyboardShortcutService.listen(
                 newListenerConstructor
             ),
             output: kb[0] + ' + ' + kb[1]
@@ -91,7 +91,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
             );
             // push to listener array
             this.listeners.push({
-                listener: this.keyboardShortcutsService.listen(
+                listener: this.keyboardShortcutService.listen(
                     newListenerConstructor
                 ),
                 output: kb[0] + ' + ' + kb[1]

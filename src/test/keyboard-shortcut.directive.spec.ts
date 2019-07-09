@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 import {} from 'jasmine';
 
-import { KeyboardShortcutsService } from '../keyboard-shortcut.service';
+import { KeyboardShortcutService } from '../keyboard-shortcut.service';
 import { KeyboardShortcutDirective } from '../keyboard-shortcut.directive';
 import {
     IKeyboardShortcutListenerOptions,
@@ -31,7 +31,7 @@ class TestKeyboardShortcutDirectiveComponent {
 }
 
 describe('KeyboardShortcutDirective', () => {
-    let service: KeyboardShortcutsService;
+    let service: KeyboardShortcutService;
     let fixture: ComponentFixture<TestKeyboardShortcutDirectiveComponent>;
     let component: TestKeyboardShortcutDirectiveComponent;
 
@@ -42,10 +42,10 @@ describe('KeyboardShortcutDirective', () => {
                 KeyboardShortcutDirective
             ],
             imports: [BrowserModule],
-            providers: [KeyboardShortcutsService]
+            providers: [KeyboardShortcutService]
         });
 
-        service = TestBed.get(KeyboardShortcutsService);
+        service = TestBed.get(KeyboardShortcutService);
         fixture = TestBed.createComponent(
             TestKeyboardShortcutDirectiveComponent
         );

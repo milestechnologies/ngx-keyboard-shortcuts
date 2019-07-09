@@ -6,7 +6,7 @@ import {} from 'jasmine';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { KeyboardShortcutHelpWindowService } from '../keyboard-shortcut-help-window.service';
-import { KeyboardShortcutsService } from '../keyboard-shortcut.service';
+import { KeyboardShortcutService } from '../keyboard-shortcut.service';
 import { KeyboardKeys } from '../libraries/listener.library';
 
 @Component({
@@ -20,7 +20,7 @@ describe('KeyboardShortcutHelpWindowService', () => {
     let service: KeyboardShortcutHelpWindowService;
     let fixture: ComponentFixture<MockWindowServiceComponent>;
     let component: MockWindowServiceComponent;
-    let keyboardShortcutsService: KeyboardShortcutsService;
+    let keyboardShortcutService: KeyboardShortcutService;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -28,11 +28,11 @@ describe('KeyboardShortcutHelpWindowService', () => {
             imports: [BrowserModule, SweetAlert2Module.forRoot()],
             providers: [
                 KeyboardShortcutHelpWindowService,
-                KeyboardShortcutsService
+                KeyboardShortcutService
             ]
         });
         service = TestBed.get(KeyboardShortcutHelpWindowService);
-        keyboardShortcutsService = TestBed.get(KeyboardShortcutsService);
+        keyboardShortcutService = TestBed.get(KeyboardShortcutService);
         fixture = TestBed.createComponent(MockWindowServiceComponent);
         component = fixture.componentInstance;
     }));
@@ -43,7 +43,7 @@ describe('KeyboardShortcutHelpWindowService', () => {
         describe(':: showHelpWindow', () => {
             it('should return a Help Window when swallinstance is set and listener registered', () => {
                 service.setViewContainerRef(component.viewContainerRef);
-                keyboardShortcutsService.listen({
+                keyboardShortcutService.listen({
                     keyBinding: [KeyboardKeys.Ctrl, 'j'],
                     handler: () => '',
                     description: ''
@@ -74,16 +74,16 @@ describe('KeyboardShortcutHelpWindowService', () => {
         });
 
         describe(':: setViewContainer', () => {
-            it('keyboardShortcutsService.listen should be called the first time', () => {
-                spyOn(keyboardShortcutsService, 'listen');
+            it('keyboardShortcutService.listen should be called the first time', () => {
+                spyOn(keyboardShortcutService, 'listen');
                 service.setViewContainerRef(component.viewContainerRef);
-                expect(keyboardShortcutsService.listen).toHaveBeenCalled();
+                expect(keyboardShortcutService.listen).toHaveBeenCalled();
             });
-            it('keyboardShortcutsService.listen should not be called the second time', () => {
+            it('keyboardShortcutService.listen should not be called the second time', () => {
                 service.setViewContainerRef(component.viewContainerRef);
-                spyOn(keyboardShortcutsService, 'listen');
+                spyOn(keyboardShortcutService, 'listen');
                 service.setViewContainerRef(component.viewContainerRef);
-                expect(keyboardShortcutsService.listen).not.toHaveBeenCalled();
+                expect(keyboardShortcutService.listen).not.toHaveBeenCalled();
             });
         });
     });
