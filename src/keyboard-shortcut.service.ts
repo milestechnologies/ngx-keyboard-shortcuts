@@ -1,6 +1,5 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { NgZone } from '@angular/core';
-
 import {
     KeyboardShortcutHandler,
     IListenerHandle,
@@ -19,15 +18,16 @@ export class KeyboardShortcutService {
     private zone: NgZone;
 
     /**
-     *          Gets all available shortcut listeners
-     * @returns Parsed array of shortcut listener objects
+     * @readonly
+     * @property {IKeyboardShortcutListener[]}
+     * A list of all available shortcut listeners
      */
     get listeners_read_only(): IKeyboardShortcutListener[] {
         return JSON.parse(JSON.stringify(this._listeners));
     }
 
     /**
-     * @alias BlackListedKeyboardShortcutChecker
+     * @property {BlackListedKeyboardShortcutChecker}
      */
     blackListedKeyboardShortcutChecker: BlackListedKeyboardShortcutChecker;
 
@@ -54,7 +54,7 @@ export class KeyboardShortcutService {
     }
 
     /**
-     * Creates a listenerHandle using imported interface
+     * @description                     Creates a listenerHandle using imported interface
      *
      * @param listenerConstructorObject Interface that contains a KeyboardShortcutHandler
      * @returns                         an IListenerHandle
@@ -157,7 +157,7 @@ export class KeyboardShortcutService {
     }
 
     /**
-     * Used for testing, Sends a keyboard event
+     * @description Used for testing, Sends a keyboard event
      * @param event a keyboard event
      */
     sendKeyboardEventToHandler(event: KeyboardEvent): void {

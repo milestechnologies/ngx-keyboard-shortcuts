@@ -20,7 +20,9 @@ import {
 })
 export class KeyboardShortcutDirective implements OnInit, OnDestroy {
     @Input() public keyboardShortcut: IKeyboardShortcutListenerOptions;
+
     @Input() public fireClickEventOnKeyboardShortcut = true;
+
     @Output() public onKeyboardShortcut = new EventEmitter<KeyboardEvent>();
 
     private listener: IListenerHandle;
