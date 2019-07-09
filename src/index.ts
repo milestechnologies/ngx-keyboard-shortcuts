@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { KeyboardShortcutsService } from './keyboard-shortcut.service';
+import { KeyboardShortcutService } from './keyboard-shortcut.service';
 import { KeyboardShortcutDirective } from './keyboard-shortcut.directive';
 import { KeyboardShortcutHelpWindowService } from './keyboard-shortcut-help-window.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -16,7 +16,7 @@ export class NgxKeyboardShortcutModule {
         return {
             ngModule: NgxKeyboardShortcutModule,
             providers: [
-                KeyboardShortcutsService,
+                KeyboardShortcutService,
                 KeyboardShortcutHelpWindowService
             ]
         };

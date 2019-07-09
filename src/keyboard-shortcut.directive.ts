@@ -8,7 +8,7 @@ import {
     ElementRef
 } from '@angular/core';
 
-import { KeyboardShortcutsService } from './keyboard-shortcut.service';
+import { KeyboardShortcutService } from './keyboard-shortcut.service';
 import {
     IListenerHandle,
     IKeyboardShortcutListenerOptions,
@@ -27,7 +27,7 @@ export class KeyboardShortcutDirective implements OnInit, OnDestroy {
 
     public constructor(
         private elRef: ElementRef,
-        private keyboardShortcutService: KeyboardShortcutsService
+        private keyboardShortcutService: KeyboardShortcutService
     ) {}
 
     public ngOnInit(): void {

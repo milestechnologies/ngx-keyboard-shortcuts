@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
-    KeyboardShortcutsService,
+    KeyboardShortcutService,
     IKeyboardShortcutListenerConstructorObject,
     KeyboardKeys,
     KeyboardShortcutCombination
@@ -16,7 +16,7 @@ export class SingleKeybindingDemoComponent implements OnInit {
     // global listener variable
     listener: any;
     info: string;
-    constructor(private keyboardShortcutService: KeyboardShortcutsService) {}
+    constructor(private keyboardShortcutService: KeyboardShortcutService) {}
 
     ngOnInit(): void {
         this.code_bit_1 = `

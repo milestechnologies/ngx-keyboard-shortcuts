@@ -8,7 +8,7 @@ import {
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { SweetAlertOptions } from 'sweetalert2';
 
-import { KeyboardShortcutsService } from './keyboard-shortcut.service';
+import { KeyboardShortcutService } from './keyboard-shortcut.service';
 import {
     KeyboardShortcutCombination,
     KeyboardKeys
@@ -33,7 +33,7 @@ export class KeyboardShortcutHelpWindowService {
 
     public constructor(
         private readonly resolver: ComponentFactoryResolver,
-        private readonly keyboardShortcutsService: KeyboardShortcutsService
+        private readonly keyboardShortcutService: KeyboardShortcutService
     ) {}
 
     public setViewContainerRef(
@@ -55,7 +55,7 @@ export class KeyboardShortcutHelpWindowService {
             'h'
         ];
         const keyBinding = helpKeyBinding || defaultBinding;
-        this.keyboardShortcutsService.listen({
+        this.keyboardShortcutService.listen({
             description: null,
             handler: this.showHelpWindow.bind(this),
             keyBinding: keyBinding,
@@ -86,7 +86,7 @@ export class KeyboardShortcutHelpWindowService {
         <br/>
         <div style="text-align: left; margin-left: 30px;">
         `;
-        const shortcutsToShow = this.keyboardShortcutsService.listeners_read_only.filter(
+        const shortcutsToShow = this.keyboardShortcutService.listeners_read_only.filter(
             (ks) => !ks.omitFromHelp
         );
         shortcutsToShow.forEach((s) => {
