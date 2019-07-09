@@ -127,8 +127,8 @@ export class ShortcutServiceDemoComponent implements OnInit {
             this.outputArray.push(i.output);
         }
         this.listenerObjectStatus =
-            'listeners array contains ' +
+            'Listeners Array Contains ' +
             this.outputArray.length +
-            ' listeners';
+            ' Listeners';
     }
 }
