@@ -18,10 +18,17 @@ export class KeyboardShortcutService {
     private _listeners: IKeyboardShortcutListener[] = [];
     private zone: NgZone;
 
+    /**
+     *          Gets all available shortcut listeners
+     * @returns Parsed array of shortcut listener objects
+     */
     get listeners_read_only(): IKeyboardShortcutListener[] {
         return JSON.parse(JSON.stringify(this._listeners));
     }
 
+    /**
+     * @alias BlackListedKeyboardShortcutChecker
+     */
     blackListedKeyboardShortcutChecker: BlackListedKeyboardShortcutChecker;
 
     constructor(zone: NgZone) {
@@ -46,7 +53,12 @@ export class KeyboardShortcutService {
         }
     }
 
-    // setup a listener and return the listener
+    /**
+     * Creates a listenerHandle using imported interface
+     *
+     * @param listenerConstructorObject Interface that contains a KeyboardShortcutHandler
+     * @returns                         an IListenerHandle
+     */
     public listen(
         listenerConstructorObject: IKeyboardShortcutListenerConstructorObject
     ): IListenerHandle {
@@ -144,7 +156,10 @@ export class KeyboardShortcutService {
         }
     }
 
-    // used for testing
+    /**
+     * Used for testing, Sends a keyboard event
+     * @param event a keyboard event
+     */
     sendKeyboardEventToHandler(event: KeyboardEvent): void {
         this.handleKeyboardEvent(event);
     }
