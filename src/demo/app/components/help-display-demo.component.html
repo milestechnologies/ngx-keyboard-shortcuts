@@ -17,20 +17,8 @@
 
 <div class="row">
     <div class="col-sm-6">
-        <label>These two buttons trigger the corresponding functions!</label>
-        <hr />
-        <button class="btn btn-primary" (click)="saveMessage()">
-            Save Button
-        </button>
-        <button class="btn btn-primary" (click)="copyMessage()">
-            Copy Button
-        </button>
-        <hr />
-        <p>And so do the keybindings!</p>
-    </div>
-    <div class="col-sm-6">
-        <label><h3>Help Window</h3></label>
-        <table cellpadding="8" style="border: groove black;width: 500px;">
+        <h4><em>Help Window</em></h4>
+        <table cellpadding="8" style="border: groove black;width: 100%;">
             <tr>
                 <th>Key Combination</th>
                 <th>Shortcut</th>
@@ -44,6 +32,26 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div class="col-sm-6">
+        <br />
+        <br />
+        <label>These two buttons trigger the corresponding functions!</label>
+        <br />
+        <button
+            class="btn btn-primary little-extra-bottom-margin"
+            (click)="saveMessage()"
+        >
+            Save Button
+        </button>
+        <button
+            class="btn btn-primary little-extra-bottom-margin"
+            (click)="copyMessage()"
+        >
+            Copy Button
+        </button>
+        <br />
+        <p>And so do the keybindings!</p>
     </div>
 </div>
 
