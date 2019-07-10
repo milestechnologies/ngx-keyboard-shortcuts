@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KeyboardKeys } from '../../../../dist';
-import { IKeyboardShortcutListenerOptions } from '../../../libraries/listener.library';
+import { KeyboardKeys, IKeyboardShortcutListenerOptions } from '../../../../dist';
 
 @Component({
     selector: 'app-directive-button-demo',

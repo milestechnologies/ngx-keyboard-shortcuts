@@ -1,21 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { blacklistedKeyCombinations } from '../../../libraries/black-listed-key-bindings.library';
 import {
     KeyboardShortcutService,
     KeyboardKeys,
+    blacklistedKeyCombinations,
     IKeyboardShortcutListenerConstructorObject,
     IKeyboardShortcutListenerOptions
 } from '../../../../dist/';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     templateUrl: './blacklisted-keys-demo.component.html'
 })
 export class BlacklistedShortcutsComponent implements OnInit {
-    form = new FormGroup({
-        key1: new FormControl(''),
-        key2: new FormControl('')
-    });
     listenerObjectStatus: string;
     outputArray = [];
     listeners: any[];
