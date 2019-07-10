@@ -162,22 +162,29 @@ describe('KeyboardShortcutService', () => {
                     KeyboardKeys.Shift,
                     'C'
                 ];
+
+                // setup a listener and a variable to monitor the high priority hotkey
                 let higherPriorityResult = null;
-                let lowerPriorityResult = null;
                 service.listen({
                     keyBinding: keyCombination,
-                    handler: () => (higherPriorityResult = true),
+                    handler: () => (higherPriorityResult = true), // this only fires when key combo heard
                     description: '',
                     priority: 100,
                     passToLowerPriorities: false
                 });
+
+                // setup a listener and a variable to monitor the low priority hotkey
+                let lowerPriorityResult = null;
                 service.listen({
                     keyBinding: keyCombination,
-                    handler: () => (lowerPriorityResult = true),
+                    handler: () => (lowerPriorityResult = true), // this only fires when key combo heard
                     description: ''
                 });
+
+                // send the keyboard event to trigger both listeners
                 const event = <KeyboardEvent>{ shiftKey: true, key: 'C' };
                 service.sendKeyboardEventToHandler(event);
+
                 expect(higherPriorityResult).not.toBeNull();
                 expect(lowerPriorityResult).toBeNull();
             });
