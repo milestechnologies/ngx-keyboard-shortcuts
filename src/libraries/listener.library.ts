@@ -1,6 +1,8 @@
 import { BlackListedKeyboardShortcutChecker } from './black-listed-key-bindings.library';
-
-export interface IKeyboardShortcutListenerOptions { // defaults with ?
+/**
+ * @description represents an object that is used in the construction of a new listener
+ */
+export interface IKeyboardShortcutListenerOptions {
     /**
      * @property {KeyboardShortcutCombination}
      */
@@ -10,15 +12,16 @@ export interface IKeyboardShortcutListenerOptions { // defaults with ?
      */
     description: string;
     /**
-     * @property { number } the order of presedence when more than one key matches
+     * @property { number } the order of precedence when more than one key matches
      */
     priority?: number;
     /**
-     * @property { boolean } if this is true, and you are inside a text box and do shortcut it wouldn't actually fire
+     * @property { boolean } if this is true, and more than one keybinding matches,
+     * then after resolving the first keybinding it will be passed on to the next keybinding so it can also be resolved
      */
     passToLowerPriorities?: boolean;
     /**
-     * @property { boolean } if this is true, and you are inside a text box and do shortcut it wouldn't actually fire
+     * @property { boolean } if this is true, and you are inside a text box and do a shortcut it wouldn't actually fire
      */
     ignoreEventsFromInputElement?: boolean;
     /**
@@ -31,7 +34,9 @@ export interface IKeyboardShortcutListenerConstructorObject
     extends IKeyboardShortcutListenerOptions {
     handler: KeyboardShortcutHandler;
 }
-
+/**
+ * @description represents a shortcut listener object
+ */
 export interface IKeyboardShortcutListener {
     /**
      * @property {KeyboardShortcutCombination}
@@ -46,15 +51,16 @@ export interface IKeyboardShortcutListener {
      */
     handler: KeyboardShortcutHandler;
     /**
-     * @property { number } the order of presedence when more than one key matches
+     * @property { number } the order of precedence when more than one key matches
      */
     priority: number;
     /**
-     * @property {boolean} if this is true then pass down from prioritze low to high, if false do the opposite
+     * @property {boolean} if this is true, and more than one keybinding matches,
+     * then after resolving the first keybinding it will be passed on to the next keybinding so it can also be resolved
      */
     passToLowerPriorities: boolean;
     /**
-     * @property { boolean } if this is true, and you are inside a text box and do shortcut it wouldn't actually fire
+     * @property { boolean } if this is true, and you are inside a text box and do a shortcut it wouldn't actually fire
      */
     ignoreEventsFromInputElement: boolean;
     /**
@@ -81,7 +87,7 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
      */
     description: string;
     /**
-     * @property { number } the order of presedence when more than one key matches
+     * @property { number } the order of precedence when more than one key matches
      */
     priority: number;
     /**
@@ -89,11 +95,12 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
      */
     handler: KeyboardShortcutHandler;
     /**
-     * @property {boolean} if this is true then pass down from prioritze low to high, if false do the opposite
+     * @property {boolean} if this is true, and more than one keybinding matches,
+     * then after resolving the first keybinding it will be passed on to the next keybinding so it can also be resolved
      */
     passToLowerPriorities: boolean;
     /**
-     * @property { boolean } if this is true, and you are inside a text box and do shortcut it wouldn't actually fire
+     * @property { boolean } if this is true, and you are inside a text box and do a shortcut it wouldn't actually fire
      */
     ignoreEventsFromInputElement: boolean;
     /**
@@ -162,7 +169,7 @@ export interface IListenerHandle {
     remove(): void;
 }
 /**
- * @type { event: KeyboardEvent } it is handler to keep track of the listeners
+ * @type { event: KeyboardEvent } the function that should be run when the keyboard combination is matched
  */
 export type KeyboardShortcutHandler = (event: KeyboardEvent) => void;
 /**
@@ -180,7 +187,7 @@ export enum KeyboardKeys {
 export type KeyboardShortcutCombination = (string | KeyboardKeys)[]; // not sure yet chris take care of this 
 /**
  * @param bindings takes in the shortcut from KeyboardShortcutCombination which is an array of strings
- * @return {string} // look up
+ * @return {string}
  */
 export function mapKeyboardShortcutCombination(
     bindings: KeyboardShortcutCombination
