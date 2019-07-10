@@ -6,7 +6,8 @@ import { KeyboardShortcutDirective } from './keyboard-shortcut.directive';
 
 @NgModule({
     declarations: [KeyboardShortcutDirective],
-    exports: [KeyboardShortcutDirective]
+    exports: [KeyboardShortcutDirective],
+    imports: [CommonModule]
 })
 export class NgxKeyboardShortcutModule {
     static forRoot(): any {
