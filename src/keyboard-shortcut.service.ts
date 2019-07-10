@@ -19,8 +19,8 @@ export class KeyboardShortcutService {
 
     /**
      * @readonly
-     * @property {IKeyboardShortcutListener[]}
-     * A list of all available shortcut listeners
+     * @description A list of all available shortcut listeners
+     * @property    {IKeyboardShortcutListener[]}
      */
     get listeners_read_only(): IKeyboardShortcutListener[] {
         return JSON.parse(JSON.stringify(this._listeners));
@@ -55,7 +55,6 @@ export class KeyboardShortcutService {
 
     /**
      * @description                     Creates a listenerHandle using imported interface
-     *
      * @param listenerConstructorObject Interface that contains a KeyboardShortcutHandler
      * @returns                         an IListenerHandle
      */
