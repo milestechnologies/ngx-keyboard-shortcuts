@@ -69,4 +69,16 @@ export class BlacklistedShortcutsComponent implements OnInit {
     keyClicked(): void {
         return console.log('You clicked Ctrl + S');
     }
+
+    getKeyAsString(blackListedKey: string[]): string {
+        if (blackListedKey.length === 1) {
+            return `${blackListedKey[0]}`;
+        }
+        if (blackListedKey.length === 2) {
+            return `${blackListedKey[0]} + ${blackListedKey[1].toUpperCase()}`;
+        }
+        if (blackListedKey.length === 3) {
+            return `${blackListedKey[0]} + ${blackListedKey[1]} + ${blackListedKey[2].toUpperCase()}`;
+        }
+    }
 }

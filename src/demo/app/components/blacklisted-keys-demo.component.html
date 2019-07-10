@@ -32,16 +32,8 @@
 <div class="jumbotron demo-description-block">
     <h4><em>Blacklisted Keys</em></h4>
     <div class="row">
-        <div *ngFor="let b of blacklistedKeys" class="col-md-3">
-            <div *ngIf="b[0] && !b[1]">
-                {{ b[0] }}
-            </div>
-            <div *ngIf="b[0] && b[1] && !b[2]">
-                {{ b[0] }} + {{ b[1] | uppercase }}
-            </div>
-            <div *ngIf="b[0] && b[1] && b[2]">
-                {{ b[0] }} + {{ b[1] }} + {{ b[2] | uppercase }}
-            </div>
+        <div *ngFor="let blackListedKey of blacklistedKeys" class="col-md-3">
+            {{getKeyAsString(blackListedKey)}}
         </div>
     </div>
 </div>
