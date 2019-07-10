@@ -1,0 +1,62 @@
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        The help display demo is designed to show how the creation of any number
+        of keybindings can be easily represented in a list (or table) format
+        within some div. Saving an array of objects containing a keybinding
+        combination and a description is the simple implementation of storing a
+        help display for users using the system that the developer may require /
+        want the user to be aware of.
+    </p>
+    <p>
+        The code below demonstrates how to construct a table that contains this
+        information while building the keybindings and creating the listeners.
+    </p>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-sm-6">
+        <label>These two buttons trigger the corresponding functions!</label>
+        <hr />
+        <button class="btn btn-primary" (click)="saveMessage()">
+            Save Button
+        </button>
+        <button class="btn btn-primary" (click)="copyMessage()">
+            Copy Button
+        </button>
+        <hr />
+        <p>And so do the keybindings!</p>
+    </div>
+    <div class="col-sm-6">
+        <label><h3>Help Window</h3></label>
+        <table cellpadding="8" style="border: groove black;width: 500px;">
+            <tr>
+                <th>Key Combination</th>
+                <th>Shortcut</th>
+            </tr>
+            <tr *ngFor="let e of help">
+                <td>
+                    {{ e.combo }}
+                </td>
+                <td>
+                    {{ e.desc }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_1"></code>
+</pre>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_2"></code>
+</pre>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_3"></code>
+</pre>
+
+<br />
+<br />
+<br />
