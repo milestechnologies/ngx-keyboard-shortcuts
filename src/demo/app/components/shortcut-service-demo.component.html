@@ -14,55 +14,67 @@
     </p>
 </div>
 <hr />
-<h4>
-    <em>{{ listenerObjectStatus }}!</em>
-</h4>
-<div>
-    <form [formGroup]="form">
-        <div class="form-group row">
-            <select
-                style="margin-left: 15px;"
-                class="form-control col-sm-2"
-                name="key1selector"
-                formControlName="key1"
-            >
-                <option value="ctrl">Ctrl</option>
-                <option value="alt">Alt</option>
-                <option value="shift">Shift</option>
-                <option value="escape">Escape</option>
-            </select>
-            <input
-                style="margin-left: 15px;"
-                class="form-control col-sm-2"
-                type="text"
-                placeholder="second key"
-                formControlName="key2"
-            />
-            <button
-                style="margin-left: 15px;"
-                class="btn btn-primary"
-                (click)="addShortcut()"
-            >
-                Add New Listener
-            </button>
+
+<div class="row">
+    <div class="col-sm-6">
+        <h4>
+            <em>{{ listenerObjectStatus }}!</em>
+        </h4>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <form [formGroup]="form">
+                <div class="form-group row">
+                    <select
+                        style="margin-left: 15px;"
+                        class="form-control col-sm-2"
+                        name="key1selector"
+                        formControlName="key1"
+                    >
+                        <option value="ctrl">Ctrl</option>
+                        <option value="alt">Alt</option>
+                        <option value="shift">Shift</option>
+                        <option value="escape">Escape</option>
+                    </select>
+                    <input
+                        style="margin-left: 15px;"
+                        class="form-control col-sm-2"
+                        type="text"
+                        placeholder="second key"
+                        formControlName="key2"
+                    />
+                    <button
+                        style="margin-left: 15px;"
+                        class="btn btn-primary"
+                        (click)="addShortcut()"
+                    >
+                        Add New Listener
+                    </button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+        <ul style="list-style-type: none;">
+            <li *ngFor="let elem of outputArray; let i = index">
+                <div class="form-group row">
+                    <h5>{{ elem }}</h5>
+                    <button
+                        style="margin-left: 15px;"
+                        (click)="deleteShortcut(i)"
+                        class="btn-sm btn-danger"
+                    >
+                        delete
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<ul style="list-style-type: none;">
-    <li *ngFor="let elem of outputArray; let i = index">
-        <div class="form-group row">
-            <h5>{{ elem }}</h5>
-            <button
-                style="margin-left: 15px;"
-                (click)="deleteShortcut(i)"
-                class="btn btn-danger"
-            >
-                delete
-            </button>
-        </div>
-    </li>
-</ul>
 <pre style="margin-bottom: 0;">
     <code class="highcodeblock" [highlight]="code_bit_1"></code>
 </pre>
