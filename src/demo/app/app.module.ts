@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxKeyboardShortcutModule } from '../../../dist';
 
 import { AppComponent } from './app.component';
-import { DemoComponent } from './demo.component';
 import { SingleKeybindingDemoComponent } from './components/single-keybinding-demo.component';
 import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +30,6 @@ export function hljsLanguages(): any {
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
-        DemoComponent,
         SingleKeybindingDemoComponent,
         ShortcutServiceDemoComponent,
         BlacklistedShortcutsComponent,

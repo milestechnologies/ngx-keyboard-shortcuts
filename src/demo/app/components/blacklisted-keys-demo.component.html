@@ -1,11 +1,11 @@
 <div class="jumbotron demo-description-block">
     <h4><em>How it works</em></h4>
     <p>
-        Some key shortcuts are "blacklisted" to protect functionality.
-      Ctrl + 's', for example, is a traditional save shortcut.
-      When a blacklisted shortcut is created you will be given a
-      warning in the console like the one below, but the key will still be added.<br>
-      **Note that this will only show when in developer mode.**
+        Some key shortcuts are "blacklisted" to protect functionality. Ctrl +
+        's', for example, is a traditional save shortcut. When a blacklisted
+        shortcut is created you will be given a warning in the console like the
+        one below, but the key will still be added.<br />
+        **Note that this will only show when in developer mode.**
     </p>
     <p>
         To view the warning message, enter the console and click the button
@@ -33,7 +33,7 @@
     <h4><em>Blacklisted Keys</em></h4>
     <div class="row">
         <div *ngFor="let blackListedKey of blacklistedKeys" class="col-md-3">
-            {{getKeyAsString(blackListedKey)}}
+            {{ getKeyAsString(blackListedKey) }}
         </div>
     </div>
 </div>
