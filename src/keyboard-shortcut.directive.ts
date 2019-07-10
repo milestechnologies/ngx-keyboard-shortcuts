@@ -31,17 +31,19 @@ export class KeyboardShortcutDirective implements OnInit, OnDestroy {
     ) {}
 
     public ngOnInit(): void {
-        if (this.keyboardShortcut) {
-            let listenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
-            Object.assign(
-                listenerConstructor,
-                { handler: this.keyboardShortcutHandler.bind(this) },
-                this.keyboardShortcut
-            );
-            this.listener = this.keyboardShortcutService.listen(
-                listenerConstructor
-            );
+        if (!this.keyboardShortcut) {
+            return;
         }
+
+        let listenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
+        Object.assign(
+            listenerConstructor,
+            { handler: this.keyboardShortcutHandler.bind(this) },
+            this.keyboardShortcut
+        );
+        this.listener = this.keyboardShortcutService.listen(
+            listenerConstructor
+        );
     }
 
     private keyboardShortcutHandler(event: KeyboardEvent): void {
