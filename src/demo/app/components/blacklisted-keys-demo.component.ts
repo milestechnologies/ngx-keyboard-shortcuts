@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { blacklistedKeyCombinations } from '../../../libraries/black-listed-key-bindings.library';
 import {
     KeyboardShortcutService,
     KeyboardKeys,
+    blacklistedKeyCombinations,
     IKeyboardShortcutListenerConstructorObject,
     IKeyboardShortcutListenerOptions
 } from '../../../../dist/';
