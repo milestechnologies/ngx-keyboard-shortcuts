@@ -69,9 +69,5 @@
     },
     "engines": {
         "node": ">=6.0.0"
-    },
-    "dependencies": {
-        "@sweetalert2/ngx-sweetalert2": "^5.0.1",
-        "sweetalert2": "^8.5.0"
     }
 }
