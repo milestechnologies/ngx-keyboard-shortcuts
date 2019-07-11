@@ -11,24 +11,14 @@ import {
     templateUrl: './blacklisted-keys-demo.component.html'
 })
 export class BlacklistedShortcutsComponent implements OnInit {
-    listenerObjectStatus: string;
-    outputArray = [];
     listeners: any[];
     blacklistedKeys = blacklistedKeyCombinations;
     badBinding: IKeyboardShortcutListenerOptions;
 
     constructor(private keyboardShortcutService: KeyboardShortcutService) {}
 
-    makeStringy(object: any): string {
-        return JSON.stringify(object);
-    }
-
     ngOnInit(): void {
-        this.listenerObjectStatus = '';
         this.listeners = [];
-        this.outputArray = [];
-        // populating element that displays current Keyboard Listeners
-        this.populateOutputArray();
     }
 
     ngOnDestroy(): void {
@@ -58,14 +48,8 @@ export class BlacklistedShortcutsComponent implements OnInit {
             ),
             output: kb[0] + ' + ' + kb[1]
         });
-        this.populateOutputArray();
     }
-    populateOutputArray(): void {
-        this.outputArray = [];
-        for (let i of this.listeners) {
-            this.outputArray.push(i.output);
-        }
-    }
+
     keyClicked(): void {
         return console.log('You clicked Ctrl + S');
     }
@@ -78,7 +62,9 @@ export class BlacklistedShortcutsComponent implements OnInit {
             return `${blackListedKey[0]} + ${blackListedKey[1].toUpperCase()}`;
         }
         if (blackListedKey.length === 3) {
-            return `${blackListedKey[0]} + ${blackListedKey[1]} + ${blackListedKey[2].toUpperCase()}`;
+            return `${blackListedKey[0]} + ${
+                blackListedKey[1]
+            } + ${blackListedKey[2].toUpperCase()}`;
         }
     }
 }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
-    styleUrls: ['app.component.css'],
     template: `
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
             <div class="container">
@@ -38,7 +37,7 @@ import { Component } from '@angular/core';
                         class="nav-link"
                         routerLink="/help-display-demo"
                         routerLinkActive="active"
-                        >help display</a
+                        >Help Display</a
                     >
                     <button
                         class="navbar-toggler"

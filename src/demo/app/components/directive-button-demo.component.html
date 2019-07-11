@@ -11,15 +11,22 @@
     </p>
 </div>
 <hr />
-<h4><em>Test the Directive!</em></h4>
-<button
-    [keyboardShortcut]="keyboardShortcutDef"
-    (click)="alertMessage()"
-    class="btn btn-primary"
->
-    Show the Message
-</button>
-<br />
+
+<div class="row">
+    <div class="col-sm-3">
+        <h4><em>Test the Directive!</em></h4>
+    </div>
+    <div class="col-sm-3">
+        <button
+            [keyboardShortcut]="keyboardShortcutDef"
+            (click)="alertMessage()"
+            class="btn btn-primary"
+        >
+            Show the Message
+        </button>
+    </div>
+</div>
+
 <pre style="margin-bottom: 0;">
     <code class="highcodeblock" [highlight]="code_bit_1"></code>
 </pre>
