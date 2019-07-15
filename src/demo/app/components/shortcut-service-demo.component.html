@@ -61,7 +61,7 @@
         <ul style="list-style-type: none;">
             <li *ngFor="let elem of outputArray; let i = index">
                 <div class="form-group row">
-                    <h5>{{ elem }}</h5>
+                    <h5>{{ elem.output }}</h5>
                     <button
                         style="margin-left: 15px;"
                         (click)="deleteShortcut(i)"

@@ -20,7 +20,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
         key2: new FormControl('', [Validators.required])
     });
     get outputArray(): any[] {
-        return this.listeners.map((listener) => listener.object);
+        return this.listeners;
     }
     get listenerObjectStatus(): string {
         return `Listeners Array Contains ${this.outputArray.length} Listeners`;
@@ -101,6 +101,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
             ),
             output: kb[0] + ' + ' + kb[1]
         });
+        console.log(this.outputArray);
     }
 
     // delete's listener object from array at index i
@@ -119,5 +120,4 @@ export class ShortcutServiceDemoComponent implements OnInit {
                 ' successfully triggered'
         );
     }
-
 }
