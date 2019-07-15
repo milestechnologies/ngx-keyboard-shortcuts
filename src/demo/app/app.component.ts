@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
             <div class="container">
                 <div class="navbar-expand mr-auto navbar-nav">
                     <a class="navbar-brand" routerLink="/home"
-                        >ngx-keyboard-shortcuts</a
+                        >Keyboard Shortcuts Demo</a
                     >
                     <a
                         class="nav-link"
