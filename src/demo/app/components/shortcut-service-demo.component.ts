@@ -101,7 +101,6 @@ export class ShortcutServiceDemoComponent implements OnInit {
             ),
             output: kb[0] + ' + ' + kb[1]
         });
-        console.log(this.outputArray);
     }
 
     // delete's listener object from array at index i
