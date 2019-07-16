@@ -27,10 +27,11 @@
                 <div class="form-group row">
                     <select
                         style="margin-left: 15px;"
-                        class="form-control col-sm-2"
+                        class="form-control col-sm-3"
                         name="key1selector"
                         formControlName="key1"
                     >
+                        <option value="" disabled selected>first key</option>
                         <option value="ctrl">Ctrl</option>
                         <option value="alt">Alt</option>
                         <option value="shift">Shift</option>
@@ -38,7 +39,7 @@
                     </select>
                     <input
                         style="margin-left: 15px;"
-                        class="form-control col-sm-2"
+                        class="form-control col-sm-3"
                         type="text"
                         placeholder="second key"
                         formControlName="key2"
