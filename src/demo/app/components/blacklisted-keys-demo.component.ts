@@ -1,25 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
     KeyboardShortcutService,
     KeyboardKeys,
     blacklistedKeyCombinations,
-    IKeyboardShortcutListenerConstructorObject,
-    IKeyboardShortcutListenerOptions
+    IKeyboardShortcutListenerConstructorObject
 } from '../../../../dist/';
 
 @Component({
     templateUrl: './blacklisted-keys-demo.component.html'
 })
-export class BlacklistedShortcutsComponent implements OnInit {
-    listeners: any[];
+export class BlacklistedShortcutsComponent implements OnDestroy {
+    listeners = [];
     blacklistedKeys = blacklistedKeyCombinations;
-    badBinding: IKeyboardShortcutListenerOptions;
 
     constructor(private keyboardShortcutService: KeyboardShortcutService) {}
-
-    ngOnInit(): void {
-        this.listeners = [];
-    }
 
     ngOnDestroy(): void {
         // destroys all the listeners when the component is destroyed
@@ -30,41 +24,39 @@ export class BlacklistedShortcutsComponent implements OnInit {
 
     // creates and adds listener object to array listeners
     addShortcut(): void {
-        const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
         const kb = [KeyboardKeys.Ctrl, 's'];
-        Object.assign(
-            newListenerConstructor,
-            {
-                handler: this.keyClicked.bind(kb)
-            },
-            {
-                description: 'new shortcut',
-                keyBinding: kb
-            }
+        const badKeybindingConstructor: IKeyboardShortcutListenerConstructorObject = {
+            description: 'new shortcut',
+            handler: this.keyClicked.bind(kb),
+            keyBinding: kb
+        };
+        const listenerHandle = this.keyboardShortcutService.listen(
+            badKeybindingConstructor
         );
         this.listeners.push({
-            listener: this.keyboardShortcutService.listen(
-                newListenerConstructor
-            ),
+            listener: listenerHandle,
             output: kb[0] + ' + ' + kb[1]
         });
     }
 
     keyClicked(): void {
-        return console.log('You clicked Ctrl + S');
+        console.log('You clicked Ctrl + S');
     }
 
     getKeyAsString(blackListedKey: string[]): string {
-        if (blackListedKey.length === 1) {
-            return `${blackListedKey[0]}`;
-        }
-        if (blackListedKey.length === 2) {
-            return `${blackListedKey[0]} + ${blackListedKey[1].toUpperCase()}`;
-        }
-        if (blackListedKey.length === 3) {
-            return `${blackListedKey[0]} + ${
-                blackListedKey[1]
-            } + ${blackListedKey[2].toUpperCase()}`;
+        switch (blackListedKey.length) {
+            case 1:
+                return `${blackListedKey[0]}`;
+            case 2:
+                return `${
+                    blackListedKey[0]
+                } + ${blackListedKey[1].toUpperCase()}`;
+            case 3:
+                return `${blackListedKey[0]} + ${
+                    blackListedKey[1]
+                } + ${blackListedKey[2].toUpperCase()}`;
+            default:
+                return '';
         }
     }
 }
