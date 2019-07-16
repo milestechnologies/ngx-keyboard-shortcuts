@@ -26,8 +26,7 @@
             <form [formGroup]="form">
                 <div class="form-group row">
                     <select
-                        style="margin-left: 15px;"
-                        class="form-control col-sm-3"
+                        class="margin-left-15 form-control col-sm-3"
                         name="key1selector"
                         formControlName="key1"
                     >
@@ -38,18 +37,16 @@
                         <option value="escape">Escape</option>
                     </select>
                     <input
-                        style="margin-left: 15px;"
-                        class="form-control col-sm-3"
+                        class="margin-left-15 form-control col-sm-3"
                         type="text"
                         placeholder="second key"
                         formControlName="key2"
                     />
                     <button
-                        style="margin-left: 15px;"
-                        class="btn btn-primary"
+                        class="margin-left-15 btn btn-primary"
                         (click)="addShortcut()"
                     >
-                        Add New Listener
+                        Add Listener
                     </button>
                 </div>
             </form>
@@ -57,16 +54,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6"></div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 offset-sm-6">
         <ul style="list-style-type: none;">
             <li *ngFor="let elem of outputArray; let i = index">
                 <div class="form-group row">
                     <h5>{{ elem.output }}</h5>
                     <button
-                        style="margin-left: 15px;"
                         (click)="deleteShortcut(i)"
-                        class="btn-sm btn-danger"
+                        class="margin-left-15 btn-sm btn-danger"
                     >
                         delete
                     </button>
@@ -77,10 +72,10 @@
 </div>
 
 <pre style="margin-bottom: 0;">
-    <code class="highcodeblock" [highlight]="code_bit_1"></code>
+    <code class="highcodeblock" [highlight]="globalCode"></code>
 </pre>
 <pre style="margin-bottom: 0;">
-    <code class="highcodeblock" [highlight]="code_bit_2"></code>
+    <code class="highcodeblock" [highlight]="formGroupCode"></code>
 </pre>
 <pre style="margin-bottom: 0;">
     <code class="highcodeblock" [highlight]="code_bit_3"></code>

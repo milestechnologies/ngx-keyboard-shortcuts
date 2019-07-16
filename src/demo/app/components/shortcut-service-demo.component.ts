@@ -7,12 +7,21 @@ import {
 } from '../../../../dist';
 
 @Component({
-    selector: 'app-shortcut-service-demo',
+    styles: [
+        `
+            .margin-left-15 {
+                margin-left: 15px;
+            }
+        `
+    ],
     templateUrl: './shortcut-service-demo.component.html'
 })
 export class ShortcutServiceDemoComponent implements OnInit {
-    code_bit_1: string;
-    code_bit_2: string;
+    globalCode = `
+    // global listener array
+    listeners: any[];
+    `;
+    formGroupCode: string;
     code_bit_3: string;
     // global FormGroup variable
     form = new FormGroup({
@@ -30,11 +39,7 @@ export class ShortcutServiceDemoComponent implements OnInit {
     constructor(private keyboardShortcutService: KeyboardShortcutService) {}
 
     ngOnInit(): void {
-        this.code_bit_1 = `
-        // global listener array
-        listeners: any[];
-        `;
-        this.code_bit_2 = `
+        this.formGroupCode = `
         // global FormGroup variable
         form = new FormGroup({
             key1: new FormControl(''),
