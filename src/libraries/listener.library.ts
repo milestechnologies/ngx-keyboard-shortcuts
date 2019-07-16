@@ -47,7 +47,7 @@ export interface IKeyboardShortcutListener {
      */
     description: string;
     /**
-     * @property {KeyboardShortcutHandler} 
+     * @property {KeyboardShortcutHandler}
      */
     handler: KeyboardShortcutHandler;
     /**
@@ -91,7 +91,7 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
      */
     priority: number;
     /**
-     * @property {KeyboardShortcutHandler} 
+     * @property {KeyboardShortcutHandler}
      */
     handler: KeyboardShortcutHandler;
     /**
@@ -184,7 +184,7 @@ export enum KeyboardKeys {
 /**
  * @type the combination of keys that will call the shortcut you use
  */
-export type KeyboardShortcutCombination = (string | KeyboardKeys)[]; // not sure yet chris take care of this 
+export type KeyboardShortcutCombination = (string | KeyboardKeys)[]; // not sure yet chris take care of this
 /**
  * @param bindings takes in the shortcut from KeyboardShortcutCombination which is an array of strings
  * @return {string}
