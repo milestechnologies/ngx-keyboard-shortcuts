@@ -1,0 +1,90 @@
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        The shortcut service (declared in the constructor of the component) is
+        used to create listeners for keybinding combinations. We can also
+        declare a global array to hold these listeners and use a form to allow
+        the user to create these keybindings and dynamically add them to the
+        array.
+    </p>
+    <p>
+        The code below demonstrates how to utilize the array data structure to
+        store multiple keybinding listeners at a time and delete / add new ones
+        within the component.
+    </p>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-sm-6">
+        <h4>
+            <em>{{ listenerObjectStatus }}!</em>
+        </h4>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <form [formGroup]="form">
+                <div class="form-group row">
+                    <select
+                        style="margin-left: 15px;"
+                        class="form-control col-sm-3"
+                        name="key1selector"
+                        formControlName="key1"
+                    >
+                        <option value="" disabled selected>first key</option>
+                        <option value="ctrl">Ctrl</option>
+                        <option value="alt">Alt</option>
+                        <option value="shift">Shift</option>
+                        <option value="escape">Escape</option>
+                    </select>
+                    <input
+                        style="margin-left: 15px;"
+                        class="form-control col-sm-3"
+                        type="text"
+                        placeholder="second key"
+                        formControlName="key2"
+                    />
+                    <button
+                        style="margin-left: 15px;"
+                        class="btn btn-primary"
+                        (click)="addShortcut()"
+                    >
+                        Add New Listener
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+        <ul style="list-style-type: none;">
+            <li *ngFor="let elem of outputArray; let i = index">
+                <div class="form-group row">
+                    <h5>{{ elem.output }}</h5>
+                    <button
+                        style="margin-left: 15px;"
+                        (click)="deleteShortcut(i)"
+                        class="btn-sm btn-danger"
+                    >
+                        delete
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_1"></code>
+</pre>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_2"></code>
+</pre>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_3"></code>
+</pre>
+<br />
+<br />
+<br />

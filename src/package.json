@@ -1,0 +1,33 @@
+{
+    "name": "ngx-keyboard-shortcuts",
+    "version": "0.0.1-beta.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts"
+    },
+    "author": {
+        "name": "milesdevservices",
+        "email": "devservices@milestechnologies.com"
+    },
+    "keywords": [
+        "angular"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts/issues"
+    },
+    "ngPackage": {
+        "lib": {
+            "entryFile": "public_api.ts"
+        },
+        "dest": "../dist"
+    },
+    "main": "ngx-keyboard-shortcuts.umd.js",
+    "module": "ngx-keyboard-shortcuts.js",
+    "jsnext:main": "ngx-keyboard-shortcuts.js",
+    "typings": "ngx-keyboard-shortcuts.d.ts",
+    "peerDependencies": {
+        "@angular/core": "^7.2.11",
+        "@angular/common": "^7.2.11"
+    }
+}

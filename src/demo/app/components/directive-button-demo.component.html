@@ -1,0 +1,35 @@
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        The directive helps us make a shortcut for a button. By clicking the
+        'Show The Message' button an alert will show up and if you try clicking
+        'Ctrl + i' the same alert will show up.
+    </p>
+    <p>
+        If you look at the code provided it gives you the ability to call a
+        message via a button click or by just using the directive selector.
+    </p>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-sm-3">
+        <h4><em>Test the Directive!</em></h4>
+    </div>
+    <div class="col-sm-3">
+        <button
+            [keyboardShortcut]="keyboardShortcutDef"
+            (click)="alertMessage()"
+            class="btn btn-primary"
+        >
+            Show the Message
+        </button>
+    </div>
+</div>
+
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="code_bit_1"></code>
+</pre>
+<pre>
+    <code class="highcodeblock" [highlight]="code_bit_2"></code>
+</pre>
