@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {
     KeyboardShortcutService,
@@ -12,17 +12,44 @@ import {
             .margin-left-15 {
                 margin-left: 15px;
             }
+            .margin-bottom-0 {
+                margin-bottom: 0;
+            }
         `
     ],
     templateUrl: './shortcut-service-demo.component.html'
 })
-export class ShortcutServiceDemoComponent implements OnInit {
+export class ShortcutServiceDemoComponent implements OnDestroy {
     globalCode = `
     // global listener array
     listeners: any[];
     `;
-    formGroupCode: string;
-    code_bit_3: string;
+    formGroupCode = `
+    // global FormGroup variable
+    form = new FormGroup({
+        key1: new FormControl(''),
+        key2: new FormControl('')
+    });
+    `;
+    listenerCode = `
+    // keypair
+    const kb = [this.form.value.key1, this.form.value.key2];
+    // creating object
+    const newListenerConstructor: IKeyboardShortcutListenerConstructorObject = {
+        description: 'new shortcut',
+        handler: this.alertMessage.bind(kb),
+        keyBinding: kb
+    };
+    // handle
+    const listenerHandle = this.keyboardShortcutService.listen(
+        newListenerConstructor
+    );
+    // push to listener array
+    this.listeners.push({
+        listener: listenerHandle,
+        output: kb[0] + ' + ' + kb[1]
+    });
+    `;
     // global FormGroup variable
     form = new FormGroup({
         key1: new FormControl('', [Validators.required]),
@@ -35,41 +62,8 @@ export class ShortcutServiceDemoComponent implements OnInit {
         return `Listeners Array Contains ${this.outputArray.length} Listeners`;
     }
     // global listener array
-    listeners: any[];
+    listeners = [];
     constructor(private keyboardShortcutService: KeyboardShortcutService) {}
-
-    ngOnInit(): void {
-        this.formGroupCode = `
-        // global FormGroup variable
-        form = new FormGroup({
-            key1: new FormControl(''),
-            key2: new FormControl('')
-        });
-        `;
-        this.code_bit_3 = `
-        // creating empty constructor object
-        const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
-        // keypair
-        const kb = [this.form.value.key1, this.form.value.key2];
-        // assign properties
-        Object.assign(
-            newListenerConstructor,
-            { handler: this.alertMessage.bind(kb) },
-            {
-                description: 'new shortcut',
-                keyBinding: kb
-            }
-        );
-        // push to listener array
-        this.listeners.push({
-            listener: this.keyboardShortcutService.listen(
-                newListenerConstructor
-            ),
-            output: kb[0] + ' + ' + kb[1]
-        });
-        `;
-        this.listeners = [];
-    }
 
     ngOnDestroy(): void {
         // destroys all the listeners when the component is destroyed
@@ -85,25 +79,21 @@ export class ShortcutServiceDemoComponent implements OnInit {
             alert('at least one field in this form is invalid');
             return;
         }
-
-        // creating empty constructor object
-        const newListenerConstructor = {} as IKeyboardShortcutListenerConstructorObject;
         // keypair
         const kb = [this.form.value.key1, this.form.value.key2];
-        // assign properties
-        Object.assign(
-            newListenerConstructor,
-            { handler: this.alertMessage.bind(kb) },
-            {
-                description: 'new shortcut',
-                keyBinding: kb
-            }
+        // creating object
+        const newListenerConstructor: IKeyboardShortcutListenerConstructorObject = {
+            description: 'new shortcut',
+            handler: this.alertMessage.bind(kb),
+            keyBinding: kb
+        };
+        // handle
+        const listenerHandle = this.keyboardShortcutService.listen(
+            newListenerConstructor
         );
         // push to listener array
         this.listeners.push({
-            listener: this.keyboardShortcutService.listen(
-                newListenerConstructor
-            ),
+            listener: listenerHandle,
             output: kb[0] + ' + ' + kb[1]
         });
     }
