@@ -3,6 +3,8 @@
 This project is to help you create keyboard shortcuts in your angular applications. When we say keyboard shortcuts we are referring to something like Ctrl+C which would allow you to copy whatever you highlighted. 
 In this case you will be able to use our application to create keys that can do whatever you desire. 
 
+ngx-keyboard-shortcuts allows you to create and implement custom keybindings in your angular applications (ex. Ctrl+C for copy). 
+
 ## Getting Started 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -12,17 +14,10 @@ If you are intending to use this repository you should be familiar with ``angula
 ``npm install -g @angular/cli`` 
 
 ### Installing Our Package 
-To install our package you would use the node package manager.
-The command would be  
-``npm install ngx-keyboard-shortcuts``
-Then using the command 
-``npm start`` 
-You will be able to deploy this service in **localhost:4200** to see what you can do with the application. 
-
+Installation of ngx-keyboard-shortcuts requires the use of node package manager through the command: ``npm install ngx-keyboard-shortcuts``.
 
 ### Demos
-Once you open **localhost:4200** in your search bar you will see we have put several live demos for you to try on your own in our Demo Application. 
-These will show you how you can use what we created in your own application and hopefully give you some ideas of new was to implement this. 
+To access direct implementations of ngx-keyboard-shortcuts (demos), you're required to either clone or download the repository onto your machine. Once completed, a simple ``npm start`` will run the demo project, which can then be deployed in any browser search bar with **localhost:4200**. 
 
 ## Running Coverage Tests
 In order to run tests using **Karma** and **Jasmine** you will have to type the command 
@@ -38,11 +33,9 @@ What these tests actually test is if the code gets executed will it do what it i
 Not released 
 
 ## Contributors
-
 Thank you to the [contributors]([https://github.com/milestechnologies/ngx-keyboard-shortcuts/graphs/contributors](https://github.com/milestechnologies/ngx-keyboard-shortcuts/graphs/contributors)) of this package. 
 
 ## License
-
 This project is licensed under the MIT License - see the  [LICENSE.md]([https://github.com/milestechnologies/ngx-keyboard-shortcuts/blob/develop/LICENSE])  file for details.
 
 ## Commands
