@@ -72,8 +72,8 @@ export class KeyboardShortcutService {
     ): IListenerHandle {
         const listener = new KeyboardShortcutListener(
             listenerConstructorObject,
-            this.blackListedKeyboardShortcutChecker,
-            this.config
+            this.config,
+            this.blackListedKeyboardShortcutChecker
         );
 
         const listenerHandle: IListenerHandle = {
