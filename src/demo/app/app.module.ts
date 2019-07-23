@@ -8,7 +8,7 @@ import { NgxKeyboardShortcutModule } from '../../../dist';
 
 import { AppComponent } from './app.component';
 import { ComponentKeybindingDemoComponent } from './components/component-keybinding-demo.component';
-import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
+// import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 import { BlacklistedShortcutsComponent } from './components/blacklisted-keys-demo.component';
@@ -33,7 +33,7 @@ export function hljsLanguages(): any {
     declarations: [
         AppComponent,
         ComponentKeybindingDemoComponent,
-        ShortcutServiceDemoComponent,
+        // ShortcutServiceDemoComponent,
         BlacklistedShortcutsComponent,
         DirectiveButtonDemo,
         HelpDisplayDemoComponent,

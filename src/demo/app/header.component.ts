@@ -21,12 +21,14 @@ import { Component } from '@angular/core';
                         routerLinkActive="active"
                         >Component Keybinding</a
                     >
+                    <!-- commented out for now
                     <a
                         class="nav-link"
                         routerLink="/shortcut-service-demo"
                         routerLinkActive="active"
                         >Service</a
                     >
+                    -->
                     <a
                         class="nav-link"
                         routerLink="/blacklisted-key-demo"
