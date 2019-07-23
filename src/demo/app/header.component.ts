@@ -17,9 +17,9 @@ import { Component } from '@angular/core';
                     >
                     <a
                         class="nav-link"
-                        routerLink="/single-keybinding-demo"
+                        routerLink="/component-keybinding-demo"
                         routerLinkActive="active"
-                        >Single Keybinding</a
+                        >Component Keybinding</a
                     >
                     <a
                         class="nav-link"

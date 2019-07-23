@@ -1,0 +1,24 @@
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        In this demonstration we are creating a component level keybinding
+        listener using just the service and no directive. The listener is
+        created by using a constructor object and then calling the service's
+        listen method. The listen method returns a handle for the listener
+        allowing for removal in the ngOnDestroy Method.
+    </p>
+    <p>
+        This demo is currently set to listen for the key combination 'Ctrl + m'.
+        Press the combination to trigger the alert and see it in action!
+    </p>
+</div>
+<hr />
+<h4>
+    <em>{{ info }}!</em>
+</h4>
+<pre style="margin-bottom: 0;">
+    <code class="highcodeblock" [highlight]="listenerServiceCode"></code>
+</pre>
+<pre>
+    <code class="highcodeblock" [highlight]="destroyCode"></code>
+</pre>
