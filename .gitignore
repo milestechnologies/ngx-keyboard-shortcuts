@@ -39,4 +39,5 @@ dist/*
 # Archived Files
 *.tgz
 .vs/*
+
 package-lock.json
