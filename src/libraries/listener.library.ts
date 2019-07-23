@@ -1,4 +1,7 @@
 import { BlackListedKeyboardShortcutChecker } from './black-listed-key-bindings.library';
+import {
+    IKeyboardShortcutConfig
+} from './keyboard-shortcut-configuration.library';
 /**
  * @description represents an object that is used in the construction of a new listener
  */
@@ -28,6 +31,8 @@ export interface IKeyboardShortcutListenerOptions {
      * @property { boolean } if this is true it doesn't show in the help window
      */
     omitFromHelp?: boolean;
+
+    checkBlackList?: boolean;
 }
 
 export interface IKeyboardShortcutListenerConstructorObject
@@ -47,7 +52,7 @@ export interface IKeyboardShortcutListener {
      */
     description: string;
     /**
-     * @property {KeyboardShortcutHandler} 
+     * @property {KeyboardShortcutHandler}
      */
     handler: KeyboardShortcutHandler;
     /**
@@ -75,6 +80,8 @@ export interface IKeyboardShortcutListener {
      * @property { boolean } if this is true it doesn't show in the help window
      */
     omitFromHelp: boolean;
+
+    checkBlackList?: boolean;
 }
 
 export class KeyboardShortcutListener implements IKeyboardShortcutListener {
@@ -91,7 +98,7 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
      */
     priority: number;
     /**
-     * @property {KeyboardShortcutHandler} 
+     * @property {KeyboardShortcutHandler}
      */
     handler: KeyboardShortcutHandler;
     /**
@@ -116,8 +123,11 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
      */
     omitFromHelp: boolean;
 
+    checkBlackList?: boolean;
+
     constructor(
         listenerConstructorObject: IKeyboardShortcutListenerConstructorObject,
+        config: IKeyboardShortcutConfig,
         blackListedKeyboardShortcutChecker?: BlackListedKeyboardShortcutChecker
     ) {
         // assign properties based on constructor and defaults
@@ -155,7 +165,29 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
 
         // check vs blacklist
         if (blackListedKeyboardShortcutChecker) {
-            blackListedKeyboardShortcutChecker.check(this);
+            let areWeChecking: boolean = null;
+            // check listener
+            if (this.checkBlackList === true) {
+                areWeChecking = true;
+            } else if (this.checkBlackList === false) {
+                areWeChecking = false;
+            }
+            // if not set check config
+            if (areWeChecking === null) {
+                if (config.defaultCheckBlackList === true) {
+                    areWeChecking = true;
+                } else if (config.defaultCheckBlackList === false) {
+                    areWeChecking = false;
+                }
+            }
+            // if not set default
+            if (areWeChecking === null) {
+                areWeChecking = true;
+            }
+            // if true run check
+            if (areWeChecking) {
+                blackListedKeyboardShortcutChecker.check(this);
+            }
         }
     }
 }
@@ -184,7 +216,7 @@ export enum KeyboardKeys {
 /**
  * @type the combination of keys that will call the shortcut you use
  */
-export type KeyboardShortcutCombination = (string | KeyboardKeys)[]; // not sure yet chris take care of this 
+export type KeyboardShortcutCombination = (string | KeyboardKeys)[]; // not sure yet chris take care of this
 /**
  * @param bindings takes in the shortcut from KeyboardShortcutCombination which is an array of strings
  * @return {string}

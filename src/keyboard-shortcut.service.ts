@@ -1,4 +1,4 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Injectable, isDevMode, Inject } from '@angular/core';
 import { NgZone } from '@angular/core';
 import {
     KeyboardShortcutHandler,
@@ -11,11 +11,13 @@ import {
     KEY_MAP
 } from './libraries/listener.library';
 import { BlackListedKeyboardShortcutChecker } from './libraries/black-listed-key-bindings.library';
+import { IKeyboardShortcutConfig } from 'libraries/keyboard-shortcut-configuration.library';
 
 @Injectable()
 export class KeyboardShortcutService {
     private _listeners: IKeyboardShortcutListener[] = [];
     private zone: NgZone;
+    @Inject('keyboard_shortcut_module_config') private  config: IKeyboardShortcutConfig;
 
     /**
      * @readonly
@@ -70,7 +72,8 @@ export class KeyboardShortcutService {
     ): IListenerHandle {
         const listener = new KeyboardShortcutListener(
             listenerConstructorObject,
-            this.blackListedKeyboardShortcutChecker
+            this.blackListedKeyboardShortcutChecker,
+            this.config
         );
 
         const listenerHandle: IListenerHandle = {
