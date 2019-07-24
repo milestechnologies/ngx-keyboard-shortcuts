@@ -1,5 +1,7 @@
 # Keyboard Shortcuts
 
+[![Build Status](https://dev.azure.com/milestechnologies/ngx-keyboard-shortcuts/_apis/build/status/milestechnologies.ngx-keyboard-shortcuts?branchName=develop)](https://dev.azure.com/milestechnologies/ngx-keyboard-shortcuts/_build/latest?definitionId=1&branchName=develop) [![codecov](https://codecov.io/gh/milestechnologies/ngx-keyboard-shortcuts/branch/develop/graph/badge.svg)](https://codecov.io/gh/milestechnologies/ngx-keyboard-shortcuts)
+
 This project is to help you create keyboard shortcuts in your angular applications. When we say keyboard shortcuts we are referring to something like Ctrl+C which would allow you to copy whatever you highlighted.
 In this case you will be able to use our application to create keys that can do whatever you desire.
 
