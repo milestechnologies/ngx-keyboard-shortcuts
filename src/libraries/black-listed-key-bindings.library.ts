@@ -58,17 +58,18 @@ export class BlackListedKeyboardShortcutChecker {
     private mappedBlackListedKeyBindings = this.blackListedKeyBindings.map(
         (blkb) => mapKeyboardShortcutCombination(blkb)
     );
-
     check(listener: IKeyboardShortcutListener): void {
+
         // this is where the test was deleted
-        for (let blkb of this.mappedBlackListedKeyBindings) {
-            if (blkb === listener.mappedKeyboardShortcutCombination) {
-                const warningMessage = `Keyboard Shortcut [${
-                    listener.displayShortcutCombination
-                }] is blacklisted as a common keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
-                console.warn(warningMessage);
-                return;
+            for (let blkb of this.mappedBlackListedKeyBindings) {
+               if (blkb === listener.mappedKeyboardShortcutCombination) {
+                 const warningMessage = `Keyboard Shortcut [${
+                     listener.displayShortcutCombination
+                 }] is blacklisted as a common keyboard shortcut.  Consider changing your keybinding for this shortcut.`;
+                 console.warn(warningMessage);
+                 return;
             }
         }
     }
 }
+//         if (listener.checkBlackList !== false ) {

@@ -1,4 +1,5 @@
 import { BlackListedKeyboardShortcutChecker } from './black-listed-key-bindings.library';
+import { IKeyboardShortcutConfig } from './keyboard-shortcut-configuration.library';
 /**
  * @description represents an object that is used in the construction of a new listener
  */
@@ -28,6 +29,8 @@ export interface IKeyboardShortcutListenerOptions {
      * @property { boolean } if this is true it doesn't show in the help window
      */
     omitFromHelp?: boolean;
+
+    checkBlackList?: boolean;
 }
 
 export interface IKeyboardShortcutListenerConstructorObject
@@ -75,6 +78,8 @@ export interface IKeyboardShortcutListener {
      * @property { boolean } if this is true it doesn't show in the help window
      */
     omitFromHelp: boolean;
+
+    checkBlackList?: boolean;
 }
 
 export class KeyboardShortcutListener implements IKeyboardShortcutListener {
@@ -116,8 +121,11 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
      */
     omitFromHelp: boolean;
 
+    checkBlackList?: boolean;
+
     constructor(
         listenerConstructorObject: IKeyboardShortcutListenerConstructorObject,
+        config: IKeyboardShortcutConfig,
         blackListedKeyboardShortcutChecker?: BlackListedKeyboardShortcutChecker
     ) {
         // assign properties based on constructor and defaults
@@ -155,7 +163,29 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
 
         // check vs blacklist
         if (blackListedKeyboardShortcutChecker) {
-            blackListedKeyboardShortcutChecker.check(this);
+            let areWeChecking: boolean = null;
+            // check listener
+            if (this.checkBlackList === true) {
+                areWeChecking = true;
+            } else if (this.checkBlackList === false) {
+                areWeChecking = false;
+            }
+            // if not set check config
+            if (areWeChecking === null) {
+                if (config.defaultCheckBlackList === true) {
+                    areWeChecking = true;
+                } else if (config.defaultCheckBlackList === false) {
+                    areWeChecking = false;
+                }
+            }
+            // if not set default
+            if (areWeChecking === null) {
+                areWeChecking = true;
+            }
+            // if true run check
+            if (areWeChecking) {
+                blackListedKeyboardShortcutChecker.check(this);
+            }
         }
     }
 }

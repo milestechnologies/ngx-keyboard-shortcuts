@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { KeyboardShortcutService } from './keyboard-shortcut.service';
 import { KeyboardShortcutDirective } from './keyboard-shortcut.directive';
+import { IKeyboardShortcutConfig } from 'libraries/keyboard-shortcut-configuration.library';
 
 @NgModule({
     declarations: [KeyboardShortcutDirective],
@@ -10,11 +11,12 @@ import { KeyboardShortcutDirective } from './keyboard-shortcut.directive';
     imports: [CommonModule]
 })
 export class NgxKeyboardShortcutModule {
-    static forRoot(): any {
+    static forRoot(config: IKeyboardShortcutConfig = {}): any {
         return {
             ngModule: NgxKeyboardShortcutModule,
             providers: [
-                KeyboardShortcutService
+                KeyboardShortcutService,
+                { provide: 'keyboard_shortcut_module_config', useValue: config}
             ]
         };
     }
