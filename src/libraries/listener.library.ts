@@ -1,7 +1,5 @@
 import { BlackListedKeyboardShortcutChecker } from './black-listed-key-bindings.library';
-import {
-    IKeyboardShortcutConfig
-} from './keyboard-shortcut-configuration.library';
+import { IKeyboardShortcutConfig } from './keyboard-shortcut-configuration.library';
 /**
  * @description represents an object that is used in the construction of a new listener
  */

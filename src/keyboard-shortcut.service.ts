@@ -17,7 +17,8 @@ import { IKeyboardShortcutConfig } from 'libraries/keyboard-shortcut-configurati
 export class KeyboardShortcutService {
     private _listeners: IKeyboardShortcutListener[] = [];
     private zone: NgZone;
-    @Inject('keyboard_shortcut_module_config') private  config: IKeyboardShortcutConfig;
+    @Inject('keyboard_shortcut_module_config')
+    private config: IKeyboardShortcutConfig;
 
     /**
      * @readonly
