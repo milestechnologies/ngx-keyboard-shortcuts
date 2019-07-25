@@ -78,7 +78,9 @@ export interface IKeyboardShortcutListener {
      * @property { boolean } if this is true it doesn't show in the help window
      */
     omitFromHelp: boolean;
-
+    /**
+     * @property { boolean } if this is true it will check the blacklist in devmode, if null will check default
+     */
     checkBlackList?: boolean;
 }
 
@@ -120,7 +122,9 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
      * @property { boolean } if this is true it doesn't show in the help window
      */
     omitFromHelp: boolean;
-
+    /**
+     * @property { boolean } if this is true it will check the blacklist in devmode, if null will check default
+     */
     checkBlackList?: boolean;
 
     constructor(
@@ -163,27 +167,14 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
 
         // check vs blacklist
         if (blackListedKeyboardShortcutChecker) {
-            let areWeChecking: boolean = null;
-            // check listener
-            if (this.checkBlackList === true) {
-                areWeChecking = true;
-            } else if (this.checkBlackList === false) {
-                areWeChecking = false;
-            }
+            let areWeChecking = this.checkBlackList;
+
             // if not set check config
             if (areWeChecking === null) {
-                if (config.defaultCheckBlackList === true) {
-                    areWeChecking = true;
-                } else if (config.defaultCheckBlackList === false) {
-                    areWeChecking = false;
-                }
-            }
-            // if not set default
-            if (areWeChecking === null) {
-                areWeChecking = true;
+                areWeChecking = config.defaultCheckBlackList;
             }
             // if true run check
-            if (areWeChecking) {
+            if (areWeChecking === null || areWeChecking) {
                 blackListedKeyboardShortcutChecker.check(this);
             }
         }

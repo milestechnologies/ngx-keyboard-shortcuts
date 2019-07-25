@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { KeyboardShortcutService } from './keyboard-shortcut.service';
 import { KeyboardShortcutDirective } from './keyboard-shortcut.directive';
-import { IKeyboardShortcutConfig } from 'libraries/keyboard-shortcut-configuration.library';
+import { IKeyboardShortcutConfig } from './libraries/keyboard-shortcut-configuration.library';
 
 @NgModule({
     declarations: [KeyboardShortcutDirective],

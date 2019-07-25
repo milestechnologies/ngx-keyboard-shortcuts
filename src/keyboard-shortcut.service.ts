@@ -11,7 +11,7 @@ import {
     KEY_MAP
 } from './libraries/listener.library';
 import { BlackListedKeyboardShortcutChecker } from './libraries/black-listed-key-bindings.library';
-import { IKeyboardShortcutConfig } from 'libraries/keyboard-shortcut-configuration.library';
+import { IKeyboardShortcutConfig } from './libraries/keyboard-shortcut-configuration.library';
 
 @Injectable()
 export class KeyboardShortcutService {
