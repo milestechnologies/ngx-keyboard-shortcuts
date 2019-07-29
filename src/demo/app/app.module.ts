@@ -8,7 +8,6 @@ import { NgxKeyboardShortcutModule } from '../../../dist';
 
 import { AppComponent } from './app.component';
 import { ComponentKeybindingDemoComponent } from './components/component-keybinding-demo.component';
-// import { ShortcutServiceDemoComponent } from './components/shortcut-service-demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 import { BlacklistedShortcutsComponent } from './components/blacklisted-keys-demo.component';
@@ -17,7 +16,6 @@ import { HighlightModule } from 'ngx-highlightjs';
 
 import xml from 'highlight.js/lib/languages/xml';
 import typescript from 'highlight.js/lib/languages/typescript';
-// import { HelpDisplayDemoComponent } from './components/help-display-demo.component';
 import { FooterComponent } from './footer.component';
 import { HeaderComponent } from './header.component';
 
@@ -33,10 +31,8 @@ export function hljsLanguages(): any {
     declarations: [
         AppComponent,
         ComponentKeybindingDemoComponent,
-        // ShortcutServiceDemoComponent,
         BlacklistedShortcutsComponent,
         DirectiveButtonDemo,
-        // HelpDisplayDemoComponent,
         FooterComponent,
         HeaderComponent
     ],

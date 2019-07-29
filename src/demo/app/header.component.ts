@@ -21,13 +21,6 @@ import { Component } from '@angular/core';
                         routerLinkActive="active"
                         >Component Keybinding</a
                     >
-                    <!-- commented out for now
-                    <a
-                        class="nav-link"
-                        routerLink="/shortcut-service-demo"
-                        routerLinkActive="active"
-                        >Service</a
-                    >
                     -->
                     <a
                         class="nav-link"
@@ -35,14 +28,6 @@ import { Component } from '@angular/core';
                         routerLinkActive="active"
                         >Blacklisted Keys</a
                     >
-                    <!-- commented out for now
-                    <a
-                        class="nav-link"
-                        routerLink="/help-display-demo"
-                        routerLinkActive="active"
-                        >Help Display</a
-                    >
-                    -->
                     <button
                         class="navbar-toggler"
                         type="button"

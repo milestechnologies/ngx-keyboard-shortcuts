@@ -24,10 +24,6 @@ export interface IKeyboardShortcutListenerOptions {
      * @property { boolean } if this is true, and you are inside a text box and do a shortcut it wouldn't actually fire
      */
     ignoreEventsFromInputElement?: boolean;
-    /**
-     * @property { boolean } if this is true it doesn't show in the help window
-     */
-    omitFromHelp?: boolean;
 }
 
 export interface IKeyboardShortcutListenerConstructorObject
@@ -71,10 +67,6 @@ export interface IKeyboardShortcutListener {
      * @property { string } displays a printer friendly version of the key combination
      */
     displayShortcutCombination: string;
-    /**
-     * @property { boolean } if this is true it doesn't show in the help window
-     */
-    omitFromHelp: boolean;
 }
 
 export class KeyboardShortcutListener implements IKeyboardShortcutListener {
@@ -86,7 +78,6 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
     ignoreEventsFromInputElement: boolean;
     mappedKeyboardShortcutCombination: string;
     displayShortcutCombination: string;
-    omitFromHelp: boolean;
 
     constructor(
         listenerConstructorObject: IKeyboardShortcutListenerConstructorObject,
@@ -95,7 +86,6 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
         // assign properties based on constructor and defaults
         let defaultListenerOptions = {
             ignoreEventsFromInputElement: false,
-            omitFromHelp: false,
             passToLowerPriorities: true,
             priority: 0
         };
