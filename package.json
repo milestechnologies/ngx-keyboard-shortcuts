@@ -1,10 +1,11 @@
 {
     "name": "ngx-keyboard-shortcuts",
-    "version": "0.0.1-beta.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "start": "npm run build && ng serve",
-        "build": "ng-packagr -p src/package.json",
+        "copy-to-dist": "cp README.md dist",
+        "build": "ng-packagr -p src/package.json && npm run copy-to-dist",
         "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
         "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
         "postversion": "git push --follow-tags"
@@ -21,7 +22,7 @@
     },
     "author": {
         "name": "milesdevservices",
-        "email": "devservices@milestechnologies.com"
+        "email": "oss@milestechnologies.com"
     },
     "keywords": [
         "angular"

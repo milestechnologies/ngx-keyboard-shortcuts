@@ -1,13 +1,13 @@
 {
     "name": "ngx-keyboard-shortcuts",
-    "version": "0.0.1-beta.0",
+    "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts"
     },
     "author": {
         "name": "milesdevservices",
-        "email": "devservices@milestechnologies.com"
+        "email": "oss@milestechnologies.com"
     },
     "keywords": [
         "angular"

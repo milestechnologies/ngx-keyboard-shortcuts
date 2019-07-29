@@ -24,10 +24,6 @@ export interface IKeyboardShortcutListenerOptions {
      * @property { boolean } if this is true, and you are inside a text box and do a shortcut it wouldn't actually fire
      */
     ignoreEventsFromInputElement?: boolean;
-    /**
-     * @property { boolean } if this is true it doesn't show in the help window
-     */
-    omitFromHelp?: boolean;
 }
 
 export interface IKeyboardShortcutListenerConstructorObject
@@ -71,50 +67,17 @@ export interface IKeyboardShortcutListener {
      * @property { string } displays a printer friendly version of the key combination
      */
     displayShortcutCombination: string;
-    /**
-     * @property { boolean } if this is true it doesn't show in the help window
-     */
-    omitFromHelp: boolean;
 }
 
 export class KeyboardShortcutListener implements IKeyboardShortcutListener {
-    /**
-     * @property {KeyboardShortcutCombination}
-     */
     keyBinding: KeyboardShortcutCombination;
-    /**
-     * @property {string} to explain to the user what the shortcut combination you made will do
-     */
     description: string;
-    /**
-     * @property { number } the order of precedence when more than one key matches
-     */
     priority: number;
-    /**
-     * @property {KeyboardShortcutHandler}
-     */
     handler: KeyboardShortcutHandler;
-    /**
-     * @property {boolean} if this is true, and more than one keybinding matches,
-     * then after resolving the first keybinding it will be passed on to the next keybinding so it can also be resolved
-     */
     passToLowerPriorities: boolean;
-    /**
-     * @property { boolean } if this is true, and you are inside a text box and do a shortcut it wouldn't actually fire
-     */
     ignoreEventsFromInputElement: boolean;
-    /**
-     * @property { string } representation of the keyboard combination normalized for processing
-     */
     mappedKeyboardShortcutCombination: string;
-    /**
-     * @property { string } displays a printer friendly version of the key combination
-     */
     displayShortcutCombination: string;
-    /**
-     * @property { boolean } if this is true it doesn't show in the help window
-     */
-    omitFromHelp: boolean;
 
     constructor(
         listenerConstructorObject: IKeyboardShortcutListenerConstructorObject,
@@ -123,7 +86,6 @@ export class KeyboardShortcutListener implements IKeyboardShortcutListener {
         // assign properties based on constructor and defaults
         let defaultListenerOptions = {
             ignoreEventsFromInputElement: false,
-            omitFromHelp: false,
             passToLowerPriorities: true,
             priority: 0
         };
@@ -184,7 +146,7 @@ export enum KeyboardKeys {
 /**
  * @type the combination of keys that will call the shortcut you use
  */
-export type KeyboardShortcutCombination = (string | KeyboardKeys)[]; // not sure yet chris take care of this
+export type KeyboardShortcutCombination = (string | KeyboardKeys)[];
 /**
  * @param bindings takes in the shortcut from KeyboardShortcutCombination which is an array of strings
  * @return {string}
