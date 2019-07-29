@@ -58,7 +58,7 @@ To access direct implementations of ngx-keyboard-shortcuts (demos), you're requi
 
 ## Version
 
-Not released
+1.0.0
 
 ## Contributors
 
