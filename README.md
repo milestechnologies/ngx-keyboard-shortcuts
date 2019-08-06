@@ -1,6 +1,6 @@
 # Keyboard Shortcuts
 
-[![Build Status](https://dev.azure.com/milestechnologies/ngx-keyboard-shortcuts/_apis/build/status/milestechnologies.ngx-keyboard-shortcuts?branchName=develop)](https://dev.azure.com/milestechnologies/ngx-keyboard-shortcuts/_build/latest?definitionId=1&branchName=develop) [![codecov](https://codecov.io/gh/milestechnologies/ngx-keyboard-shortcuts/branch/develop/graph/badge.svg)](https://codecov.io/gh/milestechnologies/ngx-keyboard-shortcuts)
+[![Build Status](https://dev.azure.com/milestechnologies/ngx-keyboard-shortcuts/_apis/build/status/milestechnologies.ngx-keyboard-shortcuts?branchName=master)](https://dev.azure.com/milestechnologies/ngx-keyboard-shortcuts/_build/latest?definitionId=1&branchName=master) [![codecov](https://codecov.io/gh/milestechnologies/ngx-keyboard-shortcuts/branch/master/graph/badge.svg)](https://codecov.io/gh/milestechnologies/ngx-keyboard-shortcuts)
 
 By using simple directives ngx-keyboard-shortcuts allows you to create and implement custom keybindings events in your angular applications.
 
@@ -53,8 +53,8 @@ To access direct implementations of ngx-keyboard-shortcuts (demos), you're requi
 
 ## Built With
 
--   [Angular](<[https://angular.io/](https://angular.io/)>) - The web framework used
--   [Npm](<[https://www.npmjs.com/get-npm](https://www.npmjs.com/get-npm)>) - The package manager
+-   [Angular](https://angular.io/) - The web framework used
+-   [Npm](https://www.npmjs.com/get-npm) - The package manager
 
 ## Version
 
@@ -62,8 +62,8 @@ To access direct implementations of ngx-keyboard-shortcuts (demos), you're requi
 
 ## Contributors
 
-Thank you to the [contributors](<[https://github.com/milestechnologies/ngx-keyboard-shortcuts/graphs/contributors](https://github.com/milestechnologies/ngx-keyboard-shortcuts/graphs/contributors)>) of this package.
+Thank you to the [contributors](https://github.com/milestechnologies/ngx-keyboard-shortcuts/graphs/contributors) of this package.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md]([https://github.com/milestechnologies/ngx-keyboard-shortcuts/blob/develop/LICENSE]) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/milestechnologies/ngx-keyboard-shortcuts/blob/master/LICENSE) file for details.
