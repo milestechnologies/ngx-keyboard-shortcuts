@@ -6,7 +6,7 @@
         "start": "npm run build && ng serve",
         "copy-to-dist": "cp README.md dist",
         "build": "ng-packagr -p src/package.json && npm run copy-to-dist",
-        "build-demo-site": "npm run build && ng build --prod --base-href \"/ngx-keyboard-shortcuts/\" && rm -rf docs && cp -R demo-dist docs",
+        "build-demo-site": "npm run build && ng build --prod --base-href \"https://milestechnologies.github.io/ngx-keyboard-shortcuts/\" && rm -rf docs && cp -R demo-dist docs",
         "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
         "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
         "postversion": "git push --follow-tags"
