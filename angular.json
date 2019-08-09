@@ -11,7 +11,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist",
+                        "outputPath": "demo-dist",
                         "index": "src/demo/index.html",
                         "main": "src/demo/main.ts",
                         "tsConfig": "src/demo/tsconfig.app.json",
@@ -21,24 +21,29 @@
                         "scripts": []
                     },
                     "configurations": {
-                        "prod": {
+                        "production": {
                             "fileReplacements": [
                                 {
                                     "replace": "src/demo/environments/environment.ts",
                                     "with": "src/demo/environments/environment.prod.ts"
                                 }
-                            ]
-                        },
-                        "production": {
+                            ],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
                             "extractCss": true,
                             "namedChunks": false,
-                            "aot": true,
+                            "aot": false,
                             "extractLicenses": true,
                             "vendorChunk": false,
-                            "buildOptimizer": true
+                            "buildOptimizer": false,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                }
+                            ]
                         }
                     }
                 },
