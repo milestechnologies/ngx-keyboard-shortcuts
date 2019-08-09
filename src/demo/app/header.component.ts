@@ -21,7 +21,6 @@ import { Component } from '@angular/core';
                         routerLinkActive="active"
                         >Component Keybinding</a
                     >
-                    -->
                     <a
                         class="nav-link"
                         routerLink="/blacklisted-key-demo"

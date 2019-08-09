@@ -5,18 +5,18 @@
 By using simple directives ngx-keyboard-shortcuts allows you to create and implement custom keybindings events in your angular applications.
 
 **For Example**:
+
 ```html
-   <button
-       [keyboardShortcut]="keyboardShortcutDef"
-       (click)="save()">
-       Save
-   </button>
+<button [keyboardShortcut]="keyboardShortcutDef" (click)="save()">
+    Save
+</button>
 ```
+
 ```typescript
-    keyboardShortcutDef: IKeyboardShortcutListenerOptions = {
-        description: 'save',
-        keyBinding: [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 's']
-    };
+keyboardShortcutDef: IKeyboardShortcutListenerOptions = {
+    description: 'save',
+    keyBinding: [KeyboardKeys.Ctrl, KeyboardKeys.Shift, 's']
+};
 ```
 
 ### Install
@@ -29,15 +29,14 @@ By using simple directives ngx-keyboard-shortcuts allows you to create and imple
 import { NgxKeyboardShortcutModule } from 'ngx-keyboard-shortcuts';
 
 @NgModule({
-    imports: [NgxKeyboardShortcutModule.forRoot()],
+    imports: [NgxKeyboardShortcutModule.forRoot()]
 })
-export class AppModule {
-}
+export class AppModule {}
 ```
 
 ### Demos
 
-To access direct implementations of ngx-keyboard-shortcuts (demos), you're required to either clone or download the repository onto your machine. Next run `npm install`, then `npm start` to run the demo project, which can then be accessed via **localhost:4200**.
+see the demo site [https://milestechnologies.github.io/ngx-keyboard-shortcuts](https://milestechnologies.github.io/ngx-keyboard-shortcuts)
 
 ## Contributing
 
@@ -58,7 +57,7 @@ To access direct implementations of ngx-keyboard-shortcuts (demos), you're requi
 
 ## Version
 
-1.0.0
+1.0.1
 
 ## Contributors
 
