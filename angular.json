@@ -5,7 +5,7 @@
     "projects": {
         "ngx-keyboard-shortcuts": {
             "root": "",
-            "sourceRoot": "src",
+            "sourceRoot": "src/demo",
             "projectType": "application",
             "architect": {
                 "build": {
@@ -16,9 +16,10 @@
                         "main": "src/demo/main.ts",
                         "tsConfig": "src/demo/tsconfig.app.json",
                         "polyfills": "src/demo/polyfills.ts",
-                        "assets": ["src/demo/assets"],
+                        "assets": ["src/demo/assets", "src/demo/favicon.ico"],
                         "styles": ["src/demo/styles.scss"],
-                        "scripts": []
+                        "scripts": [],
+                        "es5BrowserSupport": true
                     },
                     "configurations": {
                         "production": {
