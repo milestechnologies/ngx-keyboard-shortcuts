@@ -5,7 +5,7 @@
     "projects": {
         "ngx-keyboard-shortcuts": {
             "root": "",
-            "sourceRoot": "src/demo",
+            "sourceRoot": "src",
             "projectType": "application",
             "architect": {
                 "build": {
