@@ -13,6 +13,8 @@ labels:
     color: 009800
   - name: 'Status: Available'
     color: bfe5bf
+  - name: 'Status: Planned'
+    color: 30336b
   - name: 'Status: Blocked'
     color: e11d21
   - name: 'Status: Completed'
@@ -23,6 +25,8 @@ labels:
     color: e11d21
   - name: 'Status: Pending'
     color: fef2c0
+  - name: 'Status: Reviewed'
+    color: 6ab04c
   - name: 'Status: Review Needed'
     color: fbca04
   - name: 'Status: Revision Needed'
@@ -37,3 +41,5 @@ labels:
     color: 84b6eb
   - name: 'Type: Question'
     color: cc317c
+  - name: good first issue
+    color: 22a6b3
