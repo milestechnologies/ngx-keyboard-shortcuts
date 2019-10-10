@@ -1,0 +1,52 @@
+<div class="jumbotron demo-description-block">
+    <h4><em>How it works</em></h4>
+    <p>
+        You can get a list of the currently configured keyboard shortcuts.
+        Using that, you could show a list of shortcuts to the user in a
+        help window.
+    </p>
+    <p>
+        The code provided below configures some keyboard shortcuts, then 
+        shows them in a bullet list.
+    </p>
+</div>
+<hr />
+<h4><em>Get Keyboard Shortcuts List</em></h4>
+<div>
+    <button (click)="setAndShowShortcuts()" class="btn btn-primary">
+        Show Current Shortcuts
+    </button>
+</div>
+<br />
+<div *ngIf="showShortcuts">
+    <ul>
+        <li *ngFor="let shortcut of shortcuts">
+            <b>
+                <span *ngFor="let key of shortcut.keyBinding; let last=last">
+                    {{ key.toUpperCase() + (last ? '' : '+') }}
+                </span>
+            </b>:
+            <i>
+                {{ shortcut.description }}
+            </i>
+        </li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-2">
+        <button [keyboardShortcut]="sayHelloShortcutDef" (click)="sayHello()" class="btn btn-primary">
+            Say Hello
+        </button>
+    </div>
+    <div class="col-md-2">
+        <button [keyboardShortcut]="addOnePlusOneShortcutDef" (click)="addOnePlusOne()" class="btn btn-primary">
+            Add 1 + 1
+        </button>
+    </div>
+    <div class="col-md-2">
+        <button [keyboardShortcut]="favoriteColorShortcutDef" (click)="favoriteColor()" class="btn btn-primary">
+            Favorite Color?
+        </button>
+    </div>
+</div>

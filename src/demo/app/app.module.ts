@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { ComponentKeybindingDemoComponent } from './components/component-keybinding-demo.component';
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 import { BlacklistedShortcutsComponent } from './components/blacklisted-keys-demo.component';
+import { ShortcutsListDemo } from './components/shortcuts-list-demo.component';
 
 import { HighlightModule } from 'ngx-highlightjs';
 
@@ -33,6 +34,7 @@ export function hljsLanguages(): any {
         ComponentKeybindingDemoComponent,
         BlacklistedShortcutsComponent,
         DirectiveButtonDemo,
+        ShortcutsListDemo,
         FooterComponent,
         HeaderComponent
     ],
