@@ -59,7 +59,7 @@
         "karma-sourcemap-loader": "^0.3.7",
         "karma-spec-reporter": "^0.0.32",
         "tslint": "~5.20.1",
-        "typescript": "~3.7.2",
+        "typescript": "~3.5.0",
         "bootstrap": "^4.3.1",
         "font-awesome": "^4.7.0",
         "highlight.js": "^9.15.9",
