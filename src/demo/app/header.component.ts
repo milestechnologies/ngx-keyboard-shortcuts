@@ -27,6 +27,12 @@ import { Component } from '@angular/core';
                         routerLinkActive="active"
                         >Blacklisted Keys</a
                     >
+                    <a
+                        class="nav-link"
+                        routerLink="/get-shortcuts-list-demo"
+                        routerLinkActive="active"
+                        >List Shortcuts</a
+                    >
                     <button
                         class="navbar-toggler"
                         type="button"
