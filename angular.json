@@ -11,6 +11,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "aot": true,
                         "outputPath": "demo-dist",
                         "index": "src/demo/index.html",
                         "main": "src/demo/main.ts",
@@ -18,8 +19,7 @@
                         "polyfills": "src/demo/polyfills.ts",
                         "assets": ["src/demo/assets", "src/demo/favicon.ico"],
                         "styles": ["src/demo/styles.scss"],
-                        "scripts": [],
-                        "es5BrowserSupport": true
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
@@ -34,15 +34,18 @@
                             "sourceMap": false,
                             "extractCss": true,
                             "namedChunks": false,
-                            "aot": false,
                             "extractLicenses": true,
                             "vendorChunk": false,
-                            "buildOptimizer": false,
+                            "buildOptimizer": true,
                             "budgets": [
                                 {
                                     "type": "initial",
                                     "maximumWarning": "2mb",
                                     "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb"
                                 }
                             ]
                         }
@@ -54,9 +57,6 @@
                         "browserTarget": "ngx-keyboard-shortcuts:build"
                     },
                     "configurations": {
-                        "prod": {
-                            "browserTarget": "ngx-keyboard-shortcuts:build:prod"
-                        },
                         "production": {
                             "browserTarget": "ngx-keyboard-shortcuts:build:production"
                         }
@@ -122,8 +122,10 @@
     "defaultProject": "ngx-keyboard-shortcuts",
     "schematics": {
         "@schematics/angular:component": {
-            "styleext": "css"
-        },
-        "@schematics/angular:directive": {}
+            "style": "less"
+        }
+    },
+    "cli": {
+        "analytics": "56091b75-18b1-467c-ace4-0d79718f1703"
     }
 }

@@ -12,19 +12,8 @@ import { ComponentKeybindingDemoComponent } from './components/component-keybind
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 import { BlacklistedShortcutsComponent } from './components/blacklisted-keys-demo.component';
 
-import { HighlightModule } from 'ngx-highlightjs';
-
-import xml from 'highlight.js/lib/languages/xml';
-import typescript from 'highlight.js/lib/languages/typescript';
 import { FooterComponent } from './footer.component';
 import { HeaderComponent } from './header.component';
-
-export function hljsLanguages(): any {
-    return [
-        { name: 'typescript', func: typescript },
-        { name: 'xml', func: xml }
-    ];
-}
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -39,13 +28,10 @@ export function hljsLanguages(): any {
     imports: [
         BrowserModule,
         HttpClientModule,
-        NgxKeyboardShortcutModule.forRoot(),
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        HighlightModule.forRoot({
-            languages: hljsLanguages
-        })
+        NgxKeyboardShortcutModule.forRoot()
     ],
     providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })

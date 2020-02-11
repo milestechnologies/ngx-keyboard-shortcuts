@@ -6,6 +6,16 @@ import {
 
 @Component({
     selector: 'app-directive-button-demo',
+    styles: [
+        `
+            pre code {
+                background-color: #eee;
+                border: 1px solid #999;
+                display: block;
+                padding: 20px;
+            }
+        `
+    ],
     templateUrl: './directive-button-demo.component.html'
 })
 export class DirectiveButtonDemo implements OnInit {

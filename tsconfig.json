@@ -1,14 +1,21 @@
 {
+    "compileOnSave": false,
     "compilerOptions": {
         "baseUrl": "./src",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
         "experimentalDecorators": true,
-        "importHelpers": true,
+        "module": "esnext",
         "moduleResolution": "node",
-        "rootDir": "./src",
-        "target": "es5",
-        "lib": ["es2015", "dom"],
-        "skipLibCheck": true,
-        "types": [],
-        "module": "es2015"
+        "importHelpers": true,
+        "target": "es2015",
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["es2018", "dom"]
+    },
+    "angularCompilerOptions": {
+        "fullTemplateTypeCheck": true,
+        "strictInjectionParameters": true
     }
 }
