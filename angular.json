@@ -1,129 +1,149 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "ngx-keyboard-shortcuts": {
-            "root": "",
-            "sourceRoot": "src",
-            "projectType": "application",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "demo-dist",
-                        "index": "src/demo/index.html",
-                        "main": "src/demo/main.ts",
-                        "tsConfig": "src/demo/tsconfig.app.json",
-                        "polyfills": "src/demo/polyfills.ts",
-                        "assets": ["src/demo/assets", "src/demo/favicon.ico"],
-                        "styles": ["src/demo/styles.scss"],
-                        "scripts": [],
-                        "es5BrowserSupport": true
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/demo/environments/environment.ts",
-                                    "with": "src/demo/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": false,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "ngx-keyboard-shortcuts:build"
-                    },
-                    "configurations": {
-                        "prod": {
-                            "browserTarget": "ngx-keyboard-shortcuts:build:prod"
-                        },
-                        "production": {
-                            "browserTarget": "ngx-keyboard-shortcuts:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "ngx-keyboard-shortcuts:build"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "src/test/test.ts",
-                        "karmaConfig": "./karma.conf.js",
-                        "polyfills": "src/test/polyfills.ts",
-                        "tsConfig": "src/test/tsconfig.spec.json",
-                        "scripts": [],
-                        "styles": ["src/demo/styles.scss"],
-                        "assets": [],
-                        "codeCoverageExclude": [
-                            "src/demo/**.*",
-                            "src/test/**.*",
-                            "src/index.ts"
-                        ]
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**"]
-                    }
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-keyboard-shortcuts": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "demo-dist",
+            "index": "src/demo/index.html",
+            "main": "src/demo/main.ts",
+            "tsConfig": "src/demo/tsconfig.app.json",
+            "polyfills": "src/demo/polyfills.ts",
+            "assets": [
+              "src/demo/assets",
+              "src/demo/favicon.ico"
+            ],
+            "styles": [
+              "src/demo/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/demo/environments/environment.ts",
+                  "with": "src/demo/environments/environment.prod.ts"
                 }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
             }
+          }
         },
-        "ngx-keyboard-shortcuts-e2e": {
-            "root": "e2e",
-            "sourceRoot": "e2e",
-            "projectType": "application",
-            "architect": {
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "./protractor.conf.js",
-                        "devServerTarget": "ngx-keyboard-shortcuts:serve"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": ["e2e/tsconfig.e2e.json"],
-                        "exclude": ["**/node_modules/**"]
-                    }
-                }
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-keyboard-shortcuts:build"
+          },
+          "configurations": {
+            "prod": {
+              "browserTarget": "ngx-keyboard-shortcuts:build:prod"
+            },
+            "production": {
+              "browserTarget": "ngx-keyboard-shortcuts:build:production"
             }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-keyboard-shortcuts:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/test/polyfills.ts",
+            "tsConfig": "src/test/tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "src/demo/styles.scss"
+            ],
+            "assets": [],
+            "codeCoverageExclude": [
+              "src/demo/**.*",
+              "src/test/**.*",
+              "src/index.ts"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
         }
+      }
     },
-    "defaultProject": "ngx-keyboard-shortcuts",
-    "schematics": {
-        "@schematics/angular:component": {
-            "styleext": "css"
+    "ngx-keyboard-shortcuts-e2e": {
+      "root": "e2e",
+      "sourceRoot": "e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "ngx-keyboard-shortcuts:serve"
+          }
         },
-        "@schematics/angular:directive": {}
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
+  },
+  "defaultProject": "ngx-keyboard-shortcuts",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "css"
+    },
+    "@schematics/angular:directive": {}
+  },
+  "cli": {
+    "analytics": "e737b9fc-300b-4b29-8f1e-51d6706c46cf"
+  }
 }

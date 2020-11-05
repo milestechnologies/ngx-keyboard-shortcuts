@@ -6,6 +6,9 @@
         "comment-format": [true, "check-space"],
         "curly": true,
         "eofline": true,
+        "deprecation": {
+          "severity": "warning"
+        },
         "forin": true,
         "indent": [true, "spaces"],
         "arrow-parens": true,

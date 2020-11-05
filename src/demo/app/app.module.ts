@@ -4,7 +4,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { NgxKeyboardShortcutModule } from '../../../dist';
+import { NgxKeyboardShortcutModule } from 'ngx-keyboard-shortcuts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +12,7 @@ import { ComponentKeybindingDemoComponent } from './components/component-keybind
 import { DirectiveButtonDemo } from './components/directive-button-demo.component';
 import { BlacklistedShortcutsComponent } from './components/blacklisted-keys-demo.component';
 
-import { HighlightModule } from 'ngx-highlightjs';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 import xml from 'highlight.js/lib/languages/xml';
 import typescript from 'highlight.js/lib/languages/typescript';
@@ -39,14 +39,24 @@ export function hljsLanguages(): any {
     imports: [
         BrowserModule,
         HttpClientModule,
-        NgxKeyboardShortcutModule.forRoot(),
+        NgxKeyboardShortcutModule,
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        HighlightModule.forRoot({
-            languages: hljsLanguages
-        })
+        HighlightModule
     ],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
+    providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        {
+            provide: HIGHLIGHT_OPTIONS,
+            useValue: {
+                languages: {
+                    typescript: () =>
+                        import('highlight.js/lib/languages/typescript'),
+                    xml: () => import('highlight.js/lib/languages/xml')
+                }
+            }
+        }
+    ]
 })
 export class AppModule {}

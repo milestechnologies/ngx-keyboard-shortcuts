@@ -9,13 +9,4 @@ import { KeyboardShortcutDirective } from './keyboard-shortcut.directive';
     exports: [KeyboardShortcutDirective],
     imports: [CommonModule]
 })
-export class NgxKeyboardShortcutModule {
-    static forRoot(): any {
-        return {
-            ngModule: NgxKeyboardShortcutModule,
-            providers: [
-                KeyboardShortcutService
-            ]
-        };
-    }
-}
+export class NgxKeyboardShortcutModule {}
