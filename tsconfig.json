@@ -5,10 +5,10 @@
         "importHelpers": true,
         "moduleResolution": "node",
         "rootDir": "./src",
-        "target": "es5",
+        "target": "es2018",
         "lib": ["es2015", "dom"],
         "skipLibCheck": true,
         "types": [],
-        "module": "es2015"
+        "module": "es2020"
     }
 }

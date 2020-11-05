@@ -12,7 +12,7 @@ import {
 } from './libraries/listener.library';
 import { BlackListedKeyboardShortcutChecker } from './libraries/black-listed-key-bindings.library';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class KeyboardShortcutService {
     private _listeners: IKeyboardShortcutListener[] = [];
     private zone: NgZone;
@@ -38,14 +38,12 @@ export class KeyboardShortcutService {
         // gonna do this outside of the NgZone. This way, we're not constantly triggering
         // change-detection for every key event - we'll only re-enter the Angular Zone
         // when we have an event that is actually being consumed by one of our components.
-        this.zone.runOutsideAngular(
-            (): void => {
-                window.addEventListener(
-                    'keydown',
-                    this.handleKeyboardEvent.bind(this)
-                );
-            }
-        );
+        this.zone.runOutsideAngular((): void => {
+            window.addEventListener(
+                'keydown',
+                this.handleKeyboardEvent.bind(this)
+            );
+        });
 
         // we only use this if isDevMode
         if (isDevMode()) {
@@ -137,11 +135,9 @@ export class KeyboardShortcutService {
                     // have to re-enter the NgZone so that we can hook back into change-
                     // detection. Plus, this will also catch errors and propagate them
                     // through application properly.
-                    this.zone.runGuarded(
-                        (): boolean | void => {
-                            return handler(event);
-                        }
-                    );
+                    this.zone.runGuarded((): boolean | void => {
+                        return handler(event);
+                    });
 
                     // If the handler returned an explicit False, we're going to treat
                     // this listener as Terminal, regardless of the original settings.

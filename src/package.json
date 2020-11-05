@@ -20,7 +20,7 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts/issues", 
+        "url": "https://github.com/milestechnologies/ngx-keyboard-shortcuts/issues",
         "email": "oss@milestechnologies.com"
     },
     "ngPackage": {
@@ -34,7 +34,7 @@
     "jsnext:main": "ngx-keyboard-shortcuts.js",
     "typings": "ngx-keyboard-shortcuts.d.ts",
     "peerDependencies": {
-        "@angular/core": "^7.2.11",
-        "@angular/common": "^7.2.11"
+        "@angular/core": "^10.2.1",
+        "@angular/common": "^10.2.1"
     }
 }
