@@ -1,6 +1,6 @@
 {
     "name": "ngx-keyboard-shortcuts",
-    "version": "2.0.0-beta.2",
+    "version": "2.0.0-beta.3",
     "private": true,
     "scripts": {
         "start": "npm run build && npm run copy-package-to-demo-node-modules && ng serve",
