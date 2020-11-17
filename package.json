@@ -10,7 +10,7 @@
         "build-demo-site": "npm run build && ng build --prod --base-href \"https://milestechnologies.github.io/ngx-keyboard-shortcuts/\" && rm -rf docs && cp -R demo-dist docs",
         "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
         "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
-        "postversion": "cd src && npm version %npm_package_version% && underscore -i package.json process \"data.dependencies['%npm_package_name%-config']='%npm_package_version%'; data;\" -o package.json",
+        "postversion": "cd src && npm version %npm_package_version%",
         "current-version": "echo $npm_package_version",
         "package-name": "echo $npm_package_name",
         "publish-new-beta": "npm run version-beta && npm run publish-beta",
