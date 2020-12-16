@@ -1,6 +1,6 @@
 {
     "name": "ngx-keyboard-shortcuts",
-    "version": "1.0.1",
+    "version": "2.0.0-beta.3",
     "private": true,
     "scripts": {
         "start": "npm run build && npm run copy-package-to-demo-node-modules && ng serve",
@@ -10,7 +10,12 @@
         "build-demo-site": "npm run build && ng build --prod --base-href \"https://milestechnologies.github.io/ngx-keyboard-shortcuts/\" && rm -rf docs && cp -R demo-dist docs",
         "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
         "test": "ng test --karma-config karma.conf.js --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
-        "postversion": "git push --follow-tags"
+        "postversion": "cd src && npm version %npm_package_version%",
+        "current-version": "echo $npm_package_version",
+        "package-name": "echo $npm_package_name",
+        "publish-new-beta": "npm run version-beta && npm run publish-beta",
+        "version-beta": "npm version prerelease --preid=beta --no-git-tag-version",
+        "publish-beta": "npm run build && npm publish dist/config --tag beta && npm publish dist/main-module --tag beta"
     },
     "prettier": {
         "trailingComma": "none",
